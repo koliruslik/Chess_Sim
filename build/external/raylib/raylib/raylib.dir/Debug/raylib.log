@@ -1,0 +1,10 @@
+﻿  Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/src/CMakeLists.txt
+  raudio.c
+  rcore.c
+  rmodels.c
+  rshapes.c
+  rtext.c
+  rtextures.c
+  utils.c
+  Создание кода...
+  raylib.vcxproj -> E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\Debug\raylib.lib

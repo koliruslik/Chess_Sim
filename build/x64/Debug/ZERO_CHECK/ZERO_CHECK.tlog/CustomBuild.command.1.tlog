@@ -1,0 +1,10 @@
+^E:\KPI\КУРСАЧ\2СЕМЕСТР\CHESS_SIM\BUILD\CMAKEFILES\137462F29B82218264468B66D424A144\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

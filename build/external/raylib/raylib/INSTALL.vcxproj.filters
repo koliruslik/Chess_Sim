@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\CMakeFiles\2cb56423921216526788d56e11fec964\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F5716745-C29C-30D8-80DC-235AC92CA45A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

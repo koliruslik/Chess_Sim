@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/KPI/\u041a\u0443\u0440\u0441\u0430\u0447/2\u0421\u0435\u043c\u0435\u0441\u0442\u0440/Chess_Sim/build/cmake_install.cmake",
+		"E:/KPI/\u041a\u0443\u0440\u0441\u0430\u0447/2\u0421\u0435\u043c\u0435\u0441\u0442\u0440/Chess_Sim/build/Chess_sim/cmake_install.cmake",
+		"E:/KPI/\u041a\u0443\u0440\u0441\u0430\u0447/2\u0421\u0435\u043c\u0435\u0441\u0442\u0440/Chess_Sim/build/external/raylib/cmake_install.cmake",
+		"E:/KPI/\u041a\u0443\u0440\u0441\u0430\u0447/2\u0421\u0435\u043c\u0435\u0441\u0442\u0440/Chess_Sim/build/external/raylib/raylib/cmake_install.cmake",
+		"E:/KPI/\u041a\u0443\u0440\u0441\u0430\u0447/2\u0421\u0435\u043c\u0435\u0441\u0442\u0440/Chess_Sim/build/external/raylib/raylib/external/glfw/cmake_install.cmake",
+		"E:/KPI/\u041a\u0443\u0440\u0441\u0430\u0447/2\u0421\u0435\u043c\u0435\u0441\u0442\u0440/Chess_Sim/build/external/raylib/raylib/external/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
