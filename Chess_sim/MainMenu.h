@@ -3,7 +3,9 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
+
 #include "Menu.h"
+
 
 class MainMenu : public Menu
 {
@@ -13,10 +15,9 @@ private:
 
 public:
 	MainMenu(int screenWidth, int screenHeight);
-	
-	void Update() override;
-	void DrawMenu() override;
 
+	void ButtonAction(Button& button) override;
+	void Update() override;
 	bool shouldStartGame() const;
 	bool shouldExitGame() const;
 

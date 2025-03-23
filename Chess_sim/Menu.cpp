@@ -1,17 +1,31 @@
 #include "Menu.h"
 
 Menu::Menu(int screenWidth, int screenHeight)
-{
-	this->screenWidth = screenWidth;
-	this->screenHeight = screenHeight;
+	: screenWidth(screenWidth), screenHeight(screenHeight) {
 }
-void Menu::drawButton(const char* text, int posX, int posY) const
+
+void Menu::AddButton(const std::string& name, Button button)
 {
-	int textWidth = MeasureText(text, fontSize);
-	int textHeight = fontSize;
-	posX -= textWidth;
-	
-	DrawRectangle(posX - 5, posY - 5, textWidth + 10, textHeight + 10, LIGHTGRAY);
-	DrawRectangleLines(posX - 5, posY - 5, textWidth + 10, textHeight + 10, GRAY);
-	DrawText(text, posX, posY, fontSize, BLACK);
+	buttons.push_back(button);
+}
+
+void Menu::DrawMenu() {
+
+    for (int i = 0; i < buttons.size(); i++)
+    {
+        Button& button = buttons[i]; 
+        button.Draw();
+    }
+
+}
+void Menu::Update()
+{
+	for (int i = 0; i < buttons.size(); i++)
+	{
+		Button& button = buttons[i];
+		if (button.isClicked())
+		{
+			ButtonAction(button);
+		}
+	}
 }

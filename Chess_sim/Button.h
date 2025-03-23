@@ -4,7 +4,7 @@
 #define BUTTON_H
 
 #include "raylib.h"
-
+#include <functional>
 class Button
 {
 public:
@@ -16,7 +16,7 @@ public:
 
 	void Draw();
 	bool IsMouseOver();
-	bool isClicked();
+	bool isClicked() const;
 
 private:
 	const int fontSize = 20;
