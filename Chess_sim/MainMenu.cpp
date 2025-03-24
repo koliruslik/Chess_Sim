@@ -2,45 +2,36 @@
 
 
 MainMenu::MainMenu(int screenWidth, int screenHeight)
-	: Menu(screenWidth, screenHeight), startGame(false), exitGame(false) {
+	: Menu(screenWidth, screenHeight) {
 	AddButton("START", Button(screenWidth / 2, screenHeight / 2, 200, 50, "START GAME"));
 	AddButton("SETTINGS", Button(screenWidth / 2, screenHeight / 2 + 60, 200, 50, "SETTINGS"));
 	AddButton("EXIT", Button(screenWidth / 2, screenHeight / 2 + 120, 200, 50, "EXIT"));
-}
-
-void MainMenu::Update()
-{
-    for (Button& button : buttons) 
-    {
-        if (button.isClicked())
-        {
-            if (button.text == "START GAME") 
-            {
-				startGame = true;
-                printf("Start Game Pressed\n");
-            }
-            else if (button.text == "SETTINGS") 
-            {
-                printf("Settings Pressed\n");
-            }
-            else if (button.text == "EXIT")
-            {
-				exitGame = true;
-                printf("Exit Pressed\n");
-            }
-        }
-    }
+	mainMenu = true;
+	settings = false;
+	startGame = false;
+	exitGame = false;
 }
 
 void MainMenu::ButtonAction(Button& button)
 {
-	if (button.text == "Start Game")
+	if (button.text == "START GAME")
 	{
 		startGame = true;
+		mainMenu = false;
+		printf("Start Game Pressed\n");
+
 	}
-	else if (button.text == "Exit")
+	else if (button.text == "SETTINGS")
+	{
+		settings = true;
+		mainMenu = false;
+		printf("Settings Pressed\n");
+	}
+	else if (button.text == "EXIT")
 	{
 		exitGame = true;
+		mainMenu = false;
+		printf("Exit Pressed\n");
 	}
 }
 bool MainMenu::shouldStartGame() const
@@ -50,4 +41,12 @@ bool MainMenu::shouldStartGame() const
 bool MainMenu::shouldExitGame() const
 {
 	return exitGame;
+}
+bool MainMenu::isSettingsMenu() const
+{
+	return settings;
+}
+bool MainMenu::isMainMenu() const
+{
+	return mainMenu;
 }

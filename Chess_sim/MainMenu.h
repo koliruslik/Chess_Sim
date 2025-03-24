@@ -9,17 +9,17 @@
 
 class MainMenu : public Menu
 {
-private:
-	bool startGame = false;
-	bool exitGame = false;
+
 
 public:
 	MainMenu(int screenWidth, int screenHeight);
 
-	void ButtonAction(Button& button) override;
-	void Update() override;
 	bool shouldStartGame() const;
 	bool shouldExitGame() const;
+	bool isSettingsMenu() const;
+	bool isMainMenu() const;
+
+	void ButtonAction(Button& button) override;
 
 };
 

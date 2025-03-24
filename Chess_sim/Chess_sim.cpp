@@ -6,7 +6,7 @@
 
 #include "MainMenu.h"
 #include "Button.h"
-#include "time.h"
+#include "Timer.h"
 using namespace std;
 
 
@@ -18,19 +18,7 @@ enum GameState
 };
 
 
-string GetCurrentTime()
-{
-	// Получаем текущее время
-	time_t now = time(0);
 
-	// Преобразуем в локальное время
-	struct tm* timeInfo = localtime(&now);
-
-	// Форматируем время в строку
-	char buffer[80];
-	strftime(buffer, sizeof(buffer), "%H:%M:%S", timeInfo); // Формат: ЧЧ:ММ:СС
-	return string(buffer);
-}
 
 int main()
 {
@@ -38,7 +26,7 @@ int main()
 	const int screenHeight = 1080;
 	const char* title = "Chess_sim";
 	InitWindow(screenWidth, screenHeight, title);
-
+	Timer timer;
 	GameState gameState = MAIN_MENU;
 	MainMenu mainMenu(screenWidth, screenHeight);
 	Button startGameButton(screenWidth / 2, screenHeight / 2 - 25, 150, 50, "Start Game");
@@ -46,12 +34,9 @@ int main()
 
 	SetTargetFPS(60);
 	int i = 0;
-	string currentTime = GetCurrentTime();
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
-		ClearBackground(BLACK);
-		currentTime = GetCurrentTime();
 		ClearBackground(BLACK);
 		switch (gameState)
 		{
@@ -60,16 +45,28 @@ int main()
 			mainMenu.DrawMenu();
 			mainMenu.Update();
 			
-			DrawText(currentTime.c_str(), 10,10,20,WHITE );
+			DrawText(timer.GetCurrentTime().c_str(), 10, 10, 20, WHITE);
 			if (mainMenu.shouldExitGame())
 			{
 				CloseWindow();
 			}
+			else if (mainMenu.shouldStartGame())
+			{
+				gameState = GAMEPLAY;
+			}
+			else if (mainMenu.isSettingsMenu())
+			{
+				gameState = SETTINGS;
+			}
 			
 			break;
 		case SETTINGS:
+			DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 20), 0, 20, WHITE);//temporary
 			break;
 		case GAMEPLAY:
+			DrawText("CHESS", screenWidth / 2 - MeasureText("CHESS", 20), 0, 20, WHITE);//temporary
+			break;
+		default:
 			break;
 		}
 		EndDrawing();
