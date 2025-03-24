@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DBBEA2BC-699B-3633-8A70-ABD84BAC3894}</ProjectGuid>
+    <ProjectGuid>{7156A7E4-9310-378F-82EC-8159C36689CC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -105,10 +105,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\CMakeFiles\61dac31718ae825c607f1b1333927505\uninstall.rule">
+    <CustomBuild Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\CMakeFiles\7863f79d9f8ab7f8ead8580e7ba1b207\uninstall.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/cmake_uninstall.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/cmake_uninstall.cmake"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -117,12 +117,12 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\uninstall</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\uninstall</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/cmake_uninstall.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/cmake_uninstall.cmake"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,12 +131,12 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\uninstall</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\uninstall</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/cmake_uninstall.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/cmake_uninstall.cmake"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -145,12 +145,12 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\uninstall</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\uninstall</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/cmake_uninstall.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/cmake_uninstall.cmake"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -159,17 +159,17 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\uninstall</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\uninstall</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim" "-BC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build" --check-stamp-file "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -177,12 +177,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\CMakeOptions.txt;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\AddIfFlagCompiles.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\CompilerFlags.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\EnumOption.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\ParseConfigHeader.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\Uninstall.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\CMakeOptions.txt;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\AddIfFlagCompiles.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\CompilerFlags.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\EnumOption.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\ParseConfigHeader.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\Uninstall.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim" "-BC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build" --check-stamp-file "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -190,12 +190,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\CMakeOptions.txt;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\AddIfFlagCompiles.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\CompilerFlags.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\EnumOption.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\ParseConfigHeader.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\Uninstall.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\CMakeOptions.txt;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\AddIfFlagCompiles.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\CompilerFlags.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\EnumOption.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\ParseConfigHeader.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\Uninstall.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim" "-BC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build" --check-stamp-file "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -203,12 +203,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\CMakeOptions.txt;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\AddIfFlagCompiles.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\CompilerFlags.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\EnumOption.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\ParseConfigHeader.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\Uninstall.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\CMakeOptions.txt;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\AddIfFlagCompiles.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\CompilerFlags.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\EnumOption.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\ParseConfigHeader.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\Uninstall.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim" "-BC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build" --check-stamp-file "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -216,19 +216,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\CMakeOptions.txt;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\AddIfFlagCompiles.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\CompilerFlags.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\EnumOption.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\ParseConfigHeader.cmake;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\cmake\Uninstall.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\CMakeOptions.txt;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\AddIfFlagCompiles.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\CompilerFlags.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\EnumOption.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\ParseConfigHeader.cmake;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\cmake\Uninstall.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\CMakeFiles\uninstall">
+    <None Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\CMakeFiles\uninstall">
     </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\ZERO_CHECK.vcxproj">
-      <Project>{219391F5-0AD3-3665-B4E4-49DCE5644CEE}</Project>
+    <ProjectReference Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\ZERO_CHECK.vcxproj">
+      <Project>{10004D35-ACB5-36F0-BCEE-66DF6655C261}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

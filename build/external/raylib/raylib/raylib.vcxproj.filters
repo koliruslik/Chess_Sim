@@ -1,119 +1,119 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\raudio.c">
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\raudio.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\rcore.c">
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\rcore.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\rmodels.c">
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\rmodels.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\rshapes.c">
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\rshapes.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\rtext.c">
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\rtext.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\rtextures.c">
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\rtextures.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\utils.c">
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\raylib.h">
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\raylib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\rcamera.h">
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\rcamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\rlgl.h">
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\rlgl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\raymath.h">
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\raymath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\context.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\context.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\init.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\init.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\input.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\input.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\monitor.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\monitor.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\platform.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\platform.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\vulkan.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\vulkan.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\window.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\window.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\egl_context.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\egl_context.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\osmesa_context.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\osmesa_context.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\null_init.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\null_init.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\null_monitor.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\null_monitor.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\null_window.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\null_window.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\null_joystick.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\null_joystick.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_module.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_module.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_time.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_time.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_thread.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_thread.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_init.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_init.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_joystick.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_joystick.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_monitor.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_monitor.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_window.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\win32_window.obj">
       <Filter>Object Libraries</Filter>
     </Object>
-    <Object Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\wgl_context.obj">
+    <Object Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.dir\$(Configuration)\wgl_context.obj">
       <Filter>Object Libraries</Filter>
     </Object>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{AC4F0A14-9CB1-3F43-9D8C-AD30191F83FA}</UniqueIdentifier>
+      <UniqueIdentifier>{7DEBFB62-2B21-36B5-9353-3C65530FD1BE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object Libraries">
-      <UniqueIdentifier>{3CDB9EE5-8477-3952-A741-1DA9892EC7ED}</UniqueIdentifier>
+      <UniqueIdentifier>{8E681EE3-E3B9-35E7-BDEE-105AB83305C2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{3018029A-ED7D-3E69-A3FB-5AB85B0C845F}</UniqueIdentifier>
+      <UniqueIdentifier>{EAF21D71-5691-3B89-A59B-930748A1CDB1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
-# Install script for directory: E:/KPI/Курсач/2Семестр/Chess_Sim
+# Install script for directory: C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files/Chess_sim")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Chess_sim")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,19 +33,16 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/cmake_install.cmake")
-endif()
+  # Include the install script for each subdirectory.
+  include("C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/cmake_install.cmake")
+  include("C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/external/raylib/cmake_install.cmake")
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("E:/KPI/Курсач/2Семестр/Chess_Sim/build/external/raylib/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "E:/KPI/Курсач/2Семестр/Chess_Sim/build/install_local_manifest.txt"
+  file(WRITE "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -61,6 +58,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "E:/KPI/Курсач/2Семестр/Chess_Sim/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

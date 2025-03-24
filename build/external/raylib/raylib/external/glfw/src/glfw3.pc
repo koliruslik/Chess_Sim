@@ -1,7 +1,7 @@
-prefix=C:/Program Files/Chess_sim
+prefix=C:/Program Files (x86)/Chess_sim
 exec_prefix=${prefix}
-includedir=C:/Program Files/Chess_sim/include
-libdir=C:/Program Files/Chess_sim/lib
+includedir=C:/Program Files (x86)/Chess_sim/include
+libdir=C:/Program Files (x86)/Chess_sim/lib
 
 Name: GLFW
 Description: A multi-platform library for OpenGL, window and input

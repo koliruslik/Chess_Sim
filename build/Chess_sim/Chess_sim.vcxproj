@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{623300A5-F2ED-3452-A250-A50FC1ACCA5C}</ProjectGuid>
+    <ProjectGuid>{5E49CFE8-2EAF-31A3-8EAE-84FA6AE2514B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\Chess_sim\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\Chess_sim\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Chess_sim.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Chess_sim</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\Chess_sim\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\Chess_sim\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Chess_sim.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Chess_sim</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\Chess_sim\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\Chess_sim\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Chess_sim.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Chess_sim</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\Chess_sim\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\Chess_sim\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Chess_sim.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Chess_sim</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -100,16 +100,17 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SupportJustMyCode></SupportJustMyCode>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -117,13 +118,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\external\raylib\raylib\Debug\raylib.lib;..\external\raylib\raylib\Debug\raylib.lib;opengl32.lib;glu32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\external\raylib\raylib\Debug\raylib.lib;opengl32.lib;glu32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/Debug/Chess_sim.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/Debug/Chess_sim.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/Debug/Chess_sim.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/Debug/Chess_sim.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -132,7 +133,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -145,6 +146,7 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SupportJustMyCode></SupportJustMyCode>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
@@ -153,10 +155,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -164,13 +166,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\external\raylib\raylib\Release\raylib.lib;..\external\raylib\raylib\Release\raylib.lib;opengl32.lib;glu32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\external\raylib\raylib\Release\raylib.lib;opengl32.lib;glu32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/Release/Chess_sim.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/Release/Chess_sim.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/Release/Chess_sim.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/Release/Chess_sim.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -179,7 +181,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -192,6 +194,7 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SupportJustMyCode></SupportJustMyCode>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
@@ -200,10 +203,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,13 +214,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\external\raylib\raylib\MinSizeRel\raylib.lib;..\external\raylib\raylib\MinSizeRel\raylib.lib;opengl32.lib;glu32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\external\raylib\raylib\MinSizeRel\raylib.lib;opengl32.lib;glu32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/MinSizeRel/Chess_sim.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/MinSizeRel/Chess_sim.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/MinSizeRel/Chess_sim.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/MinSizeRel/Chess_sim.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -226,7 +229,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -240,16 +243,17 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <SupportJustMyCode></SupportJustMyCode>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src;E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src;C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -257,13 +261,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\external\raylib\raylib\RelWithDebInfo\raylib.lib;..\external\raylib\raylib\RelWithDebInfo\raylib.lib;opengl32.lib;glu32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\external\raylib\raylib\RelWithDebInfo\raylib.lib;opengl32.lib;glu32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/RelWithDebInfo/Chess_sim.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/RelWithDebInfo/Chess_sim.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/RelWithDebInfo/Chess_sim.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/RelWithDebInfo/Chess_sim.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -271,11 +275,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\KPI\Курсач\2Семестр\Chess_Sim\Chess_sim\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/Chess_sim/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/Chess_sim/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim" "-BC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build" --check-stamp-file "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -284,11 +288,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\Chess_sim\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\Chess_sim\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/Chess_sim/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/Chess_sim/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim" "-BC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build" --check-stamp-file "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -297,11 +301,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\Chess_sim\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\Chess_sim\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/Chess_sim/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/Chess_sim/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim" "-BC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build" --check-stamp-file "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -310,11 +314,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\Chess_sim\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\Chess_sim\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/KPI/Курсач/2Семестр/Chess_Sim/Chess_sim/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/Chess_sim/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/KPI/Курсач/2Семестр/Chess_Sim -BE:/KPI/Курсач/2Семестр/Chess_Sim/build --check-stamp-file E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim" "-BC:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build" --check-stamp-file "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -323,30 +327,42 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\Chess_sim\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\Chess_sim\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="E:\KPI\Курсач\2Семестр\Chess_Sim\Chess_sim\Chess_sim.cpp" />
-    <ClInclude Include="E:\KPI\Курсач\2Семестр\Chess_Sim\Chess_sim\Chess_sim.h" />
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\Chess_sim.cpp" />
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\Chess_sim.h" />
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\BitBoard.cpp" />
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\BitBoard.h" />
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\Pieces.cpp" />
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\Pieces.h" />
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\MainMenu.cpp" />
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\MainMenu.h" />
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\Menu.cpp" />
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\Menu.h" />
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\SettingsMenu.cpp" />
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\SettingsMenu.h" />
+    <ClCompile Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\Button.cpp" />
+    <ClInclude Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\Chess_sim\Button.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\ZERO_CHECK.vcxproj">
-      <Project>{219391F5-0AD3-3665-B4E4-49DCE5644CEE}</Project>
+    <ProjectReference Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\ZERO_CHECK.vcxproj">
+      <Project>{10004D35-ACB5-36F0-BCEE-66DF6655C261}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.vcxproj">
-      <Project>{F95BEAC0-EBFA-33A0-BDD9-D70C47042A2B}</Project>
+    <ProjectReference Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\glfw.vcxproj">
+      <Project>{CC05ED55-5069-35F1-8835-75A50CA9C17A}</Project>
       <Name>glfw</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\raylib.vcxproj">
-      <Project>{8B1F1841-5625-316E-B716-317ACE7A6BC8}</Project>
+    <ProjectReference Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\raylib.vcxproj">
+      <Project>{2A250222-B638-3C6C-99EB-9E3899BDADEF}</Project>
       <Name>raylib</Name>
     </ProjectReference>
   </ItemGroup>

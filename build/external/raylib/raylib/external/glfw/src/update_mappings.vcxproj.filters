@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\CMakeFiles\279160c22beebcf936c88300ad0ac7d5\update_mappings.rule">
+    <CustomBuild Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\CMakeFiles\a9bfc6ceec3259d1c7742022772ff5a0\update_mappings.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\src\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\src\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\src\mappings.h.in">
+    <None Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\src\mappings.h.in">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="E:\KPI\Курсач\2Семестр\Chess_Sim\external\raylib\src\external\glfw\CMake\GenerateMappings.cmake" />
-    <None Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\src\CMakeFiles\update_mappings" />
+    <None Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\external\raylib\src\external\glfw\CMake\GenerateMappings.cmake" />
+    <None Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\src\CMakeFiles\update_mappings" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{F5716745-C29C-30D8-80DC-235AC92CA45A}</UniqueIdentifier>
+      <UniqueIdentifier>{9CEC41D5-3B17-3797-B02D-B1131F35C863}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{AC4F0A14-9CB1-3F43-9D8C-AD30191F83FA}</UniqueIdentifier>
+      <UniqueIdentifier>{7DEBFB62-2B21-36B5-9353-3C65530FD1BE}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

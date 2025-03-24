@@ -1,8 +1,8 @@
 ﻿# CMakeList.txt: файл проекта CMake верхнего уровня; проведите глобальную конфигурацию
 # и включите сюда подпроекты.
 #
-cmake_minimum_required (VERSION 3.16)
-
+cmake_minimum_required (VERSION 3.8)
+#add_executable (Chess_sim "Chess_sim.cpp" "Chess_sim.h")
 # Включение горячей перезагрузки для компиляторов MSVC, если поддерживается.
 if (POLICY CMP0141)
   cmake_policy(SET CMP0141 NEW)
@@ -11,11 +11,8 @@ endif()
 
 project ("Chess_sim")
 
+# Включите подпроекты.
+
 
 add_subdirectory ("Chess_sim")
-
-
-# Включите подпроекты.
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/external/raylib")
-
-target_link_libraries(Chess_sim raylib)

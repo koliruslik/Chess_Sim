@@ -6,14 +6,14 @@ C:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cma
 C:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageMessage.cmake
 C:/Program Files/CMake/share/cmake-4.0/Modules/GNUInstallDirs.cmake
 C:/Program Files/CMake/share/cmake-4.0/Templates/CPackConfig.cmake.in
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/CompileDefinitions.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/GlfwImport.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/InstallConfigurations.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/JoinPaths.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/LibraryConfigurations.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/LibraryPathToLinkerFlags.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/PackConfigurations.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/PopulateConfigVariablesLocally.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/cmake/raylib-config-version.cmake
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/raylib.pc.in
-E:/KPI/Курсач/2Семестр/Chess_Sim/external/raylib/src/CMakeLists.txt
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/CompileDefinitions.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/GlfwImport.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/InstallConfigurations.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/JoinPaths.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/LibraryConfigurations.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/LibraryPathToLinkerFlags.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/PackConfigurations.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/PopulateConfigVariablesLocally.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/cmake/raylib-config-version.cmake
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/raylib.pc.in
+C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/external/raylib/src/CMakeLists.txt

@@ -1,8 +1,8 @@
-# Install script for directory: E:/KPI/Курсач/2Семестр/Chess_Sim/Chess_sim
+# Install script for directory: C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/Chess_sim
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files/Chess_sim")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Chess_sim")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,6 +35,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "E:/KPI/Курсач/2Семестр/Chess_Sim/build/Chess_sim/install_local_manifest.txt"
+  file(WRITE "C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/Chess_sim/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D0E6ACF6-9F36-3161-A427-51E967338D19}</ProjectGuid>
+    <ProjectGuid>{7D64116A-DBEF-3691-B520-C74A75D51E58}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -125,7 +125,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\CMakeFiles\1b627c9d94579c1bf207c404e6640a1a\INSTALL_force.rule">
+    <CustomBuild Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\CMakeFiles\feeca03651458cdd712c733f670e6eca\INSTALL_force.rule">
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -138,7 +138,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\CMakeFiles\INSTALL_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
@@ -153,7 +153,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\CMakeFiles\INSTALL_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</BuildInParallel>
@@ -168,7 +168,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\CMakeFiles\INSTALL_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</BuildInParallel>
@@ -183,21 +183,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\CMakeFiles\INSTALL_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\ZERO_CHECK.vcxproj">
-      <Project>{219391F5-0AD3-3665-B4E4-49DCE5644CEE}</Project>
+    <ProjectReference Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\ZERO_CHECK.vcxproj">
+      <Project>{10004D35-ACB5-36F0-BCEE-66DF6655C261}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\KPI\Курсач\2Семестр\Chess_Sim\build\external\raylib\raylib\external\glfw\ALL_BUILD.vcxproj">
-      <Project>{E5774A1F-0062-3837-B191-2B253EC0F3EE}</Project>
+    <ProjectReference Include="C:\Users\Ruslan\OneDrive - kpi.ua\КПІ\Навчання\Курсові\2 семестр(Шаховий тренажер)\Chess_Sim\build\external\raylib\raylib\external\glfw\ALL_BUILD.vcxproj">
+      <Project>{193DE5D3-5702-37DA-A43B-B9CAC0D80CC2}</Project>
       <Name>ALL_BUILD</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
