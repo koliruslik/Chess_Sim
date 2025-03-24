@@ -8,6 +8,7 @@ Button::Button(float x, float y, float width, float height, const char* text)
 void Button::Draw()
 {
 	DrawRectangle(bounds.x, bounds.y, bounds.width, bounds.height, color);
+	//test
 	//DrawRectangleLinesEx(bounds, 2, GRAY);
 	int textWidth = MeasureText(text, fontSize);
 	DrawText(text, bounds.x + bounds.width / 2 - textWidth / 2, bounds.y + 8, fontSize, BLACK);
