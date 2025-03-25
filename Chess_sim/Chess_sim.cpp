@@ -36,47 +36,45 @@ int main()
 
 	pieces.PrintPieces();
 
-	//SetTargetFPS(60);
-	//int i = 0;
-	//while (!WindowShouldClose())
-	//{
-	//	BeginDrawing();
-	//	ClearBackground(BLACK);
-	//	switch (gameState)
-	//	{
-	//	case MAIN_MENU:
-	//		
-	//		mainMenu.DrawMenu();
-	//		mainMenu.Update();
-	//		
-	//		DrawText(timer.GetCurrentTime().c_str(), 10, 10, 20, WHITE);
-	//		if (mainMenu.shouldExitGame())
-	//		{
-	//			CloseWindow();
-	//		}
-	//		else if (mainMenu.shouldStartGame())
-	//		{
-	//			gameState = GAMEPLAY;
-	//		}
-	//		else if (mainMenu.isSettingsMenu())
-	//		{
-	//			gameState = SETTINGS;
-	//		}
-	//		
-	//		break;
-	//	case SETTINGS:
-	//		DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 20), 0, 20, WHITE);//temporary
-	//		break;
-	//	case GAMEPLAY:
-	//		DrawText("CHESS", screenWidth / 2 - MeasureText("CHESS", 20), 0, 20, WHITE);//temporary
-	//		break;
-	//	default:
-	//		break;
-	//	}
-	//	EndDrawing();
-	//}
-	//cout << GetScreenWidth() << endl;
+	SetTargetFPS(60);
+	int i = 0;
+	while (!WindowShouldClose())
+	{
+		BeginDrawing();
+		ClearBackground(BLACK);
+		switch (gameState)
+		{
+		case MAIN_MENU:
+			
+			mainMenu.DrawMenu();
+			mainMenu.Update();
+			
+			DrawText(timer.GetCurrentTime().c_str(), 10, 10, 20, WHITE);
+			if (mainMenu.shouldExitGame())
+			{
+				CloseWindow();
+			}
+			else if (mainMenu.shouldStartGame())
+			{
+				gameState = GAMEPLAY;
+			}
+			else if (mainMenu.isSettingsMenu())
+			{
+				gameState = SETTINGS;
+			}
+			
+			break;
+		case SETTINGS:
+			DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 20), 0, 20, WHITE);//temporary
+			break;
+		case GAMEPLAY:
+			DrawText("CHESS", screenWidth / 2 - MeasureText("CHESS", 20), 0, 20, WHITE);//temporary
+			break;
+		default:
+			break;
+		}
+		EndDrawing();
+	}
+	cout << GetScreenWidth() << endl;
 	return 0;
-	
-	//return 0;
 }

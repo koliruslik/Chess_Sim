@@ -5,6 +5,7 @@
 
 #include "time.h"
 #include <string>
+#include <ctime>
 
 class Timer
 {

@@ -22,8 +22,6 @@ public:
 
     void PrintPieces();
     
-
-private:
     static constexpr uint8_t Pawn = 0;
     static constexpr uint8_t Knight = 1;
     static constexpr uint8_t Bishop = 2;
@@ -33,5 +31,6 @@ private:
 
     static constexpr uint8_t White = 0;
     static constexpr uint8_t Black = 1;
+    
 };
 #endif // PIECES_H

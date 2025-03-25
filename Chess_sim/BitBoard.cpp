@@ -25,6 +25,9 @@ uint8_t BitBoard::bsf(BitBoard bb)
 {
 	return BitBoard::BitScanTable[((bb.board ^ (bb.board - 1)) * 0x03f79d71b4cb0a89) >> 58];
 }
+/**
+* @brief BitScanReverse
+*/
 uint8_t BitBoard::bsr(BitBoard bb) 
 {
 	return std::countr_zero(bb.board);

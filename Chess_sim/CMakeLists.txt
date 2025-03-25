@@ -2,7 +2,16 @@
 # укажите здесь логику для конкретного проекта.
 #
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h" "BitBoard.cpp" "BitBoard.h" "Pieces.cpp" "Pieces.h" "MainMenu.cpp" "MainMenu.h" "Menu.cpp" "Menu.h" "SettingsMenu.cpp" "SettingsMenu.h" "Button.cpp" "Button.h")
+add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h"
+						"BitBoard.cpp" "BitBoard.h" 
+						"Pieces.cpp" "Pieces.h" 
+						"MainMenu.cpp" "MainMenu.h"
+						"Menu.cpp" "Menu.h" 
+						"SettingsMenu.cpp" "SettingsMenu.h" 
+						"Button.cpp" "Button.h" 
+						"Timer.h" "Timer.cpp" 
+						"ZobristHash.h" "ZobristHash.h"
+)
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
