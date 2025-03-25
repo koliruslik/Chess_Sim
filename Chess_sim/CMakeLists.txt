@@ -10,8 +10,10 @@ add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h"
 						"SettingsMenu.cpp" "SettingsMenu.h" 
 						"Button.cpp" "Button.h" 
 						"Timer.h" "Timer.cpp" 
-						"ZobristHash.h" "ZobristHash.h"
-)
+						"ZobristHash.h" "ZobristHash.cpp"
+						"RepetitionHistory.h" "RepetitionHistory.cpp" 
+						"Move.h" "Move.cpp" 
+						"Position.h" "Position.cpp" "PsLegalMoveMaskGen.h" "PsLegalMoveMaskGen.cpp" "MoveList.h" "MoveList.cpp" "LegalMoveGen.h" "LegalMoveGen.cpp" "LegalMoveGenTester.h" "LegalMoveGenTester.cpp")
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

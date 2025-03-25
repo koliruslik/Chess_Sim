@@ -8,6 +8,7 @@
 #include "Button.h"
 #include "Timer.h"
 #include "Pieces.h"
+#include "LegalMoveGenTester.h"
 using namespace std;
 
 
@@ -23,6 +24,7 @@ enum GameState
 
 int main()
 {
+	LegalMoveGenTester::test();
 	const int screenWidth = 1920;
 	const int screenHeight = 1080;
 	const char* title = "Chess_sim";

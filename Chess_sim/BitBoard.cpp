@@ -28,31 +28,41 @@ uint8_t BitBoard::bsf(BitBoard bb)
 /**
 * @brief BitScanReverse
 */
-uint8_t BitBoard::bsr(BitBoard bb) 
+uint8_t BitBoard::bsr(BitBoard bb)
 {
-	return std::countr_zero(bb.board);
+	if (bb.board == 0) return 64; 
+	uint64_t bit = bb.board;
+	uint8_t index = 0;
+	while ((bit & 1) == 0) 
+	{  
+		bit >>= 1;  
+		index++;   
+	}
+	return index;
 }
 
 namespace BitBoardRows
 {
 	 std::array<BitBoard, 8> calc_rows()
-	{
+	 {
 		std::array<BitBoard, 8> rows{};
 		for (uint8_t y = 0; y < 8; y = y + 1) {
 			for (uint8_t x = 0; x < 8; x = x + 1)BitBoard::set_1(rows[y], y * 8 + x);
 		}
 		return rows;
-	}
+	 }
 
-	 static  std::array<BitBoard, 8> Rows = BitBoardRows::calc_rows();
+	 extern std::array<BitBoard, 8> Rows = BitBoardRows::calc_rows();
+
 
 	 std::array<BitBoard, 8> calc_inversion_rows()
-	{
+	 {
 		std::array<BitBoard, 8> inversion_rows{};
 		for (uint8_t i = 0; i < 8; i = i + 1)inversion_rows[i] = ~Rows[i];
 		return inversion_rows;
-	}
-	 static std::array<BitBoard, 8> InversionColumns = BitBoardColumns::calc_inversion_columns();
+	 }
+	 extern std::array<BitBoard, 8> InversionRows = BitBoardRows::calc_inversion_rows();
+
 }
 
 namespace BitBoardColumns
@@ -65,7 +75,7 @@ namespace BitBoardColumns
 		}
 		return columns;
 	}
-	 static std::array<BitBoard, 8> Columns = BitBoardColumns::calc_columns();
+	 extern std::array<BitBoard, 8> Columns = BitBoardColumns::calc_columns();
 
 	 std::array<BitBoard, 8> calc_inversion_columns()
 	{
@@ -73,5 +83,5 @@ namespace BitBoardColumns
 		for (uint8_t i = 0; i < 8; i = i + 1)inversion_columns[i] = ~Columns[i];
 		return inversion_columns;
 	}
-	 static std::array<BitBoard, 8> InversionColumns = BitBoardColumns::calc_inversion_columns();
+	 extern std::array<BitBoard, 8> InversionColumns = BitBoardColumns::calc_inversion_columns();
 }

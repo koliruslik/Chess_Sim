@@ -1,5 +1,5 @@
 #include "Pieces.h"
-
+Pieces::Pieces() = default;
 Pieces::Pieces(const std::string& short_fen)
 {
     uint8_t x = 0;
@@ -42,7 +42,7 @@ Pieces::Pieces(const std::string& short_fen)
 }
 uint8_t Pieces::inverse(uint8_t side) 
 {
-	return !side; 
+	return ~side;
 }
 
 void Pieces::uptade_bitboards()
