@@ -210,7 +210,7 @@ int main(void)
             DrawFPS(10, 10);
 
             DrawText("Move the mouse!", 10, 30, 20, GREEN);
-            DrawText("Pitch Black", (int)(screenWidth*0.2f), screenHeight/2, 20, GREEN);
+            DrawText("Pitch BLACK", (int)(screenWidth*0.2f), screenHeight/2, 20, GREEN);
             DrawText("Dark", (int)(screenWidth*.66f), screenHeight/2, 20, GREEN);
 
         EndDrawing();

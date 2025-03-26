@@ -3,17 +3,17 @@
 #
 # Добавьте источник в исполняемый файл этого проекта.
 add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h"
-						"BitBoard.cpp" "BitBoard.h" 
-						"Pieces.cpp" "Pieces.h" 
+						 "BitBoard.hpp" 
+						"Pieces.cpp" "Pieces.hpp" 
 						"MainMenu.cpp" "MainMenu.h"
 						"Menu.cpp" "Menu.h" 
 						"SettingsMenu.cpp" "SettingsMenu.h" 
 						"Button.cpp" "Button.h" 
 						"Timer.h" "Timer.cpp" 
-						"ZobristHash.h" "ZobristHash.cpp"
-						"RepetitionHistory.h" "RepetitionHistory.cpp" 
-						"Move.h" "Move.cpp" 
-						"Position.h" "Position.cpp" "PsLegalMoveMaskGen.h" "PsLegalMoveMaskGen.cpp" "MoveList.h" "MoveList.cpp" "LegalMoveGen.h" "LegalMoveGen.cpp" "LegalMoveGenTester.h" "LegalMoveGenTester.cpp")
+						"ZobristHash.hpp" "ZobristHash.cpp" "ZobristHashConstants.hpp"
+						"RepetitionHistory.hpp" "RepetitionHistory.cpp" 
+						"Move.hpp" "Move.cpp" 
+						"Position.hpp" "Position.cpp" "PsLegalMoveMaskGen.hpp" "PsLegalMoveMaskGen.cpp" "MoveList.hpp" "MoveList.cpp" "LegalMoveGen.hpp" "LegalMoveGen.cpp" "LegalMoveGenTester.hpp" "LegalMoveGenTester.cpp" "StandartMovingNotation.cpp" )
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

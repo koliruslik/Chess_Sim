@@ -1695,7 +1695,7 @@
                 <Param name="Color col2" />
             </Overload>
         </KeyWord>
-        <KeyWord name="GenImageWhiteNoise" func="yes">
+        <KeyWord name="GenImageWHITENoise" func="yes">
             <Overload retVal="Image" descr="Generate image: white noise">
                 <Param name="int width" />
                 <Param name="int height" />

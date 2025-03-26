@@ -44,11 +44,11 @@
         <Define name="BEIGE" type="COLOR" value="CLITERAL(Color){ 211, 176, 131, 255 }" desc="Beige" />
         <Define name="BROWN" type="COLOR" value="CLITERAL(Color){ 127, 106, 79, 255 }" desc="Brown" />
         <Define name="DARKBROWN" type="COLOR" value="CLITERAL(Color){ 76, 63, 47, 255 }" desc="Dark Brown" />
-        <Define name="WHITE" type="COLOR" value="CLITERAL(Color){ 255, 255, 255, 255 }" desc="White" />
-        <Define name="BLACK" type="COLOR" value="CLITERAL(Color){ 0, 0, 0, 255 }" desc="Black" />
+        <Define name="WHITE" type="COLOR" value="CLITERAL(Color){ 255, 255, 255, 255 }" desc="WHITE" />
+        <Define name="BLACK" type="COLOR" value="CLITERAL(Color){ 0, 0, 0, 255 }" desc="BLACK" />
         <Define name="BLANK" type="COLOR" value="CLITERAL(Color){ 0, 0, 0, 0 }" desc="Blank (Transparent)" />
         <Define name="MAGENTA" type="COLOR" value="CLITERAL(Color){ 255, 0, 255, 255 }" desc="Magenta" />
-        <Define name="RAYWHITE" type="COLOR" value="CLITERAL(Color){ 245, 245, 245, 255 }" desc="My own White (raylib logo)" />
+        <Define name="RAYWHITE" type="COLOR" value="CLITERAL(Color){ 245, 245, 245, 255 }" desc="My own WHITE (raylib logo)" />
         <Define name="RL_BOOL_TYPE" type="GUARD" value="" desc="" />
         <Define name="MOUSE_LEFT_BUTTON" type="UNKNOWN" value="MOUSE_BUTTON_LEFT" desc="" />
         <Define name="MOUSE_RIGHT_BUTTON" type="UNKNOWN" value="MOUSE_BUTTON_RIGHT" desc="" />
@@ -1794,7 +1794,7 @@
             <Param type="Color" name="col1" desc="" />
             <Param type="Color" name="col2" desc="" />
         </Function>
-        <Function name="GenImageWhiteNoise" retType="Image" paramCount="3" desc="Generate image: white noise">
+        <Function name="GenImageWHITENoise" retType="Image" paramCount="3" desc="Generate image: white noise">
             <Param type="int" name="width" desc="" />
             <Param type="int" name="height" desc="" />
             <Param type="float" name="factor" desc="" />

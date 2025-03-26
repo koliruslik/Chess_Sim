@@ -245,7 +245,7 @@ static inline uint32_t rprand_rotate_left(const uint32_t x, int k)
 
 // Xoshiro128** generator info:
 //   
-//   Written in 2018 by David Blackman and Sebastiano Vigna (vigna@acm.org)
+//   Written in 2018 by David BLACKman and Sebastiano Vigna (vigna@acm.org)
 //   
 //   To the extent possible under law, the author has dedicated all copyright
 //   and related and neighboring rights to this software to the public domain

@@ -981,7 +981,7 @@ Image GenImageChecked(int width, int height, int checksX, int checksY, Color col
 
 // Generate image: white noise
 // NOTE: It requires GetRandomValue(), defined in [rcore]
-Image GenImageWhiteNoise(int width, int height, float factor)
+Image GenImageWHITENoise(int width, int height, float factor)
 {
     Color *pixels = (Color *)RL_MALLOC(width*height*sizeof(Color));
 

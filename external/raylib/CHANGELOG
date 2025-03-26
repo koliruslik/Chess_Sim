@@ -2012,7 +2012,7 @@ detailed changes:
 [textures] ADDED: GenImageGradientH(), Generate image: horizontal gradient
 [textures] ADDED: GenImageGradientRadial(), Generate image: radial gradient
 [textures] ADDED: GenImageChecked(), Generate image: checked
-[textures] ADDED: GenImageWhiteNoise(), Generate image: white noise
+[textures] ADDED: GenImageWHITENoise(), Generate image: white noise
 [textures] ADDED: GenImagePerlinNoise(), Generate image: perlin noise
 [textures] ADDED: GenImageCellular(), Generate image: cellular algorithm. Bigger tileSize means bigger cells
 [textures] ADDED: GenTextureCubemap(), Generate cubemap texture from HDR texture

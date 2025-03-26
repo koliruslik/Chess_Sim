@@ -194,11 +194,11 @@
 #define BROWN      CLITERAL(Color){ 127, 106, 79, 255 }    // Brown
 #define DARKBROWN  CLITERAL(Color){ 76, 63, 47, 255 }      // Dark Brown
 
-#define WHITE      CLITERAL(Color){ 255, 255, 255, 255 }   // White
-#define BLACK      CLITERAL(Color){ 0, 0, 0, 255 }         // Black
+#define WHITE      CLITERAL(Color){ 255, 255, 255, 255 }   // WHITE
+#define BLACK      CLITERAL(Color){ 0, 0, 0, 255 }         // BLACK
 #define BLANK      CLITERAL(Color){ 0, 0, 0, 0 }           // Blank (Transparent)
 #define MAGENTA    CLITERAL(Color){ 255, 0, 255, 255 }     // Magenta
-#define RAYWHITE   CLITERAL(Color){ 245, 245, 245, 255 }   // My own White (raylib logo)
+#define RAYWHITE   CLITERAL(Color){ 245, 245, 245, 255 }   // My own WHITE (raylib logo)
 
 //----------------------------------------------------------------------------------
 // Structures Definition
@@ -1344,7 +1344,7 @@ RLAPI Image GenImageGradientLinear(int width, int height, int direction, Color s
 RLAPI Image GenImageGradientRadial(int width, int height, float density, Color inner, Color outer);      // Generate image: radial gradient
 RLAPI Image GenImageGradientSquare(int width, int height, float density, Color inner, Color outer);      // Generate image: square gradient
 RLAPI Image GenImageChecked(int width, int height, int checksX, int checksY, Color col1, Color col2);    // Generate image: checked
-RLAPI Image GenImageWhiteNoise(int width, int height, float factor);                                     // Generate image: white noise
+RLAPI Image GenImageWHITENoise(int width, int height, float factor);                                     // Generate image: white noise
 RLAPI Image GenImagePerlinNoise(int width, int height, int offsetX, int offsetY, float scale);           // Generate image: perlin noise
 RLAPI Image GenImageCellular(int width, int height, int tileSize);                                       // Generate image: cellular algorithm, bigger tileSize means bigger cells
 RLAPI Image GenImageText(int width, int height, const char *text);                                       // Generate image: grayscale image from text data

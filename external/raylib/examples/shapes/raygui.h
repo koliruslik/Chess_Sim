@@ -3804,8 +3804,8 @@ int GuiColorPanelHSV(Rectangle bounds, const char *text, Vector3 *colorHsv)
     GuiState state = guiState;
     Vector2 pickerSelector = { 0 };
 
-    const Color colWhite = { 255, 255, 255, 255 };
-    const Color colBlack = { 0, 0, 0, 255 };
+    const Color colWHITE = { 255, 255, 255, 255 };
+    const Color colBLACK = { 0, 0, 0, 255 };
 
     pickerSelector.x = bounds.x + (float)colorHsv->y*bounds.width;            // HSV: Saturation
     pickerSelector.y = bounds.y + (1.0f - (float)colorHsv->z)*bounds.height;  // HSV: Value
@@ -3879,16 +3879,16 @@ int GuiColorPanelHSV(Rectangle bounds, const char *text, Vector3 *colorHsv)
     //--------------------------------------------------------------------
     if (state != STATE_DISABLED)
     {
-        DrawRectangleGradientEx(bounds, Fade(colWhite, guiAlpha), Fade(colWhite, guiAlpha), Fade(maxHueCol, guiAlpha), Fade(maxHueCol, guiAlpha));
-        DrawRectangleGradientEx(bounds, Fade(colBlack, 0), Fade(colBlack, guiAlpha), Fade(colBlack, guiAlpha), Fade(colBlack, 0));
+        DrawRectangleGradientEx(bounds, Fade(colWHITE, guiAlpha), Fade(colWHITE, guiAlpha), Fade(maxHueCol, guiAlpha), Fade(maxHueCol, guiAlpha));
+        DrawRectangleGradientEx(bounds, Fade(colBLACK, 0), Fade(colBLACK, guiAlpha), Fade(colBLACK, guiAlpha), Fade(colBLACK, 0));
 
         // Draw color picker: selector
         Rectangle selector = { pickerSelector.x - GuiGetStyle(COLORPICKER, COLOR_SELECTOR_SIZE)/2, pickerSelector.y - GuiGetStyle(COLORPICKER, COLOR_SELECTOR_SIZE)/2, (float)GuiGetStyle(COLORPICKER, COLOR_SELECTOR_SIZE), (float)GuiGetStyle(COLORPICKER, COLOR_SELECTOR_SIZE) };
-        GuiDrawRectangle(selector, 0, BLANK, colWhite);
+        GuiDrawRectangle(selector, 0, BLANK, colWHITE);
     }
     else
     {
-        DrawRectangleGradientEx(bounds, Fade(Fade(GetColor(GuiGetStyle(COLORPICKER, BASE_COLOR_DISABLED)), 0.1f), guiAlpha), Fade(Fade(colBlack, 0.6f), guiAlpha), Fade(Fade(colBlack, 0.6f), guiAlpha), Fade(Fade(GetColor(GuiGetStyle(COLORPICKER, BORDER_COLOR_DISABLED)), 0.6f), guiAlpha));
+        DrawRectangleGradientEx(bounds, Fade(Fade(GetColor(GuiGetStyle(COLORPICKER, BASE_COLOR_DISABLED)), 0.1f), guiAlpha), Fade(Fade(colBLACK, 0.6f), guiAlpha), Fade(Fade(colBLACK, 0.6f), guiAlpha), Fade(Fade(GetColor(GuiGetStyle(COLORPICKER, BORDER_COLOR_DISABLED)), 0.6f), guiAlpha));
     }
 
     GuiDrawRectangle(bounds, GuiGetStyle(COLORPICKER, BORDER_WIDTH), GetColor(GuiGetStyle(COLORPICKER, BORDER + state*3)), BLANK);
@@ -4545,8 +4545,8 @@ static void GuiLoadStyleFromMemory(const unsigned char *fileData, int dataSize)
             fileDataPtr += 12;
 
             // Load font white rectangle
-            Rectangle fontWhiteRec = { 0 };
-            memcpy(&fontWhiteRec, fileDataPtr, sizeof(Rectangle));
+            Rectangle fontWHITERec = { 0 };
+            memcpy(&fontWHITERec, fileDataPtr, sizeof(Rectangle));
             fileDataPtr += 16;
 
             // Load font image parameters
@@ -4695,10 +4695,10 @@ static void GuiLoadStyleFromMemory(const unsigned char *fileData, int dataSize)
 
             // Set font texture source rectangle to be used as white texture to draw shapes
             // NOTE: It makes possible to draw shapes and text (full UI) in a single draw call
-            if ((fontWhiteRec.x > 0) &&
-                (fontWhiteRec.y > 0) &&
-                (fontWhiteRec.width > 0) &&
-                (fontWhiteRec.height > 0)) SetShapesTexture(font.texture, fontWhiteRec);
+            if ((fontWHITERec.x > 0) &&
+                (fontWHITERec.y > 0) &&
+                (fontWHITERec.width > 0) &&
+                (fontWHITERec.height > 0)) SetShapesTexture(font.texture, fontWHITERec);
         }
 #endif
     }

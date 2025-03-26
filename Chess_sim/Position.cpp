@@ -1,198 +1,223 @@
-#include "Position.h"
 
-Position::Position(const std::string& short_fen, uint8_t en_passant, bool w_l_castling,
-    bool w_s_castling, bool b_l_castling, bool b_s_castling, float move_ctr)
-    : _pieces(short_fen),
-    _en_passant(en_passant),
-    _white_long_castling(w_l_castling),
-    _white_short_castling(w_s_castling),
-    _black_long_castling(b_l_castling),
-    _black_short_castling(b_s_castling),
-    _white_castling_happened(false),
-    _black_castling_happened(false),
-    _move_counter(move_ctr),
-    _hash(_pieces, (_move_counter - std::floor(_move_counter) > 1e-4),
-        _white_long_castling, _white_short_castling, _black_long_castling, _black_short_castling),
-    _fifty_moves_counter(0)
-{
-    _repetition_history.add_position(_hash);
+
+#include "Position.hpp"
+
+
+Position::Position() = default;
+Position::Position(const std::string& shortFen, uint8_t enPassant, bool wlCastling, bool wsCastling, bool blCastling, bool bsCastling, float moveCtr) {
+    this->pieces = {shortFen};
+    this->enPassant = enPassant;
+
+    this->wlCastling = wlCastling;
+    this->wsCastling = wsCastling;
+    this->blCastling = blCastling;
+    this->bsCastling = bsCastling;
+
+    this->moveCtr = moveCtr;
+    this->hash = {this->pieces, this->blackToMove(), this->wlCastling, this->wsCastling, this->blCastling, this->bsCastling};
+    this->repetitionHistory.addPosition(this->hash);
+    this->fiftyMovesCtr = 0;
 }
+std::ostream &operator<<(std::ostream &ostream, const Position& position) {
+    ostream << position.pieces << "\n";
 
-void Position::_add_piece(uint8_t square, uint8_t type, uint8_t side)
-{
-    if (!BitBoard::get_bit(this->_pieces._piece_bitboards[side][type], square))
-    {
-        BitBoard::set_1(this->_pieces._piece_bitboards[side][type], square);
-        this->_hash.invert_piece(square, type, side);
+    ostream << "En passant: " << (uint32_t)position.enPassant << "\n";
+    ostream << "White long castling: " << position.wlCastling << "\n";
+    ostream << "White short castling: " << position.wsCastling << "\n";
+    ostream << "Black long castling: " << position.blCastling << "\n";
+    ostream << "Black short castling: " << position.blCastling << "\n";
+    ostream << "Move counter: " << position.moveCtr << "\n";
+    ostream << "Zobrist value: " << std::hex << "0x" << position.hash.getValue() << "\n" << std::dec;
+    ostream << "Fifty moves counter: " << position.fiftyMovesCtr << "\n";
+    ostream << "Threefold repetition counter: " << (uint32_t)position.repetitionHistory.getRepetitionNumber(position.hash);
+
+    return ostream;
+}
+void Position::move(Move move) {
+    this->removePiece(move.getFrom(), move.getAttackerType(), move.getAttackerSide());
+    this->addPiece(move.getTo(), move.getAttackerType(), move.getAttackerSide());
+    if (move.getDefenderType() != Move::NONE) {
+        this->removePiece(move.getTo(), move.getDefenderType(), move.getDefenderSide());
+    }
+
+    switch (move.getFlag()) {
+        case Move::FLAG::DEFAULT:
+            break;
+
+        case Move::FLAG::PAWN_LONG_MOVE:
+            this->changeEnPassant((move.getFrom() + move.getTo()) / 2);
+            break;
+        case Move::FLAG::EN_PASSANT_CAPTURE:
+            if (move.getAttackerSide() == SIDE::White) {
+                this->removePiece(move.getTo() - 8, PIECE::PAWN, SIDE::Black);
+            }
+            else {
+                this->removePiece(move.getTo() + 8, PIECE::PAWN, SIDE::White);
+            }
+            break;
+
+        case Move::FLAG::WL_CASTLING:
+            this->removePiece(0, PIECE::ROOK, SIDE::White);
+            this->addPiece(3, PIECE::ROOK, SIDE::White);
+            break;
+        case Move::FLAG::WS_CASTLING:
+            this->removePiece(7, PIECE::ROOK, SIDE::White);
+            this->addPiece(5, PIECE::ROOK, SIDE::White);
+            break;
+        case Move::FLAG::BL_CASTLING:
+            this->removePiece(56, PIECE::ROOK, SIDE::Black);
+            this->addPiece(59, PIECE::ROOK, SIDE::Black);
+            break;
+        case Move::FLAG::BS_CASTLING:
+            this->removePiece(63, PIECE::ROOK, SIDE::Black);
+            this->addPiece(61, PIECE::ROOK, SIDE::Black);
+            break;
+
+        case Move::FLAG::PROMOTE_TO_KNIGHT:
+            this->removePiece(move.getTo(), PIECE::PAWN, move.getAttackerSide());
+            this->addPiece(move.getTo(), PIECE::KNIGHT, move.getAttackerSide());
+            break;
+        case Move::FLAG::PROMOTE_TO_BISHOP:
+            this->removePiece(move.getTo(), PIECE::PAWN, move.getAttackerSide());
+            this->addPiece(move.getTo(), PIECE::BISHOP, move.getAttackerSide());
+            break;
+        case Move::FLAG::PROMOTE_TO_ROOK:
+            this->removePiece(move.getTo(), PIECE::PAWN, move.getAttackerSide());
+            this->addPiece(move.getTo(), PIECE::ROOK, move.getAttackerSide());
+            break;
+        case Move::FLAG::PROMOTE_TO_QUEEN:
+            this->removePiece(move.getTo(), PIECE::PAWN, move.getAttackerSide());
+            this->addPiece(move.getTo(), PIECE::QUEEN, move.getAttackerSide());
+            break;
+    }
+
+    this->pieces.updateBitboards();
+
+    if (move.getFlag() != Move::FLAG::PAWN_LONG_MOVE) {
+        this->changeEnPassant(Position::NONE);
+    }
+
+    switch (move.getFrom()) {
+        case 0:
+            this->removeWLCastling();
+            break;
+        case 4:
+            this->removeWLCastling();
+            this->removeWSCastling();
+            break;
+        case 7:
+            this->removeWSCastling();
+            break;
+        case 56:
+            this->removeBLCastling();
+            break;
+        case 60:
+            this->removeBLCastling();
+            this->removeBSCastling();
+            break;
+        case 63:
+            this->removeBSCastling();
+            break;
+    }
+
+    this->updateMoveCtr();
+
+    this->updateFiftyMovesCtr(move.getAttackerType() == PIECE::PAWN or move.getDefenderType() != Move::NONE);
+
+    if (move.getAttackerType() == PIECE::PAWN or move.getDefenderType() != Move::NONE) {
+        this->repetitionHistory.clear();
+    }
+    this->repetitionHistory.addPosition(this->hash);
+}
+Pieces Position::getPieces() const {
+    return this->pieces;
+}
+uint8_t Position::getEnPassant() const {
+    return this->enPassant;
+}
+bool Position::getWLCastling() const {
+    return this->wlCastling;
+}
+bool Position::getWSCastling() const {
+    return this->wsCastling;
+}
+bool Position::getBLCastling() const {
+    return this->blCastling;
+}
+bool Position::getBSCastling() const {
+    return this->bsCastling;
+}
+bool Position::whiteToMove() const {
+    return !this->blackToMove();
+}
+bool Position::blackToMove() const {
+    return (this->moveCtr - std::floor(this->moveCtr) > 1e-4);
+}
+ZobristHash Position::getHash() const {
+    return this->hash;
+}
+bool Position::fiftyMovesRuleDraw() const {
+    return (this->fiftyMovesCtr == 50);
+}
+bool Position::threefoldRepetitionDraw() const {
+    return (this->repetitionHistory.getRepetitionNumber(this->hash) == 3);
+}
+void Position::addPiece(uint8_t square, uint8_t type, uint8_t side) {
+    if (!BOp::getBit(this->pieces.getPieceBitboard(side, type), square)) {
+        this->pieces.setPieceBitboard(side, type, BOp::set1(this->pieces.getPieceBitboard(side, type), square));
+        this->hash.invertPiece(square, type, side);
     }
 }
-
-void Position::_remove_piece(uint8_t square, uint8_t type, uint8_t side)
-{
-	if (BitBoard::get_bit(this->_pieces._piece_bitboards[side][type], square))
-	{
-		BitBoard::set_0(this->_pieces._piece_bitboards[side][type], square);
-		this->_hash.invert_piece(square, type, side);
-	}
-}
-
-void Position::_change_en_passant(uint8_t en_passant)
-{
-    this->_en_passant = en_passant;
-}
-
-void Position::_remove_white_long_castling()
-{
-    if (this->_white_long_castling)
-    {
-		this->_white_long_castling = false;
-		this->_hash.invert_white_long_castling();
+void Position::removePiece(uint8_t square, uint8_t type, uint8_t side) {
+    if (BOp::getBit(this->pieces.getPieceBitboard(side, type), square)) {
+        this->pieces.setPieceBitboard(side, type, BOp::set0(this->pieces.getPieceBitboard(side, type), square));
+        this->hash.invertPiece(square, type, side);
     }
 }
-
-void Position::_remove_white_short_castling()
-{
-	if (this->_white_short_castling)
-	{
-		this->_white_short_castling = false;
-		this->_hash.invert_white_short_castling();
-	}
+void Position::changeEnPassant(uint8_t en_passant) {
+    this->enPassant = en_passant;
 }
-
-void Position::_remove_black_long_castling()
-{
-	if (this->_black_long_castling)
-	{
-		this->_black_long_castling = false;
-		this->_hash.invert_black_long_castling();
-	}
+void Position::removeWLCastling() {
+    if (this->wlCastling) {
+        this->wlCastling = false;
+        this->hash.invertWLCastling();
+    }
 }
-
-void Position::_remove_black_short_castling()
-{
-	if (this->_black_short_castling)
-	{
-		this->_black_short_castling = false;
-		this->_hash.invert_black_short_castling();
-	}
+void Position::removeWSCastling() {
+    if (this->wsCastling) {
+        this->wsCastling = false;
+        this->hash.invertWSCastling();
+    }
 }
-
-void Position::_update_move_counter()
-{
-	this->_move_counter = this->_move_counter + 0.5f;
-	this->_hash.invert_move();
+void Position::removeBLCastling() {
+    if (this->blCastling) {
+        this->blCastling = false;
+        this->hash.invertBLCastling();
+    }
 }
-
-void Position::_update_fifty_moves_counter(bool break_event)
-{
-	if (break_event)
-	{
-		this->_fifty_moves_counter = 0;
-	}
-	else
-	{
-		this->_fifty_moves_counter = this->_fifty_moves_counter + 0.5f;
-	}
+void Position::removeBSCastling() {
+    if (this->bsCastling) {
+        this->bsCastling = false;
+        this->hash.invertBSCastling();
+    }
 }
-
-void Position::move(const Move& move)
-{
-	this->_remove_piece(move._from, move._attacker_type, move._attacker_side);
-	this->_add_piece(move._to, move._attacker_type, move._attacker_side);
-	if (move._defender_type != 255)
-	{
-		this->_remove_piece(move._to, move._defender_type, move._defender_side);
-	}
-
-	switch (move._flag)
-	{
-	case  Move::Flag::Default:
-		break;
-
-	case  Move::Flag::PawnLongMove:
-		this->_change_en_passant((move._from + move._to) / 2);
-		break;
-
-	case Move::Flag::EnPassantCapture:
-		if (move._attacker_side == Pieces::White) this->_remove_piece(move._to - 8, Pieces::Pawn, Pieces::Black);
-		else this->_remove_piece(move._to + 8, Pieces::Pawn, Pieces::White);
-		break;
-
-	case Move::Flag::WhiteLongCastling:
-		this->_remove_piece(0, Pieces::Rook, Pieces::White);
-		this->_add_piece(3, Pieces::Rook, Pieces::White);
-		this->_white_castling_happened = true;
-		break;
-
-	case Move::Flag::WhiteShortCastling:
-		this->_remove_piece(7, Pieces::Rook, Pieces::White);
-		this->_add_piece(5, Pieces::Rook, Pieces::White);
-		this->_white_castling_happened = true;
-		break;
-
-	case Move::Flag::BlackLongCastling:
-		this->_remove_piece(56, Pieces::Rook, Pieces::Black);
-		this->_add_piece(59, Pieces::Rook, Pieces::Black);
-		this->_black_castling_happened = true;
-		break;
-
-	case Move::Flag::BlackShortCastling:
-		this->_remove_piece(63, Pieces::Rook, Pieces::Black);
-		this->_add_piece(61, Pieces::Rook, Pieces::Black);
-		this->_black_castling_happened = true;
-		break;
-
-	case Move::Flag::PromoteToKnight:
-		this->_remove_piece(move._to, Pieces::Pawn, move._attacker_side);
-		this->_add_piece(move._to, Pieces::Knight, move._attacker_side);
-		break;
-
-	case Move::Flag::PromoteToBishop:
-		this->_remove_piece(move._to, Pieces::Pawn, move._attacker_side);
-		this->_add_piece(move._to, Pieces::Bishop, move._attacker_side);
-		break;
-
-	case Move::Flag::PromoteToRook:
-		this->_remove_piece(move._to, Pieces::Pawn, move._attacker_side);
-		this->_add_piece(move._to, Pieces::Rook, move._attacker_side);
-		break;
-
-	case Move::Flag::PromoteToQueen:
-		this->_remove_piece(move._to, Pieces::Pawn, move._attacker_side);
-		this->_add_piece(move._to, Pieces::Queen, move._attacker_side);
-		break;
-	}
-	
-	this->_pieces.uptade_bitboards();
-	if (move._flag != Move::Flag::PawnLongMove) this->_change_en_passant(255);
-
-	switch (move._from)
-	{
-		case 0:
-			this->_remove_white_long_castling();
-			break;
-		case 4:
-			this->_remove_white_long_castling();
-			this->_remove_white_short_castling();
-			break;
-		case 7:
-			this->_remove_white_short_castling();
-			break;
-		case 56:
-			this->_remove_black_long_castling();
-			break;
-		case 60:
-			this->_remove_black_long_castling();
-			this->_remove_black_short_castling();
-			break;
-		case 63:
-			this->_remove_black_short_castling();
-			break;
-	}
-
-	this->_update_move_counter();
-	this->_update_fifty_moves_counter(move._attacker_type == Pieces::Pawn || move._defender_type !=255);
-
-	if (move._attacker_type == Pieces::Pawn || move._defender_type != 255) this->_repetition_history.clear();
-	this->_repetition_history.add_position(this->_hash);
+void Position::updateMoveCtr() {
+    this->moveCtr = this->moveCtr + 0.5f;
+    this->hash.invertMove();
+}
+void Position::updateFiftyMovesCtr(bool breakEvent) {
+    if (breakEvent) {
+        this->fiftyMovesCtr = 0;
+    }
+    else {
+        this->fiftyMovesCtr = this->fiftyMovesCtr + 0.5f;
+    }
+}
+uint8_t Position::getPieceTypeAt(uint8_t square, uint8_t side) const {
+    for (uint8_t type = PIECE::PAWN; type <= PIECE::KING; type++) {
+        if (BOp::getBit(this->pieces.getPieceBitboard(side, type), square)) {
+            return type;
+        }
+    }
+    return Position::NONE;
 }

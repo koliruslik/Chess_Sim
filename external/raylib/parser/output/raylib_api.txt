@@ -220,12 +220,12 @@ Define 044: WHITE
   Name: WHITE
   Type: COLOR
   Value: CLITERAL(Color){ 255, 255, 255, 255 }
-  Description: White
+  Description: WHITE
 Define 045: BLACK
   Name: BLACK
   Type: COLOR
   Value: CLITERAL(Color){ 0, 0, 0, 255 }
-  Description: Black
+  Description: BLACK
 Define 046: BLANK
   Name: BLANK
   Type: COLOR
@@ -240,7 +240,7 @@ Define 048: RAYWHITE
   Name: RAYWHITE
   Type: COLOR
   Value: CLITERAL(Color){ 245, 245, 245, 255 }
-  Description: My own White (raylib logo)
+  Description: My own WHITE (raylib logo)
 Define 049: RL_BOOL_TYPE
   Name: RL_BOOL_TYPE
   Type: GUARD
@@ -2768,8 +2768,8 @@ Function 292: GenImageChecked() (6 input parameters)
   Param[4]: checksY (type: int)
   Param[5]: col1 (type: Color)
   Param[6]: col2 (type: Color)
-Function 293: GenImageWhiteNoise() (3 input parameters)
-  Name: GenImageWhiteNoise
+Function 293: GenImageWHITENoise() (3 input parameters)
+  Name: GenImageWHITENoise
   Return type: Image
   Description: Generate image: white noise
   Param[1]: width (type: int)

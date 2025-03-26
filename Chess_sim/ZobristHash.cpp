@@ -1,76 +1,66 @@
-#include "ZobristHash.h"
+#include "ZobristHash.hpp"
 
-ZobristHash::ZobristHash()
-{
-	calc_constants();
-	_hash = 0;
-}
 
-ZobristHash::ZobristHash(const Pieces& pieces, bool black_move, bool w_l_castling, bool w_s_castling, bool b_l_castling, bool b_s_castling)
-{
-	calc_constants();
-	_hash = calculate_hash(pieces, black_move);
+ZobristHash::ZobristHash() = default;
+ZobristHash::ZobristHash(Pieces pieces, bool blackToMove, bool wlCastling, bool wsCastling, bool blCastling, bool bsCastling) {
+    this->value = 0;
 
-	if (w_l_castling) _hash ^= WhiteLongCastling;
-	if (w_s_castling) _hash ^= WhiteShortCastling;
-	if (b_l_castling) _hash ^= BlackLongCastling;
-	if (b_s_castling) _hash ^= BlackShortCastling;
-}
+    if (blackToMove) {
+        this->invertMove();
+    }
+    if (wlCastling) {
+        this->invertWLCastling();
+    }
+    if (wsCastling) {
+        this->invertWSCastling();
+    }
+    if (blCastling) {
+        this->invertBLCastling();
+    }
+    if (bsCastling) {
+        this->invertBSCastling();
+    }
 
-void ZobristHash::calc_constants()
-{
-	uint64_t previous = Seed;
-	for (uint8_t square = 0; square < 64; ++square)
-		for (uint8_t side = 0; side < 2; ++side)
-			for (uint8_t type = 0; type < 6; ++type)
-			{
-				previous = next_random(previous);
-				Constants[square][side][type] = previous;
-			}
-	BlackMove = next_random(Constants[63][1][5]);
-	WhiteLongCastling = next_random(BlackMove);
-	WhiteShortCastling = next_random(WhiteLongCastling);
-	BlackLongCastling = next_random(WhiteShortCastling);
-	BlackShortCastling = next_random(BlackLongCastling);
+    uint8_t side;
+    for (uint8_t square = 0; square < 64; square = square + 1) {
+        if (BOp::getBit(pieces.getSideBitboard(SIDE::White), square)) {
+            side = SIDE::White;
+        }
+        else if (BOp::getBit(pieces.getSideBitboard(SIDE::Black), square)) {
+            side = SIDE::Black;
+        }
+        else {
+            continue;
+        }
+        for (uint8_t type = 0; type < 6; type = type + 1) {
+            if (BOp::getBit(pieces.getPieceBitboard(side, type), square)) {
+                this->invertPiece(square, type, side);
+                break;
+            }
+        }
+    }
 }
-
-uint64_t ZobristHash::calculate_hash(const Pieces& pieces, bool black_move)
-{
-	uint64_t h = black_move ? BlackMove : 0;
-
-	for (uint8_t square = 0; square < 64; ++square)
-		for (uint8_t side = 0; side < 2; ++side)
-			for (uint8_t type = 0; type < 6; ++type)
-				if (BitBoard::get_bit(pieces._piece_bitboards[side][type], square))
-				{
-					h ^= Constants[square][side][type];
-					break;
-				}
-
-	return h;
+bool operator ==(ZobristHash left, ZobristHash right) {
+    return (left.value == right.value);
 }
-
-uint64_t ZobristHash::invert_move() const
-{
-	return _hash ^ BlackMove;
+void ZobristHash::invertPiece(uint8_t square, uint8_t type, uint8_t side) {
+    this->value = this->value ^ ZobristHashConstants::CONSTANTS[square][side][type];
 }
-uint64_t ZobristHash::invert_white_long_castling() const
-{
-	return _hash ^ WhiteLongCastling;
+void ZobristHash::invertMove() {
+    this->value = this->value ^ ZobristHashConstants::Black_MOVE;
 }
-uint64_t ZobristHash::invert_white_short_castling() const
-{
-	return _hash ^ WhiteShortCastling;
+void ZobristHash::invertWLCastling() {
+    this->value = this->value ^ ZobristHashConstants::WL_CASTLING;
 }
-uint64_t ZobristHash::invert_black_long_castling() const
-{
-	return _hash ^ BlackLongCastling;
+void ZobristHash::invertWSCastling() {
+    this->value = this->value ^ ZobristHashConstants::WS_CASTLING;
 }
-uint64_t ZobristHash::invert_black_short_castling() const
-{
-	return _hash ^ BlackShortCastling;
+void ZobristHash::invertBLCastling() {
+    this->value = this->value ^ ZobristHashConstants::BL_CASTLING;
 }
-uint64_t ZobristHash::invert_piece(uint8_t square, uint8_t side, uint8_t type) const
-{
-	return _hash ^ Constants[square][side][type];
+void ZobristHash::invertBSCastling() {
+    this->value = this->value ^ ZobristHashConstants::BS_CASTLING;
+}
+uint64_t ZobristHash::getValue() const {
+    return this->value;
 }

@@ -1,164 +1,230 @@
-#include "LegalMoveGen.h"
 
-bool LegalMoveGen::_is_legal(Pieces pieces, Move move, bool en_passant_capture)
-{
-	BitBoard::set_0(pieces._piece_bitboards[move._attacker_side][move._attacker_type], move._from);
-	BitBoard::set_1(pieces._piece_bitboards[move._attacker_side][move._attacker_type], move._to);
-	if(move._defender_type != 255) BitBoard::set_0(pieces._piece_bitboards[move._defender_side][move._defender_type], move._to);
-	if (en_passant_capture)
-	{
-		if (move._attacker_side == Pieces::White) BitBoard::set_0(pieces._piece_bitboards[Pieces::Black][Pieces::Pawn], move._to - 8);
-		BitBoard::set_0(pieces._piece_bitboards[Pieces::White][Pieces::Pawn], move._to + 8);
-	}
+#include "LegalMoveGen.hpp"
 
-	pieces.uptade_bitboards();
 
-	if(PsLegalMoveMaskGen::is_under_attack(pieces, BitBoard::bsf(pieces._piece_bitboards[move._attacker_side][Pieces::King]), move._attacker_side)) return false;
+MoveList LegalMoveGen::generate(const Position &position, uint8_t side, bool onlyCaptures) {
+    MoveList moves;
 
-	return true;
+    Bitboard pawnsLeftCaptures = PsLegalMoveMaskGen::generatePawnsLeftCapturesMask(position.getPieces(), side, false);
+    Bitboard pawnsRightCaptures = PsLegalMoveMaskGen::generatePawnsRightCapturesMask(position.getPieces(), side, false);
+
+    int8_t pawnsLeftCaptureIndex;
+    int8_t pawnsRightCaptureIndex;
+
+    if (side == SIDE::White) {
+        pawnsLeftCaptureIndex = -7;
+        pawnsRightCaptureIndex = -9;
+    }
+    else {
+        pawnsLeftCaptureIndex = 9;
+        pawnsRightCaptureIndex = 7;
+    }
+    pawnsMaskToMoves(position.getPieces(), pawnsLeftCaptures, side, pawnsLeftCaptureIndex, true,Move::FLAG::DEFAULT, moves);
+    pawnsMaskToMoves(position.getPieces(), pawnsRightCaptures, side, pawnsRightCaptureIndex, true,Move::FLAG::DEFAULT, moves);
+
+    if (!onlyCaptures) {
+        Bitboard pawnsDefault = PsLegalMoveMaskGen::generatePawnsDefaultMask(position.getPieces(), side);
+        Bitboard pawnsLong = PsLegalMoveMaskGen::generatePawnsLongMask(position.getPieces(), side);
+
+        int8_t pawnDefaultIndex;
+        int8_t pawnLongIndex;
+        if (side == SIDE::White) {
+            pawnDefaultIndex = -8;
+            pawnLongIndex = -16;
+        }
+        else {
+            pawnDefaultIndex = 8;
+            pawnLongIndex = 16;
+        }
+        pawnsMaskToMoves(position.getPieces(), pawnsDefault, side, pawnDefaultIndex, false,Move::FLAG::DEFAULT, moves);
+        pawnsMaskToMoves(position.getPieces(), pawnsLong, side, pawnLongIndex, false,Move::FLAG::PAWN_LONG_MOVE, moves);
+    }
+
+    Bitboard allKnights = position.getPieces().getPieceBitboard(side, PIECE::KNIGHT);
+    Bitboard allBishops = position.getPieces().getPieceBitboard(side, PIECE::BISHOP);
+    Bitboard allRooks = position.getPieces().getPieceBitboard(side, PIECE::ROOK);
+    Bitboard allQueens = position.getPieces().getPieceBitboard(side, PIECE::QUEEN);
+    uint8_t attackerP;
+    Bitboard mask;
+    while (allKnights) {
+        attackerP = BOp::bsf(allKnights);
+        allKnights = BOp::set0(allKnights, attackerP);
+        mask = PsLegalMoveMaskGen::generateKnightMask(position.getPieces(), attackerP, side, onlyCaptures);
+        pieceMaskToMoves(position.getPieces(), mask, attackerP, PIECE::KNIGHT, side, moves);
+    }
+    while (allBishops) {
+        attackerP = BOp::bsf(allBishops);
+        allBishops = BOp::set0(allBishops, attackerP);
+        mask = PsLegalMoveMaskGen::generateBishopMask(position.getPieces(), attackerP, side, onlyCaptures);
+        pieceMaskToMoves(position.getPieces(), mask, attackerP, PIECE::BISHOP, side, moves);
+    }
+    while (allRooks) {
+        attackerP = BOp::bsf(allRooks);
+        allRooks = BOp::set0(allRooks, attackerP);
+        mask = PsLegalMoveMaskGen::generateRookMask(position.getPieces(), attackerP, side, onlyCaptures);
+        pieceMaskToMoves(position.getPieces(), mask, attackerP, PIECE::ROOK, side, moves);
+    }
+    while (allQueens) {
+        attackerP = BOp::bsf(allQueens);
+        allQueens = BOp::set0(allQueens, attackerP);
+        mask = PsLegalMoveMaskGen::generateQueenMask(position.getPieces(), attackerP, side, onlyCaptures);
+        pieceMaskToMoves(position.getPieces(), mask, attackerP, PIECE::QUEEN, side, moves);
+    }
+    attackerP = BOp::bsf(position.getPieces().getPieceBitboard(side, PIECE::KING));
+    mask = PsLegalMoveMaskGen::generateKingMask(position.getPieces(), attackerP, side, onlyCaptures);
+    pieceMaskToMoves(position.getPieces(), mask, attackerP, PIECE::KING, side, moves);
+
+    addEnPassantCaptures(position.getPieces(), side, position.getEnPassant(), moves);
+    if (!onlyCaptures) {
+        if (side == SIDE::White) {
+            addCastlingMoves(position.getPieces(), SIDE::White, position.getWLCastling(), position.getWSCastling(),moves);
+        }
+        else {
+            addCastlingMoves(position.getPieces(), SIDE::Black, position.getBLCastling(), position.getBSCastling(),moves);
+        }
+    }
+
+    return moves;
 }
+void LegalMoveGen::pieceMaskToMoves(Pieces pieces, Bitboard mask, uint8_t attackerP, uint8_t attackerType, uint8_t attackerSide, MoveList &moves) {
+    while (mask) {
+        uint8_t defenderP = BOp::bsf(mask);
+        mask = BOp::set0(mask, defenderP);
 
-void LegalMoveGen::_pawn_mask_to_moves(Pieces pieces, BitBoard mask, uint8_t attacker_side, int8_t attacker_index, bool look_for_defender, uint8_t flag, MoveList& moves)
-{
-    uint8_t defender_p;
-    uint8_t defender_type = 255;
+        uint8_t defenderType = Move::NONE;
+        for (uint8_t i = 0; i < 6; i = i + 1) {
+            if (BOp::getBit(pieces.getPieceBitboard(Pieces::inverse(attackerSide), i), defenderP)) {
+                defenderType = i;
+                break;
+            }
+        }
 
-    Move move;
+        Move move = {attackerP, defenderP, attackerType, attackerSide, defenderType, Pieces::inverse(attackerSide)};
 
-    while (mask != 0)
-    {
-        defender_p = BitBoard::bsf(mask);
-        BitBoard::set_0(mask, defender_p);
+        if (isLegal(pieces, move)) {
+            moves.push(move);
+        }
+    }
+}
+void LegalMoveGen::pawnsMaskToMoves(Pieces pieces, Bitboard mask, uint8_t attackerSide, int8_t attackerIndex, bool checkDefender, uint8_t flag, MoveList &moves) {
+    uint8_t defenderType = Move::NONE;
 
-        if (look_for_defender)
-        {
-            defender_type = 255;
-            for (uint8_t i = 0; i < 6; i = i + 1) 
-            {
-                if (BitBoard::get_bit(pieces._piece_bitboards[Pieces::inverse(attacker_side)][i], defender_p)) 
-                {
-                    defender_type = i;
+    while (mask) {
+        uint8_t defenderP = BOp::bsf(mask);
+        mask = BOp::set0(mask, defenderP);
+
+        if (checkDefender) {
+            defenderType = Move::NONE;
+            for (uint8_t i = 0; i < 6; i = i + 1) {
+                if (BOp::getBit(pieces.getPieceBitboard(Pieces::inverse(attackerSide), i), defenderP)) {
+                    defenderType = i;
                     break;
                 }
             }
         }
 
-        move = { (uint8_t)(defender_p + attacker_index), defender_p, Pieces::Pawn, attacker_side, defender_type, Pieces::inverse(attacker_side), flag };
+        Move move = {(uint8_t)(defenderP + attackerIndex), defenderP, PIECE::PAWN, attackerSide, defenderType, Pieces::inverse(attackerSide), flag};
 
-        if (LegalMoveGen::_is_legal(pieces, move, false)) 
-        {
-            if (defender_p < 8 or defender_p > 55)
-            {
-                moves.push_back({ (uint8_t)(defender_p + attacker_index), defender_p, 0, attacker_side, defender_type, Pieces::inverse(attacker_side), Move::Flag::PromoteToKnight });
-                moves.push_back({ (uint8_t)(defender_p + attacker_index), defender_p, 0, attacker_side, defender_type, Pieces::inverse(attacker_side), Move::Flag::PromoteToBishop });
-                moves.push_back({ (uint8_t)(defender_p + attacker_index), defender_p, 0, attacker_side, defender_type, Pieces::inverse(attacker_side), Move::Flag::PromoteToRook });
-                moves.push_back({ (uint8_t)(defender_p + attacker_index), defender_p, 0, attacker_side, defender_type, Pieces::inverse(attacker_side), Move::Flag::PromoteToQueen });
+        if (isLegal(pieces, move)) {
+            if (defenderP < 8 or defenderP > 55) {
+                moves.push({(uint8_t)(defenderP + attackerIndex), defenderP, 0, attackerSide, defenderType,Pieces::inverse(attackerSide), Move::FLAG::PROMOTE_TO_KNIGHT});
+                moves.push({(uint8_t)(defenderP + attackerIndex), defenderP, 0, attackerSide, defenderType,Pieces::inverse(attackerSide), Move::FLAG::PROMOTE_TO_BISHOP});
+                moves.push({(uint8_t)(defenderP + attackerIndex), defenderP, 0, attackerSide, defenderType,Pieces::inverse(attackerSide), Move::FLAG::PROMOTE_TO_ROOK});
+                moves.push({(uint8_t)(defenderP + attackerIndex), defenderP, 0, attackerSide, defenderType,Pieces::inverse(attackerSide), Move::FLAG::PROMOTE_TO_QUEEN});
             }
-            else moves.push_back(move);
+            else {
+                moves.push(move);
+            }
         }
     }
 }
+bool LegalMoveGen::isLegal(Pieces pieces, Move move) {
+    pieces.setPieceBitboard(move.getAttackerSide(), move.getAttackerType(), BOp::set0(pieces.getPieceBitboard(move.getAttackerSide(), move.getAttackerType()), move.getFrom()));
+    pieces.setPieceBitboard(move.getAttackerSide(), move.getAttackerType(), BOp::set1(pieces.getPieceBitboard(move.getAttackerSide(), move.getAttackerType()), move.getTo()));
+    if (move.getDefenderType() != Move::NONE) {
+        pieces.setPieceBitboard(move.getDefenderSide(), move.getDefenderType(), BOp::set0(pieces.getPieceBitboard(move.getDefenderSide(), move.getDefenderType()), move.getTo()));
+    }
+    if (move.getFlag() == Move::FLAG::EN_PASSANT_CAPTURE) {
+        if (move.getAttackerSide() == SIDE::White) {
+            pieces.setPieceBitboard(SIDE::Black, PIECE::PAWN, BOp::set0(pieces.getPieceBitboard(SIDE::Black, PIECE::PAWN), move.getTo() - 8));
+        }
+        else {
+            pieces.setPieceBitboard(SIDE::White, PIECE::PAWN, BOp::set0(pieces.getPieceBitboard(SIDE::White, PIECE::PAWN), move.getTo() + 8));
+        }
+    }
 
-void LegalMoveGen::_piece_mask_to_moves(Pieces pieces, BitBoard mask, uint8_t attacker_p, uint8_t attacker_type, uint8_t attacker_side, MoveList& moves)
-{
-    uint8_t defender_p;
-    uint8_t defender_type;
+    pieces.updateBitboards();
 
-    Move move;
+    return !PsLegalMoveMaskGen::inDanger(pieces, BOp::bsf(pieces.getPieceBitboard(move.getAttackerSide(), PIECE::KING)), move.getAttackerSide());
+}
+void LegalMoveGen::addEnPassantCaptures(Pieces pieces, uint8_t side, uint8_t enPassant, MoveList &moves) {
+    if (enPassant == Position::NONE) {
+        return;
+    }
 
-    while (mask != 0)
-    {
-        defender_p = BitBoard::bsf(mask);
-        BitBoard::set_0(mask, defender_p);
-
-        defender_type = 255;
-        for (uint8_t i = 0; i < 6; i = i + 1)
-        {
-            if (BitBoard::get_bit(pieces._piece_bitboards[Pieces::inverse(attacker_side)][i], defender_p))
-            {
-                defender_type = i;
-                break;
+    if (side == SIDE::White) {
+        if (enPassant % 8 != 7 and BOp::getBit(pieces.getPieceBitboard(SIDE::White, PIECE::PAWN), enPassant - 7)) {
+            auto move = Move((uint8_t)(enPassant - 7), enPassant, PIECE::PAWN, SIDE::White, Move::NONE, Move::NONE, Move::FLAG::EN_PASSANT_CAPTURE);
+            if (isLegal(pieces, move)) {
+                moves.push(move);
             }
         }
-        
-        move = { attacker_p, defender_p, attacker_type, attacker_side, defender_type, Pieces::inverse(attacker_side) };
-
-        if (LegalMoveGen::_is_legal(pieces, move, false)) moves.push_back(move);
-    }
-}
-
-void LegalMoveGen::_add_en_passant_captures(Pieces pieces, uint8_t side, uint8_t en_passant, MoveList& moves)
-{
-    if (en_passant == 255) return;
-
-    Move move;
-
-    if (side == Pieces::White) {
-        if (en_passant % 8 != 7 and BitBoard::get_bit(pieces._piece_bitboards[Pieces::White][Pieces::Pawn], en_passant - 7)) {
-            move = { (uint8_t)(en_passant - 7), en_passant, Pieces::Pawn, Pieces::White, 255, 255, Move::Flag::EnPassantCapture };
-            if (LegalMoveGen::_is_legal(pieces, move, true)) moves.push_back(move);
-        }
-        if (en_passant % 8 != 0 and BitBoard::get_bit(pieces._piece_bitboards[Pieces::White][Pieces::Pawn], en_passant - 9)) {
-            move = { (uint8_t)(en_passant - 9), en_passant, Pieces::Pawn, Pieces::White, 255, 255, Move::Flag::EnPassantCapture };
-            if (LegalMoveGen::_is_legal(pieces, move, true)) moves.push_back(move);
+        if (enPassant % 8 != 0 and BOp::getBit(pieces.getPieceBitboard(SIDE::White, PIECE::PAWN), enPassant - 9)) {
+            auto move = Move((uint8_t)(enPassant - 9), enPassant, PIECE::PAWN, SIDE::White, Move::NONE, Move::NONE, Move::FLAG::EN_PASSANT_CAPTURE);
+            if (isLegal(pieces, move)) {
+                moves.push(move);
+            }
         }
     }
     else {
-        if (en_passant % 8 != 0 and BitBoard::get_bit(pieces._piece_bitboards[Pieces::Black][Pieces::Pawn], en_passant + 7)) {
-            move = { (uint8_t)(en_passant + 7), en_passant, Pieces::Pawn, Pieces::Black, 255, 255, Move::Flag::EnPassantCapture };
-            if (LegalMoveGen::_is_legal(pieces, move, true)) moves.push_back(move);
+        if (enPassant % 8 != 0 and BOp::getBit(pieces.getPieceBitboard(SIDE::Black, PIECE::PAWN), enPassant + 7)) {
+            auto move = Move((uint8_t)(enPassant + 7), enPassant, PIECE::PAWN, SIDE::Black, Move::NONE, Move::NONE, Move::FLAG::EN_PASSANT_CAPTURE);
+            if (isLegal(pieces, move)) {
+                moves.push(move);
+            }
         }
-        if (en_passant % 8 != 7 and BitBoard::get_bit(pieces._piece_bitboards[Pieces::Black][Pieces::Pawn], en_passant + 9)) {
-            move = { (uint8_t)(en_passant + 9), en_passant, Pieces::Pawn, Pieces::Black, 255, 255, Move::Flag::EnPassantCapture };
-            if (LegalMoveGen::_is_legal(pieces, move, true)) moves.push_back(move);
+        if (enPassant % 8 != 7 and BOp::getBit(pieces.getPieceBitboard(SIDE::Black, PIECE::PAWN), enPassant + 9)) {
+            auto move = Move((uint8_t)(enPassant + 9), enPassant, PIECE::PAWN, SIDE::Black, Move::NONE, Move::NONE, Move::FLAG::EN_PASSANT_CAPTURE);
+            if (isLegal(pieces, move)) {
+                moves.push(move);
+            }
         }
     }
 }
-void LegalMoveGen::_add_castling_moves(Pieces pieces, uint8_t side, bool long_castling, bool short_castling, MoveList& moves)
-{
+void LegalMoveGen::addCastlingMoves(Pieces pieces, uint8_t side, bool lCastling, bool sCastling, MoveList &moves) {
     uint8_t index;
-    uint8_t long_castling_flag;
-    uint8_t short_castling_flag;
-    if (side == Pieces::White) {
+    uint8_t longCastlingFlag;
+    uint8_t shortCastlingFlag;
+    if (side == SIDE::White) {
         index = 0;
-        long_castling_flag = Move::Flag::WhiteLongCastling;
-        short_castling_flag = Move::Flag::WhiteShortCastling;
+        longCastlingFlag = Move::FLAG::WL_CASTLING;
+        shortCastlingFlag = Move::FLAG::WS_CASTLING;
     }
     else {
         index = 56;
-        long_castling_flag = Move::Flag::BlackLongCastling;
-        short_castling_flag = Move::Flag::BlackShortCastling;
+        longCastlingFlag = Move::FLAG::BL_CASTLING;
+        shortCastlingFlag = Move::FLAG::BS_CASTLING;
     }
 
-    if (long_castling and BitBoard::get_bit(pieces._piece_bitboards[side][Pieces::Rook], 0 + index) and BitBoard::get_bit(pieces._empty, 1 + index) and BitBoard::get_bit(pieces._empty, 2 + index) and BitBoard::get_bit(pieces._empty, 3 + index)) {
-        if (!PsLegalMoveMaskGen::is_under_attack(pieces, BitBoard::bsf(pieces._piece_bitboards[side][Pieces::King]), side) and !PsLegalMoveMaskGen::is_under_attack(pieces, 2 + index, side) and !PsLegalMoveMaskGen::is_under_attack(pieces, 3 + index, side)) moves.push_back({ (uint8_t)(4 + index), (uint8_t)(2 + index), Pieces::King, side, 255, 255, long_castling_flag });
+    if (lCastling and
+        BOp::getBit(pieces.getPieceBitboard(side, PIECE::ROOK), 0 + index) and
+        BOp::getBit(pieces.getEmptyBitboard(), 1 + index) and
+        BOp::getBit(pieces.getEmptyBitboard(), 2 + index) and
+        BOp::getBit(pieces.getEmptyBitboard(), 3 + index) and
+        !PsLegalMoveMaskGen::inDanger(pieces, BOp::bsf(pieces.getPieceBitboard(side, PIECE::KING)), side) and
+        !PsLegalMoveMaskGen::inDanger(pieces, 2 + index, side) and
+        !PsLegalMoveMaskGen::inDanger(pieces, 3 + index, side)) {
+
+        moves.push({(uint8_t)(4 + index), (uint8_t)(2 + index), PIECE::KING, side, Move::NONE, Move::NONE, longCastlingFlag});
     }
-    if (short_castling and BitBoard::get_bit(pieces._piece_bitboards[side][Pieces::Rook], 7 + index) and BitBoard::get_bit(pieces._empty, 5 + index) and BitBoard::get_bit(pieces._empty, 6 + index)) {
-        if (!PsLegalMoveMaskGen::is_under_attack(pieces, BitBoard::bsf(pieces._piece_bitboards[side][Pieces::King]), side) and !PsLegalMoveMaskGen::is_under_attack(pieces, 5 + index, side) and !PsLegalMoveMaskGen::is_under_attack(pieces, 6 + index, side)) moves.push_back({ (uint8_t)(4 + index), (uint8_t)(6 + index), Pieces::King, side, 255, 255, short_castling_flag });
+    if (sCastling and
+        BOp::getBit(pieces.getPieceBitboard(side, PIECE::ROOK), 7 + index) and
+        BOp::getBit(pieces.getEmptyBitboard(), 5 + index) and
+        BOp::getBit(pieces.getEmptyBitboard(), 6 + index) and
+        !PsLegalMoveMaskGen::inDanger(pieces, BOp::bsf(pieces.getPieceBitboard(side, PIECE::KING)), side) and
+        !PsLegalMoveMaskGen::inDanger(pieces, 5 + index, side) and
+        !PsLegalMoveMaskGen::inDanger(pieces, 6 + index, side)) {
+
+        moves.push({(uint8_t)(4 + index), (uint8_t)(6 + index), PIECE::KING, side, Move::NONE, Move::NONE, shortCastlingFlag});
     }
-}
-
-MoveList LegalMoveGen::generate(Position copy, uint8_t side)
-{
-    MoveList moves;
-
-    for (uint8_t i = 0; i < 64; ++i) {
-        if (BitBoard::get_bit(copy._pieces._piece_bitboards[side][Pieces::Pawn], i)) {
-            _pawn_mask_to_moves(copy._pieces, BitBoard::get_bit(copy._pieces._piece_bitboards[side][Pieces::Pawn], i), side, i, true, 0, moves);
-        }
-    }
-
-    for (uint8_t piece_type = Pieces::Knight; piece_type <= Pieces::King; ++piece_type) {
-        for (uint8_t i = 0; i < 64; ++i) {
-            if (BitBoard::get_bit(copy._pieces._piece_bitboards[side][piece_type], i)) {
-                _piece_mask_to_moves(copy._pieces, BitBoard::get_bit(copy._pieces._piece_bitboards[side][piece_type], i), i, piece_type, side, moves);
-            }
-        }
-    }
-
-    _add_en_passant_captures(copy._pieces, side, copy._en_passant, moves);
-
-    _add_castling_moves(copy._pieces, side, true, true, moves);
-
-    return moves;
 }

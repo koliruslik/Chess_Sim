@@ -73,7 +73,7 @@
 #include <stdio.h>              // Required for: printf()
 
 #define RED        (Color){ 230, 41, 55, 255 }     // Red
-#define RAYWHITE   (Color){ 245, 245, 245, 255 }   // My own White (raylib logo)
+#define RAYWHITE   (Color){ 245, 245, 245, 255 }   // My own WHITE (raylib logo)
 #define DARKGRAY   (Color){ 80, 80, 80, 255 }      // Dark Gray
 
 //----------------------------------------------------------------------------------

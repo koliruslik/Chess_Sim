@@ -26762,12 +26762,12 @@ static const char* g_maCommonDeviceNamesALSA[] = {
 };
 
 /* This array allows us to blacklist specific playback devices. */
-static const char* g_maBlacklistedPlaybackDeviceNamesALSA[] = {
+static const char* g_maBLACKlistedPlaybackDeviceNamesALSA[] = {
     ""
 };
 
 /* This array allows us to blacklist specific capture devices. */
-static const char* g_maBlacklistedCaptureDeviceNamesALSA[] = {
+static const char* g_maBLACKlistedCaptureDeviceNamesALSA[] = {
     ""
 };
 
@@ -26874,8 +26874,8 @@ static ma_bool32 ma_is_common_device_name__alsa(const char* name)
 static ma_bool32 ma_is_playback_device_blacklisted__alsa(const char* name)
 {
     size_t iName;
-    for (iName = 0; iName < ma_countof(g_maBlacklistedPlaybackDeviceNamesALSA); ++iName) {
-        if (ma_strcmp(name, g_maBlacklistedPlaybackDeviceNamesALSA[iName]) == 0) {
+    for (iName = 0; iName < ma_countof(g_maBLACKlistedPlaybackDeviceNamesALSA); ++iName) {
+        if (ma_strcmp(name, g_maBLACKlistedPlaybackDeviceNamesALSA[iName]) == 0) {
             return MA_TRUE;
         }
     }
@@ -26886,8 +26886,8 @@ static ma_bool32 ma_is_playback_device_blacklisted__alsa(const char* name)
 static ma_bool32 ma_is_capture_device_blacklisted__alsa(const char* name)
 {
     size_t iName;
-    for (iName = 0; iName < ma_countof(g_maBlacklistedCaptureDeviceNamesALSA); ++iName) {
-        if (ma_strcmp(name, g_maBlacklistedCaptureDeviceNamesALSA[iName]) == 0) {
+    for (iName = 0; iName < ma_countof(g_maBLACKlistedCaptureDeviceNamesALSA); ++iName) {
+        if (ma_strcmp(name, g_maBLACKlistedCaptureDeviceNamesALSA[iName]) == 0) {
             return MA_TRUE;
         }
     }

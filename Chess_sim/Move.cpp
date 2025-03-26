@@ -1,25 +1,57 @@
-#include "Move.h"
 
 
-Move::Move()
-    : _from(0), _to(0), _attacker_type(0), _attacker_side(0),
-    _defender_type(255), _defender_side(255), _flag(Flag::Default) {
+#include "Move.hpp"
+
+
+Move::Move() = default;
+Move::Move(uint8_t from, uint8_t to, uint8_t attackerType, uint8_t attackerSide, uint8_t defenderType, uint8_t defenderSide, uint8_t flag) {
+    this->from = from;
+    this->to = to;
+    this->attackerType = attackerType;
+    this->attackerSide = attackerSide;
+    this->defenderType = defenderType;
+    this->defenderSide = defenderSide;
+    this->flag = flag;
 }
-
-
-Move::Move(uint8_t from, uint8_t to, uint8_t attacker_type, uint8_t attacker_side,
-    uint8_t defender_type, uint8_t defender_side, uint8_t flag)
-    : _from(from), _to(to), _attacker_type(attacker_type), _attacker_side(attacker_side),
-    _defender_type(defender_type), _defender_side(defender_side), _flag(flag) { 
+void Move::setFrom(uint8_t newFrom) {
+    this->from = newFrom;
 }
-
-bool operator ==(const Move& left, const Move& right)
-{
-    return left._from == right._from &&
-        left._to == right._to &&
-        left._attacker_type == right._attacker_type &&
-        left._attacker_side == right._attacker_side &&
-        left._defender_type == right._defender_type &&
-        left._defender_side == right._defender_side &&
-        left._flag == right._flag;
+void Move::setTo(uint8_t newTo) {
+    this->to = newTo;
+}
+void Move::setAttackerType(uint8_t newAttackerType) {
+    this->attackerType = newAttackerType;
+}
+void Move::setAttackerSide(uint8_t newAttackerSide) {
+    this->attackerSide = newAttackerSide;
+}
+void Move::setDefenderType(uint8_t newDefenderType) {
+    this->defenderType = newDefenderType;
+}
+void Move::setDefenderSide(uint8_t newDefenderSide) {
+    this->defenderSide = newDefenderSide;
+}
+void Move::setFlag(uint8_t newFlag) {
+    this->flag = newFlag;
+}
+uint8_t Move::getFrom() const {
+    return this->from;
+}
+uint8_t Move::getTo() const {
+    return this->to;
+}
+uint8_t Move::getAttackerType() const {
+    return this->attackerType;
+}
+uint8_t Move::getAttackerSide() const {
+    return this->attackerSide;
+}
+uint8_t Move::getDefenderType() const {
+    return this->defenderType;
+}
+uint8_t Move::getDefenderSide() const {
+    return this->defenderSide;
+}
+uint8_t Move::getFlag() const {
+    return this->flag;
 }

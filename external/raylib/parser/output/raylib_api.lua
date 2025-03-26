@@ -262,13 +262,13 @@ return {
       name = "WHITE",
       type = "COLOR",
       value = "CLITERAL(Color){ 255, 255, 255, 255 }",
-      description = "White"
+      description = "WHITE"
     },
     {
       name = "BLACK",
       type = "COLOR",
       value = "CLITERAL(Color){ 0, 0, 0, 255 }",
-      description = "Black"
+      description = "BLACK"
     },
     {
       name = "BLANK",
@@ -286,7 +286,7 @@ return {
       name = "RAYWHITE",
       type = "COLOR",
       value = "CLITERAL(Color){ 245, 245, 245, 255 }",
-      description = "My own White (raylib logo)"
+      description = "My own WHITE (raylib logo)"
     },
     {
       name = "RL_BOOL_TYPE",
@@ -5547,7 +5547,7 @@ return {
       }
     },
     {
-      name = "GenImageWhiteNoise",
+      name = "GenImageWHITENoise",
       description = "Generate image: white noise",
       returnType = "Image",
       params = {

@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-      Build started 25.03.2025 20:19:51.
+      Build started 26.03.2025 1:40:06.
       
       Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\4.0.0-rc4\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -53,7 +53,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.56
+      Time Elapsed 00:00:00.53
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -79,7 +79,7 @@ events:
       The output was:
       0
       MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-      Build started 25.03.2025 20:19:52.
+      Build started 26.03.2025 1:40:07.
       
       Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\4.0.0-rc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -108,7 +108,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.54
+      Time Elapsed 00:00:00.52
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -127,8 +127,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xzcwdn"
-      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xzcwdn"
+      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-2l36im"
+      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-2l36im"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
@@ -138,40 +138,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xzcwdn'
+        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-2l36im'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f93b2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_240df.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-        Build started 25.03.2025 20:19:53.
+        Build started 26.03.2025 1:40:08.
         
-        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xzcwdn\\cmTC_f93b2.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2l36im\\cmTC_240df.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_f93b2.dir\\Debug\\".
+          Creating directory "cmTC_240df.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xzcwdn\\Debug\\".
-          Creating directory "cmTC_f93b2.dir\\Debug\\cmTC_f93b2.tlog\\".
+          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2l36im\\Debug\\".
+          Creating directory "cmTC_240df.dir\\Debug\\cmTC_240df.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_f93b2.dir\\Debug\\cmTC_f93b2.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_f93b2.dir\\Debug\\cmTC_f93b2.tlog\\unsuccessfulbuild".
+          Creating "cmTC_240df.dir\\Debug\\cmTC_240df.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_240df.dir\\Debug\\cmTC_240df.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f93b2.dir\\Debug\\\\" /Fd"cmTC_f93b2.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_240df.dir\\Debug\\\\" /Fd"cmTC_240df.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.43.34809 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f93b2.dir\\Debug\\\\" /Fd"cmTC_f93b2.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_240df.dir\\Debug\\\\" /Fd"cmTC_240df.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xzcwdn\\Debug\\cmTC_f93b2.exe" /INCREMENTAL /ILK:"cmTC_f93b2.dir\\Debug\\cmTC_f93b2.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xzcwdn/Debug/cmTC_f93b2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xzcwdn/Debug/cmTC_f93b2.lib" /MACHINE:X64  /machine:x64 cmTC_f93b2.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_f93b2.vcxproj -> C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xzcwdn\\Debug\\cmTC_f93b2.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2l36im\\Debug\\cmTC_240df.exe" /INCREMENTAL /ILK:"cmTC_240df.dir\\Debug\\cmTC_240df.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-2l36im/Debug/cmTC_240df.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-2l36im/Debug/cmTC_240df.lib" /MACHINE:X64  /machine:x64 cmTC_240df.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_240df.vcxproj -> C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2l36im\\Debug\\cmTC_240df.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_f93b2.dir\\Debug\\cmTC_f93b2.tlog\\unsuccessfulbuild".
-          Touching "cmTC_f93b2.dir\\Debug\\cmTC_f93b2.tlog\\cmTC_f93b2.lastbuildstate".
-        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xzcwdn\\cmTC_f93b2.vcxproj" (default targets).
+          Deleting file "cmTC_240df.dir\\Debug\\cmTC_240df.tlog\\unsuccessfulbuild".
+          Touching "cmTC_240df.dir\\Debug\\cmTC_240df.tlog\\cmTC_240df.lastbuildstate".
+        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2l36im\\cmTC_240df.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.52
+        Time Elapsed 00:00:00.48
         
       exitCode: 0
   -
@@ -211,8 +211,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-x1x52p"
-      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-x1x52p"
+      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-o348ca"
+      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-o348ca"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
@@ -223,40 +223,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-x1x52p'
+        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-o348ca'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7e45d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_fd394.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-        Build started 25.03.2025 20:19:54.
+        Build started 26.03.2025 1:40:09.
         
-        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x1x52p\\cmTC_7e45d.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o348ca\\cmTC_fd394.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_7e45d.dir\\Debug\\".
+          Creating directory "cmTC_fd394.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x1x52p\\Debug\\".
-          Creating directory "cmTC_7e45d.dir\\Debug\\cmTC_7e45d.tlog\\".
+          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o348ca\\Debug\\".
+          Creating directory "cmTC_fd394.dir\\Debug\\cmTC_fd394.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_7e45d.dir\\Debug\\cmTC_7e45d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_7e45d.dir\\Debug\\cmTC_7e45d.tlog\\unsuccessfulbuild".
+          Creating "cmTC_fd394.dir\\Debug\\cmTC_fd394.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_fd394.dir\\Debug\\cmTC_fd394.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7e45d.dir\\Debug\\\\" /Fd"cmTC_7e45d.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fd394.dir\\Debug\\\\" /Fd"cmTC_fd394.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.43.34809 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7e45d.dir\\Debug\\\\" /Fd"cmTC_7e45d.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fd394.dir\\Debug\\\\" /Fd"cmTC_fd394.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x1x52p\\Debug\\cmTC_7e45d.exe" /INCREMENTAL /ILK:"cmTC_7e45d.dir\\Debug\\cmTC_7e45d.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-x1x52p/Debug/cmTC_7e45d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-x1x52p/Debug/cmTC_7e45d.lib" /MACHINE:X64  /machine:x64 cmTC_7e45d.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_7e45d.vcxproj -> C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x1x52p\\Debug\\cmTC_7e45d.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o348ca\\Debug\\cmTC_fd394.exe" /INCREMENTAL /ILK:"cmTC_fd394.dir\\Debug\\cmTC_fd394.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-o348ca/Debug/cmTC_fd394.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-o348ca/Debug/cmTC_fd394.lib" /MACHINE:X64  /machine:x64 cmTC_fd394.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_fd394.vcxproj -> C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o348ca\\Debug\\cmTC_fd394.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_7e45d.dir\\Debug\\cmTC_7e45d.tlog\\unsuccessfulbuild".
-          Touching "cmTC_7e45d.dir\\Debug\\cmTC_7e45d.tlog\\cmTC_7e45d.lastbuildstate".
-        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x1x52p\\cmTC_7e45d.vcxproj" (default targets).
+          Deleting file "cmTC_fd394.dir\\Debug\\cmTC_fd394.tlog\\unsuccessfulbuild".
+          Touching "cmTC_fd394.dir\\Debug\\cmTC_fd394.tlog\\cmTC_fd394.lastbuildstate".
+        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o348ca\\cmTC_fd394.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.53
+        Time Elapsed 00:00:00.49
         
       exitCode: 0
   -
@@ -299,8 +299,8 @@ events:
     checks:
       - "Performing Test COMPILER_HAS_THOSE_TOGGLES"
     directories:
-      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-rn0ifm"
-      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-rn0ifm"
+      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-lbayiq"
+      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-lbayiq"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
@@ -311,34 +311,34 @@ events:
       variable: "COMPILER_HAS_THOSE_TOGGLES"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-rn0ifm'
+        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-lbayiq'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4d7bd.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b242e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-        Build started 25.03.2025 20:19:55.
+        Build started 26.03.2025 1:40:10.
         
-        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rn0ifm\\cmTC_4d7bd.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lbayiq\\cmTC_b242e.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_4d7bd.dir\\Debug\\".
+          Creating directory "cmTC_b242e.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rn0ifm\\Debug\\".
-          Creating directory "cmTC_4d7bd.dir\\Debug\\cmTC_4d7bd.tlog\\".
+          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lbayiq\\Debug\\".
+          Creating directory "cmTC_b242e.dir\\Debug\\cmTC_b242e.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_4d7bd.dir\\Debug\\cmTC_4d7bd.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_4d7bd.dir\\Debug\\cmTC_4d7bd.tlog\\unsuccessfulbuild".
+          Creating "cmTC_b242e.dir\\Debug\\cmTC_b242e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_b242e.dir\\Debug\\cmTC_b242e.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_THOSE_TOGGLES /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4d7bd.dir\\Debug\\\\" /Fd"cmTC_4d7bd.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue  -Werror=pointer-arith "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rn0ifm\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_THOSE_TOGGLES /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b242e.dir\\Debug\\\\" /Fd"cmTC_b242e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue  -Werror=pointer-arith "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lbayiq\\src.c"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.43.34809 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_THOSE_TOGGLES /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4d7bd.dir\\Debug\\\\" /Fd"cmTC_4d7bd.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue  -Werror=pointer-arith "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rn0ifm\\src.c"
-        cl : ╨║╨╛╨╝╨░╨╜╨┤╨╜╨░╤П ╤Б╤В╤А╨╛╨║╨░  error D8021: ╨╜╨╡╨┤╨╛╨┐╤Г╤Б╤В╨╕╨╝╤Л╨╣ ╤З╨╕╤Б╨╗╨╛╨▓╨╛╨╣ ╨░╤А╨│╤Г╨╝╨╡╨╜╤В "/Werror=pointer-arith" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rn0ifm\\cmTC_4d7bd.vcxproj]
-        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rn0ifm\\cmTC_4d7bd.vcxproj" (default targets) -- FAILED.
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D COMPILER_HAS_THOSE_TOGGLES /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b242e.dir\\Debug\\\\" /Fd"cmTC_b242e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue  -Werror=pointer-arith "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lbayiq\\src.c"
+        cl : ╨║╨╛╨╝╨░╨╜╨┤╨╜╨░╤П ╤Б╤В╤А╨╛╨║╨░  error D8021: ╨╜╨╡╨┤╨╛╨┐╤Г╤Б╤В╨╕╨╝╤Л╨╣ ╤З╨╕╤Б╨╗╨╛╨▓╨╛╨╣ ╨░╤А╨│╤Г╨╝╨╡╨╜╤В "/Werror=pointer-arith" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lbayiq\\cmTC_b242e.vcxproj]
+        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lbayiq\\cmTC_b242e.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rn0ifm\\cmTC_4d7bd.vcxproj" (default target) (1) ->
+        "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lbayiq\\cmTC_b242e.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          cl : ╨║╨╛╨╝╨░╨╜╨┤╨╜╨░╤П ╤Б╤В╤А╨╛╨║╨░  error D8021: ╨╜╨╡╨┤╨╛╨┐╤Г╤Б╤В╨╕╨╝╤Л╨╣ ╤З╨╕╤Б╨╗╨╛╨▓╨╛╨╣ ╨░╤А╨│╤Г╨╝╨╡╨╜╤В "/Werror=pointer-arith" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rn0ifm\\cmTC_4d7bd.vcxproj]
+          cl : ╨║╨╛╨╝╨░╨╜╨┤╨╜╨░╤П ╤Б╤В╤А╨╛╨║╨░  error D8021: ╨╜╨╡╨┤╨╛╨┐╤Г╤Б╤В╨╕╨╝╤Л╨╣ ╤З╨╕╤Б╨╗╨╛╨▓╨╛╨╣ ╨░╤А╨│╤Г╨╝╨╡╨╜╤В "/Werror=pointer-arith" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lbayiq\\cmTC_b242e.vcxproj]
         
             0 Warning(s)
             1 Error(s)
@@ -357,8 +357,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-1q2ccx"
-      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-1q2ccx"
+      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-g0ypd3"
+      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-g0ypd3"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
@@ -369,40 +369,40 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-1q2ccx'
+        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-g0ypd3'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_16a8b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c9aaf.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-        Build started 25.03.2025 20:19:55.
+        Build started 26.03.2025 1:40:11.
         
-        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\cmTC_16a8b.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\cmTC_c9aaf.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_16a8b.dir\\Debug\\".
+          Creating directory "cmTC_c9aaf.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\Debug\\".
-          Creating directory "cmTC_16a8b.dir\\Debug\\cmTC_16a8b.tlog\\".
+          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\Debug\\".
+          Creating directory "cmTC_c9aaf.dir\\Debug\\cmTC_c9aaf.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_16a8b.dir\\Debug\\cmTC_16a8b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_16a8b.dir\\Debug\\cmTC_16a8b.tlog\\unsuccessfulbuild".
+          Creating "cmTC_c9aaf.dir\\Debug\\cmTC_c9aaf.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_c9aaf.dir\\Debug\\cmTC_c9aaf.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_16a8b.dir\\Debug\\\\" /Fd"cmTC_16a8b.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c9aaf.dir\\Debug\\\\" /Fd"cmTC_c9aaf.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\src.c"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.43.34809 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_16a8b.dir\\Debug\\\\" /Fd"cmTC_16a8b.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\src.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c9aaf.dir\\Debug\\\\" /Fd"cmTC_c9aaf.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\src.c"
           src.c
-        C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\src.c(1,10): error C1083: ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╨╡: pthread.h: No such file or directory, [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\cmTC_16a8b.vcxproj]
-        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\cmTC_16a8b.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\src.c(1,10): error C1083: ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╨╡: pthread.h: No such file or directory, [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\cmTC_c9aaf.vcxproj]
+        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\cmTC_c9aaf.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\cmTC_16a8b.vcxproj" (default target) (1) ->
+        "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\cmTC_c9aaf.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\src.c(1,10): error C1083: ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╨╡: pthread.h: No such file or directory, [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1q2ccx\\cmTC_16a8b.vcxproj]
+          C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\src.c(1,10): error C1083: ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╨╡: pthread.h: No such file or directory, [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g0ypd3\\cmTC_c9aaf.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.32
+        Time Elapsed 00:00:00.30
         
       exitCode: 1
   -
@@ -415,8 +415,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xn7fsp"
-      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xn7fsp"
+      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-qh3dig"
+      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-qh3dig"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
@@ -427,42 +427,42 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xn7fsp'
+        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-qh3dig'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_fde01.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d9d0f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-        Build started 25.03.2025 20:19:56.
+        Build started 26.03.2025 1:40:11.
         
-        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\cmTC_fde01.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\cmTC_d9d0f.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_fde01.dir\\Debug\\".
+          Creating directory "cmTC_d9d0f.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\Debug\\".
-          Creating directory "cmTC_fde01.dir\\Debug\\cmTC_fde01.tlog\\".
+          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\Debug\\".
+          Creating directory "cmTC_d9d0f.dir\\Debug\\cmTC_d9d0f.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_fde01.dir\\Debug\\cmTC_fde01.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_fde01.dir\\Debug\\cmTC_fde01.tlog\\unsuccessfulbuild".
+          Creating "cmTC_d9d0f.dir\\Debug\\cmTC_d9d0f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_d9d0f.dir\\Debug\\cmTC_d9d0f.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fde01.dir\\Debug\\\\" /Fd"cmTC_fde01.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d9d0f.dir\\Debug\\\\" /Fd"cmTC_d9d0f.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\CheckFunctionExists.c"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.43.34809 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fde01.dir\\Debug\\\\" /Fd"cmTC_fde01.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\CheckFunctionExists.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d9d0f.dir\\Debug\\\\" /Fd"cmTC_d9d0f.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\Debug\\cmTC_fde01.exe" /INCREMENTAL /ILK:"cmTC_fde01.dir\\Debug\\cmTC_fde01.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xn7fsp/Debug/cmTC_fde01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-xn7fsp/Debug/cmTC_fde01.lib" /MACHINE:X64  /machine:x64 cmTC_fde01.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthreads.lib" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\cmTC_fde01.vcxproj]
-        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\cmTC_fde01.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\Debug\\cmTC_d9d0f.exe" /INCREMENTAL /ILK:"cmTC_d9d0f.dir\\Debug\\cmTC_d9d0f.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-qh3dig/Debug/cmTC_d9d0f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-qh3dig/Debug/cmTC_d9d0f.lib" /MACHINE:X64  /machine:x64 cmTC_d9d0f.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthreads.lib" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\cmTC_d9d0f.vcxproj]
+        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\cmTC_d9d0f.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\cmTC_fde01.vcxproj" (default target) (1) ->
+        "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\cmTC_d9d0f.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthreads.lib" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xn7fsp\\cmTC_fde01.vcxproj]
+          LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthreads.lib" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-qh3dig\\cmTC_d9d0f.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.42
+        Time Elapsed 00:00:00.39
         
       exitCode: 1
   -
@@ -475,8 +475,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-oq3spq"
-      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-oq3spq"
+      source: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-0yaui0"
+      binary: "C:/Users/Ruslan/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-0yaui0"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Ob0 /Od /RTC1"
@@ -487,42 +487,42 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-oq3spq'
+        Change Dir: 'C:/Users/Ruslan/OneDrive - kpi.ua/КПІ/Навчання/Курсові/2 семестр(Шаховий тренажер)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-0yaui0'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_49169.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3329b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.13.19+0d9f5a35a for .NET Framework
-        Build started 25.03.2025 20:19:57.
+        Build started 26.03.2025 1:40:12.
         
-        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\cmTC_49169.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\cmTC_3329b.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_49169.dir\\Debug\\".
+          Creating directory "cmTC_3329b.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\Debug\\".
-          Creating directory "cmTC_49169.dir\\Debug\\cmTC_49169.tlog\\".
+          Creating directory "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\Debug\\".
+          Creating directory "cmTC_3329b.dir\\Debug\\cmTC_3329b.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_49169.dir\\Debug\\cmTC_49169.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_49169.dir\\Debug\\cmTC_49169.tlog\\unsuccessfulbuild".
+          Creating "cmTC_3329b.dir\\Debug\\cmTC_3329b.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_3329b.dir\\Debug\\cmTC_3329b.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_49169.dir\\Debug\\\\" /Fd"cmTC_49169.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3329b.dir\\Debug\\\\" /Fd"cmTC_3329b.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\CheckFunctionExists.c"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.43.34809 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_49169.dir\\Debug\\\\" /Fd"cmTC_49169.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\CheckFunctionExists.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3329b.dir\\Debug\\\\" /Fd"cmTC_3329b.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\Debug\\cmTC_49169.exe" /INCREMENTAL /ILK:"cmTC_49169.dir\\Debug\\cmTC_49169.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-oq3spq/Debug/cmTC_49169.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-oq3spq/Debug/cmTC_49169.lib" /MACHINE:X64  /machine:x64 cmTC_49169.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthread.lib" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\cmTC_49169.vcxproj]
-        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\cmTC_49169.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\Debug\\cmTC_3329b.exe" /INCREMENTAL /ILK:"cmTC_3329b.dir\\Debug\\cmTC_3329b.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-0yaui0/Debug/cmTC_3329b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Ruslan/OneDrive - kpi.ua/╨Ъ╨Я╨Ж/╨Э╨░╨▓╤З╨░╨╜╨╜╤П/╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц/2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)/Chess_Sim/build/CMakeFiles/CMakeScratch/TryCompile-0yaui0/Debug/cmTC_3329b.lib" /MACHINE:X64  /machine:x64 cmTC_3329b.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthread.lib" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\cmTC_3329b.vcxproj]
+        Done Building Project "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\cmTC_3329b.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\cmTC_49169.vcxproj" (default target) (1) ->
+        "C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\cmTC_3329b.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthread.lib" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oq3spq\\cmTC_49169.vcxproj]
+          LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthread.lib" [C:\\Users\\Ruslan\\OneDrive - kpi.ua\\╨Ъ╨Я╨Ж\\╨Э╨░╨▓╤З╨░╨╜╨╜╤П\\╨Ъ╤Г╤А╤Б╨╛╨▓╤Ц\\2 ╤Б╨╡╨╝╨╡╤Б╤В╤А(╨и╨░╤Е╨╛╨▓╨╕╨╣ ╤В╤А╨╡╨╜╨░╨╢╨╡╤А)\\Chess_Sim\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0yaui0\\cmTC_3329b.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.42
+        Time Elapsed 00:00:00.40
         
       exitCode: 1
 ...
