@@ -21,29 +21,39 @@ enum GameState
 	GAMEPLAY
 };
 
-void handlePawnPromotion(Move& move) {
+void handlePawnPromotion(Move& move) 
+{
 	// Проверка на превращение пешки
-	if ((move.getTo() == 0 || move.getTo() == 7) && move.getAttackerType() == PIECE::PAWN) {
-		std::string pieceChoice;
-		std::cout << "Pawn reached the last row! Choose a promotion piece (queen, rook, knight, bishop): ";
-		std::cin >> pieceChoice;
+	uint8_t to = move.getTo();
+	if (move.getAttackerType() == PIECE::PAWN) 
+	{
+		if ((move.getAttackerSide() == SIDE::White && to >= 56) ||
+			(move.getAttackerSide() == SIDE::Black && to <= 7))
+		{
+			std::string pieceChoice;
+			std::cout << "Pawn reached the last row! Choose a promotion piece (queen, rook, knight, bishop): ";
+			std::cin >> pieceChoice;
 
-		// Установка флага для выбранной фигуры
-		if (pieceChoice == "queen") {
-			move.setFlag(Move::FLAG::PROMOTE_TO_QUEEN);
-		}
-		else if (pieceChoice == "rook") {
-			move.setFlag(Move::FLAG::PROMOTE_TO_ROOK);
-		}
-		else if (pieceChoice == "knight") {
-			move.setFlag(Move::FLAG::PROMOTE_TO_KNIGHT);
-		}
-		else if (pieceChoice == "bishop") {
-			move.setFlag(Move::FLAG::PROMOTE_TO_BISHOP);
-		}
-		else {
-			std::cout << "Invalid choice, defaulting to queen.\n";
-			move.setFlag(Move::FLAG::PROMOTE_TO_QUEEN);
+			if (pieceChoice == "queen") {
+				std::cout << "PROMOTE TO QUEEN\n";
+				move.setFlag(Move::FLAG::PROMOTE_TO_QUEEN);
+			}
+			else if (pieceChoice == "rook") {
+				std::cout << "PROMOTE TO ROOK\n";
+				move.setFlag(Move::FLAG::PROMOTE_TO_ROOK);
+			}
+			else if (pieceChoice == "knight") {
+				std::cout << "PROMOTE TO KNIGHT\n";
+				move.setFlag(Move::FLAG::PROMOTE_TO_KNIGHT);
+			}
+			else if (pieceChoice == "bishop") {
+				std::cout << "PROMOTE TO BISHOP\n";
+				move.setFlag(Move::FLAG::PROMOTE_TO_BISHOP);
+			}
+			else {
+				std::cout << "Invalid choice, defaulting to queen.\n";
+				move.setFlag(Move::FLAG::PROMOTE_TO_QUEEN);
+			}
 		}
 	}
 }
@@ -56,6 +66,54 @@ static int8_t convertToIndex(const std::string& input) {
 	if (file < 'a' || file > 'h' || rank < '1' || rank > '8') return -1;
 
 	return (rank - '1') * 8 + (file - 'a');
+}
+
+static std::string sideToMove(float moveCtr)
+{
+	return (moveCtr == static_cast<int>(moveCtr)) ? "White" : "Black";
+}
+
+bool checkVictory(MoveList& moves, SIDE side) {
+	if (!moves.hasMoves()) {
+		std::cout << (side == SIDE::White ? "BLACK WON" : "WHITE WON") << "\n";
+		return true;
+	}
+	return false;
+}
+bool processMove(Position& position, MoveList& moves, std::string& from, std::string& to, SIDE side)
+{
+	
+	int fromIndex = convertToIndex(from);
+	int toIndex = convertToIndex(to);
+
+	if (fromIndex == -1 || toIndex == -1) {
+		std::cout << "INVALID.\n";
+		return false;
+	}
+
+	moves = LegalMoveGen::generate(position, side);
+	bool validMove = false;
+
+	if (!moves.hasMoves()) {
+		std::cout << (side == SIDE::White ? "BLACK WON" : "WHITE WON") << "\n";
+		return false;
+	}
+
+	for (int i = 0; i < moves.getSize(); ++i) {
+		if (moves[i].getFrom() == fromIndex && moves[i].getTo() == toIndex) {
+			handlePawnPromotion(moves[i]);
+			position.move(moves[i]);
+			validMove = true;
+			break;
+		}
+	}
+	std::cout << position;
+	if (!validMove) {
+		std::cout << "Invalid move.\n";
+		return false;
+	}
+	
+	return true;
 }
 
 int main()
@@ -71,124 +129,73 @@ int main()
 	Button startGameButton(screenWidth / 2, screenHeight / 2 - 25, 150, 50, "Start Game");
 	Button exitGameButton(screenWidth / 2, screenHeight / 2 + 25, 150, 50, "Exit");
 	Pieces pieces("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
-	Position position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR", Position::NONE, true, true, true, true, 0.0f);
+	Position position("rnbqkbnr/Pppppppp/8/8/8/8/pPPPPPPP/RNBQKBNR", Position::NONE, true, true, true, true, 0.0f);
 
+
+	MoveList moves = LegalMoveGen::generate(position, SIDE::Black);
 	while (true) {
-
 		std::cout << position;
-		if (fmod(position.moveCtr, 1.0f) == 0.0f) {
+		if (sideToMove(position.moveCtr) == "White") {
 			std::string from, to;
-			std::cout << "Enter move(e2 e4): ";
+			std::cout << "Enter move (White): ";
 			std::cin >> from >> to;
 
-			int fromIndex = convertToIndex(from);
-			int toIndex = convertToIndex(to);
-
-			if (fromIndex == -1 || toIndex == -1) {
-				std::cout << "INVALID.\n";
+			if (!processMove(position, moves, from, to, SIDE::White)) {
 				continue;
 			}
+			else {
+				std::string from, to;
+				std::cout << "Enter move (Black): ";
+				std::cin >> from >> to;
 
-			MoveList moves = LegalMoveGen::generate(position, SIDE::White);
-			bool validMove = false;
-
-			for (int i = 0; i < moves.getSize(); ++i) {
-				if (moves[i].getFrom() == fromIndex && moves[i].getTo() == toIndex) {
-
-					handlePawnPromotion(moves[i]);
-
-
-					position.move(moves[i]);
-					validMove = true;
-					break;
+				if (!processMove(position, moves, from, to, SIDE::Black)) {
+					continue;
 				}
 			}
 
-			if (!validMove) {
-				std::cout << "invalid move.\n";
-				continue;
-			}
-
-			// Ход черных (ИИ)
-			//Move aiMove = AI::getBestMove(position, SIDE::, 2000);
-			//position.move(aiMove);
 		}
-		else
-		{
-			std::string from, to;
-			std::cout << "Enter move (for Black, e7 e5): ";
-			std::cin >> from >> to;
 
-			int fromIndex = convertToIndex(from);
-			int toIndex = convertToIndex(to);
-
-			if (fromIndex == -1 || toIndex == -1) {
-				std::cout << "INVALID.\n";
-				continue;
-			}
-
-			MoveList moves = LegalMoveGen::generate(position, SIDE::Black);
-			bool validMove = false;
-
-			for (int i = 0; i < moves.getSize(); ++i) {
-				if (moves[i].getFrom() == fromIndex && moves[i].getTo() == toIndex) {
-
-					handlePawnPromotion(moves[i]);
-
-					position.move(moves[i]);
-					validMove = true;
-					break;
-				}
-			}
-
-			if (!validMove) {
-				std::cout << "Invalid move.\n";
-				continue;
-			}
-		}
+		//SetTargetFPS(60);
+		//int i = 0;
+		//while (!WindowShouldClose())
+		//{
+		//	BeginDrawing();
+		//	ClearBackground(BLACK);
+		//	switch (gameState)
+		//	{
+		//	case MAIN_MENU:
+		//		
+		//		mainMenu.DrawMenu();
+		//		mainMenu.Update();
+		//		
+		//		DrawText(timer.GetCurrentTime().c_str(), 10, 10, 20, WHITE);
+		//		if (mainMenu.shouldExitGame())
+		//		{
+		//			CloseWindow();
+		//		}
+		//		else if (mainMenu.shouldStartGame())
+		//		{
+		//			gameState = GAMEPLAY;
+		//		}
+		//		else if (mainMenu.isSettingsMenu())
+		//		{
+		//			gameState = SETTINGS;
+		//		}
+		//		
+		//		break;
+		//	case SETTINGS:
+		//		DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 20), 0, 20, WHITE);//temporary
+		//		break;
+		//	case GAMEPLAY:
+		//		DrawText("CHESS", screenWidth / 2 - MeasureText("CHESS", 20), 0, 20, WHITE);//temporary
+		//		break;
+		//	default:
+		//		break;
+		//	}
+		//	EndDrawing();
+		//}
+		//cout << GetScreenWidth() << endl;
 		
 	}
-
-	//SetTargetFPS(60);
-	//int i = 0;
-	//while (!WindowShouldClose())
-	//{
-	//	BeginDrawing();
-	//	ClearBackground(BLACK);
-	//	switch (gameState)
-	//	{
-	//	case MAIN_MENU:
-	//		
-	//		mainMenu.DrawMenu();
-	//		mainMenu.Update();
-	//		
-	//		DrawText(timer.GetCurrentTime().c_str(), 10, 10, 20, WHITE);
-	//		if (mainMenu.shouldExitGame())
-	//		{
-	//			CloseWindow();
-	//		}
-	//		else if (mainMenu.shouldStartGame())
-	//		{
-	//			gameState = GAMEPLAY;
-	//		}
-	//		else if (mainMenu.isSettingsMenu())
-	//		{
-	//			gameState = SETTINGS;
-	//		}
-	//		
-	//		break;
-	//	case SETTINGS:
-	//		DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 20), 0, 20, WHITE);//temporary
-	//		break;
-	//	case GAMEPLAY:
-	//		DrawText("CHESS", screenWidth / 2 - MeasureText("CHESS", 20), 0, 20, WHITE);//temporary
-	//		break;
-	//	default:
-	//		break;
-	//	}
-	//	EndDrawing();
-	//}
-	//cout << GetScreenWidth() << endl;
 	return 0;
 }
-

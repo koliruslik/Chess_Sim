@@ -53,62 +53,70 @@ Pieces::Pieces(const std::string& shortFen) {
 
     this->updateBitboards();
 }
-std::ostream &operator<<(std::ostream &ostream, Pieces pieces) {
-    for (int8_t y = 7; y >= 0; y = y - 1) {
-        for (uint8_t x = 0; x < 8; x = x + 1) {
-            ostream << "|  ";
+std::ostream& operator<<(std::ostream& ostream, Pieces pieces) {
+    // Выводим заголовок с номерами столбцов
+    
+    ostream << "  +---+---+---+---+---+---+---+---+\n";
 
+    // Выводим доску
+    for (int8_t y = 7; y >= 0; y = y - 1) {
+        ostream << y + 1 << " |";  // Номера рядков 1-8
+
+        for (uint8_t x = 0; x < 8; x = x + 1) {
             uint8_t index = y * 8 + x;
 
             if (BOp::getBit(pieces.pieceBitboards[SIDE::White][PIECE::PAWN], index)) {
-                ostream << "P";
+                ostream << " P ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::White][PIECE::KNIGHT], index)) {
-                ostream << "N";
+                ostream << " N ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::White][PIECE::BISHOP], index)) {
-                ostream << "B";
+                ostream << " B ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::White][PIECE::ROOK], index)) {
-                ostream << "R";
+                ostream << " R ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::White][PIECE::QUEEN], index)) {
-                ostream << "Q";
+                ostream << " Q ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::White][PIECE::KING], index)) {
-                ostream << "K";
+                ostream << " K ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::Black][PIECE::PAWN], index)) {
-                ostream << "p";
+                ostream << " p ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::Black][PIECE::KNIGHT], index)) {
-                ostream << "n";
+                ostream << " n ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::Black][PIECE::BISHOP], index)) {
-                ostream << "b";
+                ostream << " b ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::Black][PIECE::ROOK], index)) {
-                ostream << "r";
+                ostream << " r ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::Black][PIECE::QUEEN], index)) {
-                ostream << "q";
+                ostream << " q ";
             }
             else if (BOp::getBit(pieces.pieceBitboards[SIDE::Black][PIECE::KING], index)) {
-                ostream << "k";
+                ostream << " k ";
             }
             else {
-                ostream << " ";
+                ostream << "   "; 
             }
 
-            ostream << " ";
+            ostream << "|";  
         }
-        ostream << "|";
+
+        ostream << "\n";  
+
         if (y != 0) {
-            ostream << "\n";
+            ostream << "  +---+---+---+---+---+---+---+---+\n"; 
         }
     }
-    ostream << "\n";
 
+    ostream << "  +---+---+---+---+---+---+---+---+\n";
+    ostream << "    a   b   c   d   e   f   g   h\n";
     return ostream;
 }
 void Pieces::updateBitboards() {

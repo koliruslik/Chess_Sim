@@ -26,6 +26,8 @@ public:
     [[nodiscard]] uint8_t getDefenderSide() const;
     [[nodiscard]] uint8_t getFlag() const;
 
+    bool operator==(const Move& other) const;
+
     enum FLAG {
         DEFAULT,
 

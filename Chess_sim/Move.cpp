@@ -14,44 +14,54 @@ Move::Move(uint8_t from, uint8_t to, uint8_t attackerType, uint8_t attackerSide,
     this->flag = flag;
 }
 void Move::setFrom(uint8_t newFrom) {
-    this->from = newFrom;
+    from = newFrom;
 }
 void Move::setTo(uint8_t newTo) {
-    this->to = newTo;
+    to = newTo;
 }
 void Move::setAttackerType(uint8_t newAttackerType) {
-    this->attackerType = newAttackerType;
+    attackerType = newAttackerType;
 }
 void Move::setAttackerSide(uint8_t newAttackerSide) {
-    this->attackerSide = newAttackerSide;
+    attackerSide = newAttackerSide;
 }
 void Move::setDefenderType(uint8_t newDefenderType) {
-    this->defenderType = newDefenderType;
+    defenderType = newDefenderType;
 }
 void Move::setDefenderSide(uint8_t newDefenderSide) {
-    this->defenderSide = newDefenderSide;
+    defenderSide = newDefenderSide;
 }
 void Move::setFlag(uint8_t newFlag) {
-    this->flag = newFlag;
+    flag = newFlag;
 }
 uint8_t Move::getFrom() const {
-    return this->from;
+    return from;
 }
 uint8_t Move::getTo() const {
-    return this->to;
+    return to;
 }
 uint8_t Move::getAttackerType() const {
-    return this->attackerType;
+    return attackerType;
 }
 uint8_t Move::getAttackerSide() const {
-    return this->attackerSide;
+    return attackerSide;
 }
 uint8_t Move::getDefenderType() const {
-    return this->defenderType;
+    return defenderType;
 }
 uint8_t Move::getDefenderSide() const {
-    return this->defenderSide;
+    return defenderSide;
 }
 uint8_t Move::getFlag() const {
-    return this->flag;
+    return flag;
+}
+
+bool Move::operator==(const Move& other) const {
+	return from == other.from &&
+		to == other.to &&
+		attackerType == other.attackerType &&
+		attackerSide == other.attackerSide &&
+		defenderType == other.defenderType &&
+		defenderSide == other.defenderSide &&
+		flag == other.flag;
 }
