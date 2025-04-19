@@ -80,24 +80,18 @@ bool checkVictory(MoveList& moves, SIDE side) {
 	}
 	return false;
 }
-bool processMove(Position& position, MoveList& moves, std::string& from, std::string& to, SIDE side)
+int processMove(Position& position, MoveList& moves, std::string& from, std::string& to, SIDE side)
 {
-	
 	int fromIndex = convertToIndex(from);
 	int toIndex = convertToIndex(to);
 
 	if (fromIndex == -1 || toIndex == -1) {
 		std::cout << "INVALID.\n";
-		return false;
+		return -1;
 	}
 
 	moves = LegalMoveGen::generate(position, side);
 	bool validMove = false;
-
-	if (!moves.hasMoves()) {
-		std::cout << (side == SIDE::White ? "BLACK WON" : "WHITE WON") << "\n";
-		return false;
-	}
 
 	for (int i = 0; i < moves.getSize(); ++i) {
 		if (moves[i].getFrom() == fromIndex && moves[i].getTo() == toIndex) {
@@ -107,16 +101,25 @@ bool processMove(Position& position, MoveList& moves, std::string& from, std::st
 			break;
 		}
 	}
-	std::cout << position;
+
 	if (!validMove) {
 		std::cout << "Invalid move.\n";
-		return false;
+		return -1;
+	}
+
+	// После хода — проверка на отсутствие ходов у соперника
+	SIDE opponent = (side == SIDE::White) ? SIDE::Black : SIDE::White;
+	MoveList opponentMoves = LegalMoveGen::generate(position, opponent);
+	if (!opponentMoves.hasMoves()) {
+		std::cout << position;
+		std::cout << (side == SIDE::White ? "\n\t-----WHITE WON-----\n" : "\n\t-----BLACK WON-----\n");
+		return 0;
 	}
 	
-	return true;
+	return 1; // Ход успешен, игра продолжается
 }
 
-int main()
+int main()//f2 f3 e7 e5 g2 g4 d8 h4
 {
 	//LegalMoveGenTester::runTests();
 	const int screenWidth = 1920;
@@ -135,24 +138,19 @@ int main()
 	MoveList moves = LegalMoveGen::generate(position, SIDE::Black);
 	while (true) {
 		std::cout << position;
-		if (sideToMove(position.moveCtr) == "White") {
-			std::string from, to;
-			std::cout << "Enter move (White): ";
-			std::cin >> from >> to;
 
-			if (!processMove(position, moves, from, to, SIDE::White)) {
-				continue;
-			}
-			else {
-				std::string from, to;
-				std::cout << "Enter move (Black): ";
-				std::cin >> from >> to;
+		std::string from, to;
+		SIDE side = (sideToMove(position.moveCtr) == "White") ? SIDE::White : SIDE::Black;
+		std::cout << "\nEnter move (" << (side == SIDE::White ? "White" : "Black") << "): ";
+		std::cin >> from >> to;
 
-				if (!processMove(position, moves, from, to, SIDE::Black)) {
-					continue;
-				}
-			}
+		int game = processMove(position, moves, from, to, side);
 
+		if (game == -1 || game == 1) {
+			continue;
+		}
+		else if (game == 0) {
+			break;
 		}
 
 		//SetTargetFPS(60);

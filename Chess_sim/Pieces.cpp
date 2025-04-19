@@ -56,7 +56,7 @@ Pieces::Pieces(const std::string& shortFen) {
 std::ostream& operator<<(std::ostream& ostream, Pieces pieces) {
     // Выводим заголовок с номерами столбцов
     
-    ostream << "  +---+---+---+---+---+---+---+---+\n";
+    ostream << "\n  +---+---+---+---+---+---+---+---+\n";
 
     // Выводим доску
     for (int8_t y = 7; y >= 0; y = y - 1) {
