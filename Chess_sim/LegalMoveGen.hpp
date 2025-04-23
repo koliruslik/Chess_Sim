@@ -16,4 +16,13 @@ public:
     
     static void addEnPassantCaptures(Pieces pieces, uint8_t side, uint8_t enPassant, MoveList &moves);
     static void addCastlingMoves(Pieces pieces, uint8_t side, bool lCastling, bool sCastling, MoveList &moves);
+
+    static MoveList generateForSquare(const Position& position, uint8_t side, uint8_t square, bool onlyCaptures = false);
+private:
+    static void generatePawnMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves);
+    static void generateKnightMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves);
+    static void generateBishopMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves);
+    static void generateRookMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves);
+    static void generateQueenMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves);
+    static void generateKingMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves);
 };

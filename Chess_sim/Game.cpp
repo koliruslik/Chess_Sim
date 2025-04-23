@@ -2,16 +2,15 @@
 
 Game::Game(Position position)
 {
+	selectedSquare = -1;
 	this->position = position;
 	loadPieceTextures();
 }
 
-int Game::processMove(Position& position, MoveList& moves, std::string& from, std::string& to, SIDE side)
+int Game::processMove(Position& position, MoveList& moves, uint8_t from, uint8_t to,uint8_t side)
 {
-	int fromIndex = convertToIndex(from);
-	int toIndex = convertToIndex(to);
 
-	if (fromIndex == -1 || toIndex == -1) {
+	if (from == -1 || to == -1) {
 		std::cout << "INVALID.\n";
 		return -1;
 	}
@@ -20,7 +19,7 @@ int Game::processMove(Position& position, MoveList& moves, std::string& from, st
 	bool validMove = false;
 
 	for (int i = 0; i < moves.getSize(); ++i) {
-		if (moves[i].getFrom() == fromIndex && moves[i].getTo() == toIndex) {
+		if (moves[i].getFrom() == from && moves[i].getTo() == to) {
 			handlePawnPromotion(moves[i]);
 			position.move(moves[i]);
 			validMove = true;
@@ -39,12 +38,35 @@ int Game::processMove(Position& position, MoveList& moves, std::string& from, st
 	return 1;
 }
 
+int Game::processMoveWithClick(Vector2 mousePos)
+{
+	int col = mousePos.x / squareSize;
+	int row = boardSize - (mousePos.y / squareSize);  
+	int clickedSquare = row * 8 + col;
+
+	MoveList moves = LegalMoveGen::generate(position, position.getPieceSideAt(selectedSquare), false);
+	for (int i = 0; i < moves.getSize(); ++i)
+	{
+		const uint8_t from = moves[i].getFrom();
+		const uint8_t to = moves[i].getTo();
+		if (from == selectedSquare && to == clickedSquare)
+		{
+			processMove(position, moves, from, to, position.getSideToMove());
+			selectedSquare = -1;
+			isSelected = false;
+			return 1;
+		}
+	}
+	return -1;
+}
+
 int Game::processGame()
 {
 
 	drawBoard();
-	EndDrawing();
-	MoveList moves = LegalMoveGen::generate(position, (position.getSideToMove() == "White") ? SIDE::White : SIDE::Black);
+	update();
+	//EndDrawing();
+	/*MoveList moves = LegalMoveGen::generate(position, (position.getSideToMove() == "White") ? SIDE::White : SIDE::Black);
 	std::cout << position;
 
 	std::string from, to;
@@ -68,7 +90,8 @@ int Game::processGame()
 	else if (choice == 'q') 
 	{
 		return -1;
-	}
+	}*/
+	return 1;
 }
 
 void Game::handlePawnPromotion(Move& move)
@@ -107,28 +130,47 @@ void Game::handlePawnPromotion(Move& move)
 	}
 }
 
-bool Game::checkVictory(SIDE side) 
+bool Game::checkVictory(uint8_t side) 
 {
+	bool isCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(position.getSideToMove(), PIECE::KING)), position.getSideToMove());
+	bool fiftymoves = position.fiftyMovesRuleDraw();
+	bool threefold = position.threefoldRepetitionDraw();
 	SIDE opponent = (side == SIDE::White) ? SIDE::Black : SIDE::White;
 	MoveList opponentMoves = LegalMoveGen::generate(position, opponent);
-	if (!opponentMoves.hasMoves()) 
+	if (!opponentMoves.hasMoves() && isCheck) 
 	{
 		std::cout << position;
 		std::cout << (side == SIDE::White ? "\n\t-----WHITE WON-----\n" : "\n\t-----BLACK WON-----\n");
 		return 1;
 	}
+	else if ((!opponentMoves.hasMoves() && !isCheck) || fiftymoves || threefold)
+	{
+		std::cout << position;
+		std::cout << "\t-----DRAW-----\n";
+		return 1;
+	}
 	return 0;
 }
 
-int8_t Game::convertToIndex(const std::string& input) 
+uint8_t Game::squareToIndex(const std::string& square) const
 {
-	if (input.length() != 2) return -1;
-	char file = input[0];
-	char rank = input[1];
+	if (square.length() != 2) return -1;
+	char file = square[0];
+	char rank = square[1];
 
 	if (file < 'a' || file > 'h' || rank < '1' || rank > '8') return -1;
 
 	return (rank - '1') * 8 + (file - 'a');
+}
+
+std::string Game::indexToSquare(uint8_t index) const
+{
+	if (index < 0 || index > 63) return "??";
+
+	char file = 'a' + (index % 8);
+	char rank = '1' + (index / 8);
+
+	return std::string(1, file) + std::string(1, rank);
 }
 
 void Game::loadPieceTextures()
@@ -185,7 +227,7 @@ void Game::drawBoard()
 	}
 
 	drawPieces();
-
+	drawMask();
 }
 
 void Game::drawPieces()
@@ -237,16 +279,13 @@ void Game::drawPieces()
 			float xOffset = offset.x;
 			float yOffset = offset.y; 
 
-			// Создаем прямоугольники для отрисовки
-			Rectangle source = { 0, 0, tex.width, tex.height }; // Вся текстура
-			Rectangle dest = { col * squareSize + xOffset, row * squareSize + yOffset, newWidth, newHeight }; // Позиция и размер на клетке
+			Rectangle source = { 0, 0, tex.width, tex.height }; 
+			Rectangle dest = { col * squareSize + xOffset, row * squareSize + yOffset, newWidth, newHeight }; 
 
-			// Поворот 0 градусов, цвет по умолчанию (белый)
-			Vector2 origin = { newWidth / 2.0f, newHeight / 2.0f }; // Центр фигуры для поворота
-			float rotation = 0.0f; // Без поворота
-			Color tint = WHITE; // Цвет без изменений
+			Vector2 origin = { newWidth / 2.0f, newHeight / 2.0f };
+			float rotation = 0.0f; 
+			Color tint = WHITE; 
 
-			// Отрисовываем фигуру
 			DrawTexturePro(tex, source, dest, origin, rotation, tint);
 			col++;
 			
@@ -255,10 +294,102 @@ void Game::drawPieces()
 	}
 }
 
+void Game::drawMask()
+{
+	if (selectedSquare == -1)
+	{
+		return;
+	}
+	std::cout << "selected square: " << selectedSquare << std::endl;
+	MoveList moves = LegalMoveGen::generate(position, position.getPieceSideAt(selectedSquare), false);
+	std::vector<std::string> squares;
+	for (int i = 0; i < moves.getSize(); ++i)
+	{
+		int from = moves[i].getFrom();
+		if (from != selectedSquare || position.getPieceSideAt(from) != position.getSideToMove())
+		{
+			continue;
+		}
+		int to = moves[i].getTo();
+		std::cout << "to " << to << std::endl;
+		int col = to % 8;
+		int row = 7 - (to / 8); 
+		std::cout << "possible move: " << indexToSquare(to) << std::endl;
+		DrawRectangle(col * squareSize, row * squareSize, squareSize, squareSize, BLUE);
+	}
+
+}
 Vector2 Game::centerPiece(float pieceSize, float texWidth, float texHeight) const
 {
-	const float xOffset = squareSize/2;  // Смещение по X
-	const float yOffset = squareSize/2 - 5; // Смещение по Y
+	const float xOffset = squareSize/2;
+	const float yOffset = squareSize/2 - 5; 
 
-	return { xOffset, yOffset }; // Возвращаем смещение для центрирования
+	return { xOffset, yOffset };
+}
+
+
+
+void Game::selectPiece(Vector2 mousePos)
+{
+	int col = mousePos.x / squareSize;
+	int row = boardSize - (mousePos.y / squareSize);
+
+	if (col >= 0 && col < boardSize && row >= 0 && row < boardSize)
+	{
+		std::string square = std::string(1, char('a' + col)) + std::string(1, char('1' + row));
+		int squareIndex = squareToIndex(square);
+		std::cout << "Clicked square: " << square << " (" << squareIndex << ")" << std::endl;
+
+		
+		if (position.getPieceSideAt(squareIndex) == position.getSideToMove() && position.getPieceTypeAt(squareIndex, position.getSideToMove()) != Position::NONE)
+		{
+			
+			if (selectedSquare == squareIndex)
+			{
+				std::cout << "Deselecting piece at: " << square << std::endl;
+				selectedSquare = -1; 
+				isSelected = false;  
+			}
+			else
+			{
+				std::cout << "Selected piece at: " << square << std::endl;
+				selectedSquare = squareIndex;  
+				isSelected = true;             
+			}
+		}
+		else
+		{
+			
+			std::cout << "Invalid selection or opponent's piece. Deselecting.\n";
+			selectedSquare = -1; 
+			isSelected = false;  
+		}
+	}
+	else
+	{
+		
+		std::cout << "Invalid selection. Deselecting.\n";
+		selectedSquare = -1;  
+		isSelected = false;  
+	}
+}
+
+void Game::update()
+{
+	Vector2 mousePos = GetMousePosition();
+
+	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))  
+	{
+		
+		if (isSelected)
+		{
+			if (processMoveWithClick(mousePos) == 1) return;
+			clickCount = 0;
+			selectPiece(mousePos);
+		}
+		else
+		{
+			selectPiece(mousePos);
+		}
+	}
 }

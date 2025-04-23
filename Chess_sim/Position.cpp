@@ -213,8 +213,10 @@ void Position::updateFiftyMovesCtr(bool breakEvent) {
         this->fiftyMovesCtr = this->fiftyMovesCtr + 0.5f;
     }
 }
-uint8_t Position::getPieceTypeAt(uint8_t square, uint8_t side) const {
-    for (uint8_t type = PIECE::PAWN; type <= PIECE::KING; type++) {
+uint8_t Position::getPieceTypeAt(uint8_t square, uint8_t side) const 
+{
+    for (uint8_t type = PIECE::PAWN; type <= PIECE::KING; type++) 
+    {
         if (BOp::getBit(this->pieces.getPieceBitboard(side, type), square)) {
             return type;
         }
@@ -222,9 +224,20 @@ uint8_t Position::getPieceTypeAt(uint8_t square, uint8_t side) const {
     return Position::NONE;
 }
 
-std::string Position::getSideToMove()
+uint8_t Position::getPieceSideAt(uint8_t square) const {
+    for (uint8_t side = SIDE::White; side <= SIDE::Black; side++) {
+        for (uint8_t type = PIECE::PAWN; type <= PIECE::KING; type++) {
+            if (BOp::getBit(this->pieces.getPieceBitboard(side, type), square)) {
+                return side;
+            }
+        }
+    }
+    return SIDE::None;
+}
+
+uint8_t Position::getSideToMove()
 {
-    return (moveCtr == static_cast<int>(moveCtr)) ? "White" : "Black";
+    return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::White : SIDE::Black;
 }
 
 std::string Position::toFEN() const {

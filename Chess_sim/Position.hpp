@@ -30,7 +30,8 @@ public:
     [[nodiscard]] bool threefoldRepetitionDraw() const;
 
     uint8_t getPieceTypeAt(uint8_t square, uint8_t side) const;
-	std::string getSideToMove();
+    uint8_t getPieceSideAt(uint8_t square) const;
+    uint8_t getSideToMove();
 	float getMoveCtr() const { return moveCtr; }
     std::string toFEN() const;
     
