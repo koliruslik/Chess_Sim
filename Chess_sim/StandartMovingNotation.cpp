@@ -21,7 +21,7 @@ StandartMovingNotation::StandartMovingNotation(const std::string& notatedMove, P
         pos = 1;
     }
 
-    if (std::fmod(position.moveCtr, 1.0f) == 0.0f) {
+    if (std::fmod(position.getMoveCtr(), 1.0f) == 0.0f) {
         attackerSide = SIDE::White;
         defenderSide = SIDE::Black;
     }

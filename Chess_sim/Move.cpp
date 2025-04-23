@@ -65,3 +65,4 @@ bool Move::operator==(const Move& other) const {
 		defenderSide == other.defenderSide &&
 		flag == other.flag;
 }
+

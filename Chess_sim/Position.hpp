@@ -2,6 +2,7 @@
 #include <cmath>
 #include "RepetitionHistory.hpp"
 #include "Move.hpp"
+#include <string>
 
 
 #pragma once
@@ -29,11 +30,11 @@ public:
     [[nodiscard]] bool threefoldRepetitionDraw() const;
 
     uint8_t getPieceTypeAt(uint8_t square, uint8_t side) const;
-     
-
-    static constexpr uint8_t NONE = 255;
+	std::string getSideToMove();
+	float getMoveCtr() const { return moveCtr; }
+    std::string toFEN() const;
     
-    float moveCtr;
+    static constexpr uint8_t NONE = 255;
 private:
     void addPiece(uint8_t square, uint8_t type, uint8_t side);
     void removePiece(uint8_t square, uint8_t type, uint8_t side);
@@ -54,9 +55,11 @@ private:
     bool wsCastling;
     bool blCastling;
     bool bsCastling;
-
+    
     
     ZobristHash hash;
     float fiftyMovesCtr;
     RepetitionHistory repetitionHistory;
+
+    float moveCtr;
 };

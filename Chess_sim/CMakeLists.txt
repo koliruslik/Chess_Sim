@@ -13,7 +13,13 @@ add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h"
 						"ZobristHash.hpp" "ZobristHash.cpp" "ZobristHashConstants.hpp"
 						"RepetitionHistory.hpp" "RepetitionHistory.cpp" 
 						"Move.hpp" "Move.cpp" 
-						"Position.hpp" "Position.cpp" "PsLegalMoveMaskGen.hpp" "PsLegalMoveMaskGen.cpp" "MoveList.hpp" "MoveList.cpp" "LegalMoveGen.hpp" "LegalMoveGen.cpp" "LegalMoveGenTester.hpp" "LegalMoveGenTester.cpp" "StandartMovingNotation.cpp" )
+						"Position.hpp" "Position.cpp"
+						"PsLegalMoveMaskGen.hpp" "PsLegalMoveMaskGen.cpp"
+						"MoveList.hpp" "MoveList.cpp" 
+						"LegalMoveGen.hpp" "LegalMoveGen.cpp"
+						"LegalMoveGenTester.hpp" "LegalMoveGenTester.cpp"
+						"StandartMovingNotation.cpp"   
+						"Game.hpp" "Game.cpp")
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

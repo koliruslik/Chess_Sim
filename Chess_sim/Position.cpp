@@ -221,3 +221,51 @@ uint8_t Position::getPieceTypeAt(uint8_t square, uint8_t side) const {
     }
     return Position::NONE;
 }
+
+std::string Position::getSideToMove()
+{
+    return (moveCtr == static_cast<int>(moveCtr)) ? "White" : "Black";
+}
+
+std::string Position::toFEN() const {
+    std::string fen;
+
+    for (int rank = 7; rank >= 0; --rank) {
+        int emptyCount = 0;
+        for (int file = 0; file < 8; ++file) {
+            uint8_t square = rank * 8 + file;
+            char pieceChar = 0;
+
+            for (uint8_t side = SIDE::White; side <= SIDE::Black && pieceChar == 0; ++side) {
+                for (uint8_t type = PIECE::PAWN; type <= PIECE::KING; ++type) {
+                    if (BOp::getBit(this->pieces.getPieceBitboard(side, type), square)) {
+                        static const char fenChars[] = { 'P', 'N', 'B', 'R', 'Q', 'K' };
+                        pieceChar = (side == SIDE::White) ? fenChars[type] : std::tolower(fenChars[type]);
+                        break;
+                    }
+                }
+            }
+
+            if (pieceChar) {
+                if (emptyCount > 0) {
+                    fen += std::to_string(emptyCount);
+                    emptyCount = 0;
+                }
+                fen += pieceChar;
+            }
+            else {
+                ++emptyCount;
+            }
+        }
+
+        if (emptyCount > 0) {
+            fen += std::to_string(emptyCount);
+        }
+        if (rank > 0) {
+            fen += '/';
+        }
+    }
+
+    return fen;
+}
+
