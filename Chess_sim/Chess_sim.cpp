@@ -66,7 +66,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
     Button startGameButton(screenWidth / 2, screenHeight / 2 - 25, 150, 50, "Start Game");
     Button exitGameButton(screenWidth / 2, screenHeight / 2 + 25, 150, 50, "Exit");
 
-    Position position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR", Position::NONE, true, true, true, true, 0.0f);
+    Position position("rnbqkbnr/Pppppppp/8/8/8/8/pPPPPPPP/RNBQKBNR", Position::NONE, true, true, true, true, 0.0f);
     //Position position("k7/8/8/8/8/q7/8/K7", Position::NONE, true, true, true, true, 0.0f);
     Game game(position);
     
