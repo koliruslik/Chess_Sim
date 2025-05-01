@@ -4,8 +4,10 @@ const Color maskColor = BLUE;
 const Color promoteColor = GRAY;
 const Color whiteSquareColor = WHITE;
 const Color blackSquareColor = DARKGRAY;
-Game::Game(Position position)
+Game::Game(Position position, SIDE aiSideToPlay)
+	:ai("..\\..\\..\\..\\recources\\Start\\Start.txt")
 {
+	this->aiSide = aiSideToPlay;
 	selectedSquare = -1;
 	this->position = position;
 	loadPieceTextures();
@@ -13,12 +15,6 @@ Game::Game(Position position)
 
 int Game::processMove(Position& position, MoveList& moves, uint8_t from, uint8_t to,uint8_t side)
 {
-
-	if (from == -1 || to == -1) {
-		std::cout << "INVALID.\n";
-		return -1;
-	}
-
 	moves = LegalMoveGen::generate(position, side);
 	bool validMove = false;
 
@@ -37,14 +33,12 @@ int Game::processMove(Position& position, MoveList& moves, uint8_t from, uint8_t
 			validMove = true;
 			break;
 		}
+		
 	}
 
 	if (!validMove) {
 		std::cout << "Invalid move.\n";
 		return -1;
-	}
-	if (checkVictory(side)) {
-		return 0;
 	}
 
 	return 1;
@@ -71,62 +65,56 @@ int Game::processMoveWithClick()
 		}
 	}
 	return -1;
+
 }
 
-int Game::processGame()
+int Game::proccesAiMove()
 {
-
-	drawBoard();
-	update();
-	//EndDrawing();
-	/*MoveList moves = LegalMoveGen::generate(position, (position.getSideToMove() == "White") ? SIDE::White : SIDE::Black);
-	std::cout << position;
-
-	std::string from, to;
-	SIDE side = (position.getSideToMove() == "White") ? SIDE::White : SIDE::Black;
-	std::cout << "\nEnter move (" << (side == SIDE::White ? "White" : "Black") << "): ";
-	std::cin >> from >> to;
-
-	int game = processMove(position, moves, from, to, side);
-
-	if (game == -1 || game == 1) 
-	{
-		return 1;
-	}
-	std::cout << "Game over. Enter 'r' to restart or 'q' to quit: ";
-	char choice;
-	std::cin >> choice;
-	if (choice == 'r') 
-	{
-		position = Position(startingPosition, Position::NONE, true, true, true, true, 0.0f);
-	}
-	else if (choice == 'q') 
-	{
-		return -1;
-	}*/
+	Move aiMove = ai.proccessBestMove(position, aiSide, minMS, maxMs);
+	position.move(aiMove);
+	//std::cout << position;
 	return 1;
 }
 
-bool Game::checkVictory(uint8_t side) 
+void Game::proccessAiMoveAsync()
 {
-	bool isCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(position.getSideToMove(), PIECE::KING)), position.getSideToMove());
-	bool fiftymoves = position.fiftyMovesRuleDraw();
+	aiThinking = true;
+	aiMoveThread = std::thread([this]()
+		{
+			proccesAiMove();
+			aiThinking = false;
+		});
+	aiMoveThread.detach();
+}
+
+void Game::processGame()
+{
+	update();
+	drawBoard();
+	return;
+}
+
+SIDE Game::checkVictory()
+{
+	bool whiteInCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(SIDE::White, PIECE::KING)), SIDE::White);
+	bool blackInCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(SIDE::Black, PIECE::KING)), SIDE::Black);
+
+	MoveList whiteMoves = LegalMoveGen::generate(position, SIDE::White);
+	MoveList blackMoves = LegalMoveGen::generate(position, SIDE::Black);
+
+	bool whiteNoMoves = !whiteMoves.hasMoves();
+	bool blackNoMoves = !blackMoves.hasMoves();
+	bool fiftyMoves = position.fiftyMovesRuleDraw();
 	bool threefold = position.threefoldRepetitionDraw();
-	SIDE opponent = (side == SIDE::White) ? SIDE::Black : SIDE::White;
-	MoveList opponentMoves = LegalMoveGen::generate(position, opponent);
-	if (!opponentMoves.hasMoves() && isCheck) 
-	{
-		std::cout << position;
-		std::cout << (side == SIDE::White ? "\n\t-----WHITE WON-----\n" : "\n\t-----BLACK WON-----\n");
-		return 1;
+
+	if ((whiteNoMoves && whiteInCheck) || (blackNoMoves && blackInCheck)) {
+		return whiteNoMoves ? SIDE::Black : SIDE::White; 
 	}
-	else if ((!opponentMoves.hasMoves() && !isCheck) || fiftymoves || threefold)
-	{
-		std::cout << position;
-		std::cout << "\t-----DRAW-----\n";
-		return 1;
+	else if ((whiteNoMoves && !whiteInCheck) || (blackNoMoves && !blackInCheck) || fiftyMoves || threefold) {
+		return SIDE::Draw;  
 	}
-	return 0;
+
+	return SIDE::None; 
 }
 
 uint8_t Game::squareToIndex(const std::string& square) const
@@ -187,6 +175,7 @@ void Game::loadPieceTextures()
 
 void Game::drawBoard()
 {
+	int rowIndex = 8;
 	const char* files[8] = { "a", "b", "c", "d", "e", "f", "g", "h" };
 	for (int row = 0; row < boardSize; ++row)
 	{
@@ -196,17 +185,18 @@ void Game::drawBoard()
 			Color textColor = ((row + col) % 2 == 0) ? blackSquareColor : whiteSquareColor;
 			DrawRectangle(col * squareSize, row * squareSize, squareSize, squareSize, squareColor);
 
-			std::string rowIndex = std::to_string(row);
+			std::string rowIndexStr = std::to_string(rowIndex);
 			std::string fileIndex = files[col];
-			if (col == 0)
+			if (col == 7)
 			{
-				DrawText(rowIndex.c_str(), col * squareSize+5, row * squareSize, 20, textColor);
+				DrawText(rowIndexStr.c_str(), col * squareSize + OffsetXForRows, row * squareSize + OffsetYForRows, 20, textColor);
 			}
 			if (row == 7)
 			{
-				DrawText(fileIndex.c_str(), col * squareSize+5, row * squareSize, 20, textColor);
+				DrawText(fileIndex.c_str(), col * squareSize + OffsetXForFiles, row * squareSize + OffsetYForFiles, 20, textColor);
 			}
 		}
+		rowIndex--;
 	}
 	
 	drawPieces();
@@ -417,7 +407,7 @@ void Game::handlePromotion(Move& move)
 Vector2 Game::centerPiece(float pieceSize, float texWidth, float texHeight) const
 {
 	const float xOffset = squareSize/2;
-	const float yOffset = squareSize/2 - 5; 
+	const float yOffset = squareSize/2 - constOffset; 
 
 	return { xOffset, yOffset };
 }
@@ -433,7 +423,6 @@ void Game::selectPiece()
 	{
 		std::string square = std::string(1, char('a' + col)) + std::string(1, char('1' + row));
 		int squareIndex = squareToIndex(square);
-		//std::cout << "Clicked square: " << square << " (" << squareIndex << ")" << std::endl;
 
 		
 		if (position.getPieceSideAt(squareIndex) == position.getSideToMove() && position.getPieceTypeAt(squareIndex, position.getSideToMove()) != Position::NONE)
@@ -441,13 +430,11 @@ void Game::selectPiece()
 			
 			if (selectedSquare == squareIndex)
 			{
-			//	std::cout << "Deselecting piece at: " << square << std::endl;
 				selectedSquare = -1; 
 				isSelected = false;  
 			}
 			else
 			{
-			//	std::cout << "Selected piece at: " << square << std::endl;
 				selectedSquare = squareIndex;  
 				isSelected = true;             
 			}
@@ -471,29 +458,47 @@ void Game::selectPiece()
 
 void Game::update()
 {
-	
-
-	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))  
+	wonSide = checkVictory();
+	if (wonSide != SIDE::None) return;
+	if (aiSide != position.getSideToMove() && aiSide)
 	{
-		mousePos = GetMousePosition();
-		if (promotion)
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 		{
-			proccesPromotionClick(currentMove);
-			if(promotion) position.move(currentMove);
-			promotion = false;
-			selectedSquare = -1;
-			isSelected = false;
+			mousePos = GetMousePosition();
+			if (promotion)
+			{
+				proccesPromotionClick(currentMove);
+				if (promotion) position.move(currentMove);
+				promotion = false;
+				selectedSquare = -1;
+				isSelected = false;
+				return;
+			}
+			else if (isSelected)
+			{
+				if (processMoveWithClick() == 1) return;
+				clickCount = 0;
+				selectPiece();
+				return;
+			}
+			else
+			{
+				selectPiece();
+				return;
+			}
+		}
+	}
+	else if (aiSide == position.getSideToMove() && aiSide != SIDE::None)
+	{
+		if (aiThinking)
+		{
+			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+			{
+				std::cout << "AI is thinking, please wait..." << std::endl;
+			}
 			return;
 		}
-		else if (isSelected)
-		{
-			if (processMoveWithClick() == 1) return;
-			clickCount = 0;
-			selectPiece();
-		}
-		else
-		{
-			selectPiece();
-		}
+
+		proccessAiMoveAsync();
 	}
 }

@@ -28,10 +28,15 @@ public:
     [[nodiscard]] ZobristHash getHash() const;
     [[nodiscard]] bool fiftyMovesRuleDraw() const;
     [[nodiscard]] bool threefoldRepetitionDraw() const;
+	bool getWhiteCastlingHappened() const { return wlCastling + wsCastling; }
+	bool getBlackCastlingHappened() const { return blCastling + bsCastling; }
+	float getFiftyMovesCtr() const { return fiftyMovesCtr; }
+	RepetitionHistory getRepetitionHistory() const { return repetitionHistory; }
 
     uint8_t getPieceTypeAt(uint8_t square, uint8_t side) const;
     uint8_t getPieceSideAt(uint8_t square) const;
     uint8_t getSideToMove();
+	uint8_t getOpponentSide();
 	float getMoveCtr() const { return moveCtr; }
     std::string toFEN() const;
     

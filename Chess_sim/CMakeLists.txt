@@ -19,7 +19,7 @@ add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h"
 						"LegalMoveGen.hpp" "LegalMoveGen.cpp"
 						"LegalMoveGenTester.hpp" "LegalMoveGenTester.cpp"
 						"StandartMovingNotation.cpp"   
-						"Game.hpp" "Game.cpp" "StaticEvaluator.h" "StaticEvaluator.cpp" "PassedPawnMasks.h" "PawnShieldMasks.h")
+						"Game.hpp" "Game.cpp" "StaticEvaluator.h" "StaticEvaluator.cpp" "PassedPawnMasks.h" "PawnShieldMasks.h" "MoveSorter.cpp" "Entry.cpp" "TranspositionTable.h" "TranspositionTable.cpp" "OpeningBook.h" "OpeningBook.cpp" "AI.h" "AI.cpp")
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

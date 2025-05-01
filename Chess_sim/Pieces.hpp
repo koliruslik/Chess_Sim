@@ -20,7 +20,8 @@ enum PIECE {
 enum SIDE {
     White = 0,
     Black = 1,
-    None = -1
+    None = -1,
+    Draw = -2
 };
 
 
@@ -30,6 +31,14 @@ public:
     Pieces(const std::string& shortFen);
 
     friend std::ostream& operator <<(std::ostream& ostream, Pieces pieces);
+    bool operator==(const Pieces& other) const
+    {
+        return pieceBitboards == other.pieceBitboards &&
+            sideBitboards == other.sideBitboards &&
+            invSideBitboards == other.invSideBitboards &&
+            all == other.all &&
+            empty == other.empty;
+    }
 
     void updateBitboards();
 

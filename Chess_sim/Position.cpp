@@ -239,6 +239,10 @@ uint8_t Position::getSideToMove()
 {
     return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::White : SIDE::Black;
 }
+uint8_t Position::getOpponentSide()
+{
+	return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::Black : SIDE::White;
+}
 
 std::string Position::toFEN() const {
     std::string fen;

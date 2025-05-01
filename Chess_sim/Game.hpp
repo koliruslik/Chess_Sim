@@ -1,31 +1,37 @@
+#include <map>
+#include <string>
+#include <vector>
+
+
 #include "Move.hpp"
 #include "Position.hpp"
 #include "LegalMoveGen.hpp"
 #include "MoveList.hpp"
 #include "raylib.h"
-#include <map>
-#include <string>
-#include <vector>
+#include "AI.h"
 #pragma once
 
 
 class Game
 {
 public:
-	Game(Position position);
+	Game(Position position, SIDE aiSideToPlay);
 	int processMove(Position& position, MoveList& moves, uint8_t from, uint8_t to, uint8_t side);
 	int processMoveWithClick();
-	int processGame();
+	int proccesAiMove();
+	void proccessAiMoveAsync();
+	void processGame();
 
 	static bool isPromotionMove(Move& move);
 	void proccesPromotionClick(Move& move);
 	std::string handlePromotionSelection(int promotionIndex);
 	void handlePromotion(Move& move);
-	bool checkVictory(uint8_t side);
+	SIDE checkVictory();
 	uint8_t squareToIndex(const std::string& square) const;
 	std::string indexToSquare(uint8_t index) const;
 	std::pair<int, int> indexToRowCol(uint8_t index) const;
-	uint8_t getSelectedSquare() const { return selectedSquare; }
+
+	
 
 	void loadPieceTextures();
 	void drawBoard();
@@ -36,6 +42,11 @@ public:
 
 	void selectPiece();
 	void update();
+
+	uint8_t getSelectedSquare() const { return selectedSquare; }
+	SIDE getWonSide() const { return wonSide; }
+
+	void setAiSideToPlay(SIDE side) { aiSide = side; }
 private:
 	Position position;
 	MoveList selectedPieceMoves;
@@ -53,6 +64,12 @@ private:
 	const int boardSize = 8;
 	const int squareSize = 80;
 	int clickCount = 0;
+	const int constOffset = 5;
+	const int OffsetXForRows = squareSize - 15;
+	const int OffsetYForRows = 5;
+	const int OffsetXForFiles = 5;
+	const int OffsetYForFiles = squareSize - 20;
+	SIDE wonSide = SIDE::None;
 
 	bool promotion = false;
 	uint8_t promotionSquare = -1;
@@ -60,4 +77,13 @@ private:
 	std::string pieceToPromote;
 
 	Vector2 mousePos;
+
+	AI ai;
+	bool aiThinking = false;
+	uint8_t aiSide;
+	std::thread aiMoveThread;
+	int32_t minMS = 0;
+	int32_t maxMs = 1000;
+
+	
 };

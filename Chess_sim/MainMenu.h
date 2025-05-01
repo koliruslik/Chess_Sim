@@ -5,7 +5,7 @@
 
 
 #include "Menu.h"
-
+#include "Pieces.hpp"
 
 class MainMenu : public Menu
 {
@@ -18,10 +18,13 @@ public:
 	bool shouldExitGame() const;
 	bool isSettingsMenu() const;
 	bool isMainMenu() const;
-
 	void ButtonAction(Button& button) override;
 
+	SIDE getSideToPlay() const { return aiSideToPlay; }
+	bool isVsAi() const { return vsAi; }
+private:
+	SIDE aiSideToPlay;
+	bool vsAi;
 };
-
 
 #endif // MAINMENU_H
