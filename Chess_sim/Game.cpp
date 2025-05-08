@@ -23,13 +23,14 @@ int Game::processMove(Position& position, MoveList& moves, uint8_t from, uint8_t
 			currentMove = moves[i];
 			if (isPromotionMove(moves[i]))
 			{
-				promotion = true;
+				promotionOption = true;
 				promotionSquare = moves[i].getTo();
 				promotionSide = moves[i].getAttackerSide();
 				currentMove = moves[i];
 				return 2;
 			}
 			position.move(moves[i]);
+			printMove = true;
 			validMove = true;
 			break;
 		}
@@ -37,7 +38,7 @@ int Game::processMove(Position& position, MoveList& moves, uint8_t from, uint8_t
 	}
 
 	if (!validMove) {
-		std::cout << "Invalid move.\n";
+		if (debugMode) std::cout << "Invalid move.\n";
 		return -1;
 	}
 
@@ -70,8 +71,9 @@ int Game::processMoveWithClick()
 
 int Game::proccesAiMove()
 {
-	Move aiMove = ai.proccessBestMove(position, aiSide, minMS, maxMs);
+	Move aiMove = ai.proccessBestMove(position, aiSide, minMS, maxMs, debugMode);
 	position.move(aiMove);
+	printMove = true;
 	//std::cout << position;
 	return 1;
 }
@@ -92,58 +94,6 @@ void Game::processGame()
 	update();
 	drawBoard();
 	return;
-}
-
-SIDE Game::checkVictory()
-{
-	bool whiteInCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(SIDE::White, PIECE::KING)), SIDE::White);
-	bool blackInCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(SIDE::Black, PIECE::KING)), SIDE::Black);
-
-	MoveList whiteMoves = LegalMoveGen::generate(position, SIDE::White);
-	MoveList blackMoves = LegalMoveGen::generate(position, SIDE::Black);
-
-	bool whiteNoMoves = !whiteMoves.hasMoves();
-	bool blackNoMoves = !blackMoves.hasMoves();
-	bool fiftyMoves = position.fiftyMovesRuleDraw();
-	bool threefold = position.threefoldRepetitionDraw();
-
-	if ((whiteNoMoves && whiteInCheck) || (blackNoMoves && blackInCheck)) {
-		return whiteNoMoves ? SIDE::Black : SIDE::White; 
-	}
-	else if ((whiteNoMoves && !whiteInCheck) || (blackNoMoves && !blackInCheck) || fiftyMoves || threefold) {
-		return SIDE::Draw;  
-	}
-
-	return SIDE::None; 
-}
-
-uint8_t Game::squareToIndex(const std::string& square) const
-{
-	if (square.length() != 2) return -1;
-	char file = square[0];
-	char rank = square[1];
-
-	if (file < 'a' || file > 'h' || rank < '1' || rank > '8') return -1;
-
-	return (rank - '1') * 8 + (file - 'a');
-}
-
-std::string Game::indexToSquare(uint8_t index) const
-{
-	if (index < 0 || index > 63) return "??";
-
-	char file = 'a' + (index % 8);
-	char rank = '1' + (index / 8);
-
-	return std::string(1, file) + std::string(1, rank);
-}
-
-std::pair<int, int> Game::indexToRowCol(uint8_t index) const
-{
-	if (index < 0 || index > 63) return { -1, -1 };
-	int col = index % 8;
-	int row = 7 - (index / 8);
-	return { row, col };
 }
 
 void Game::loadPieceTextures()
@@ -171,6 +121,73 @@ void Game::loadPieceTextures()
 			blackPieces[name] = blackTexture;
 		}
 	}
+}
+
+SIDE Game::checkVictory(const Position position)
+{
+	bool whiteInCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(SIDE::White, PIECE::KING)), SIDE::White);
+	bool blackInCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(SIDE::Black, PIECE::KING)), SIDE::Black);
+
+	MoveList whiteMoves = LegalMoveGen::generate(position, SIDE::White);
+	MoveList blackMoves = LegalMoveGen::generate(position, SIDE::Black);
+
+	bool whiteNoMoves = !whiteMoves.hasMoves();
+	bool blackNoMoves = !blackMoves.hasMoves();
+	bool fiftyMoves = position.fiftyMovesRuleDraw();
+	bool threefold = position.threefoldRepetitionDraw();
+	if ((whiteNoMoves && whiteInCheck) || (blackNoMoves && blackInCheck)) {
+		return whiteNoMoves ? SIDE::Black : SIDE::White;
+	}
+
+	// Stalemate
+	if ((whiteNoMoves && !whiteInCheck) || (blackNoMoves && !blackInCheck)) {
+		return SIDE::Stalemate;
+	}
+
+	// Check (but not mate or stalemate)
+	if ((whiteInCheck && !whiteNoMoves) || (blackInCheck && !blackNoMoves)) {
+		return SIDE::Checked;
+	}
+
+	// Draw by rules
+	if (fiftyMoves || threefold) {
+		return SIDE::Draw;
+	}
+
+	return SIDE::None;
+}
+
+bool Game::PrintMove()
+{
+	float moveCtr = position.getMoveCtr();
+	std::string annotation;
+	if (promotionDone)
+	{
+		if (std::string(1, pieceToPromote[0]) != "K") annotation += "=" + std::string(1, pieceToPromote[0]);
+		else if (std::string(1, pieceToPromote[0]) == "K") annotation += "=N";
+		promotionDone = false;
+	}
+	if (wonSide != SIDE::None && wonSide != SIDE::Checked)
+	{
+		annotation += "#";
+		
+	}
+	if (wonSide == SIDE::Draw)
+	{
+		annotation += "1/2-1/2";
+	}
+	if (wonSide == SIDE::Checked)
+	{
+		annotation += "+";
+	}
+	if (wonSide == SIDE::Stalemate)
+	{
+		annotation += "0-1";
+	}
+
+	currentMove.Print(annotation, moveCtr);
+	currentMove.ToFile(annotation, moveCtr, savePath);
+	return true;
 }
 
 void Game::drawBoard()
@@ -201,7 +218,7 @@ void Game::drawBoard()
 	
 	drawPieces();
 	drawMask();
-	if (promotion) drawPromotionOptions();
+	if (promotionOption) drawPromotionOptions();
 }
 
 void Game::drawPieces()
@@ -301,21 +318,21 @@ std::string Game::handlePromotionSelection(int promotionIndex) {
 	}*/
 
 	std::string selectedPiece = promotionPieces[promotionIndex];
-	std::cout << "Selected piece for promotion: " << selectedPiece << std::endl;
+	if(debugMode) std::cout << "Selected piece for promotion: " << selectedPiece << std::endl;
 	if (selectedPiece == "Rook") return "Rook";
 	else if (selectedPiece == "Knight") return "Knight";
 	else if (selectedPiece == "Bishop") return "Bishop";
 	else return "Queen";
 	selectedSquare = -1;
-	promotion = false;
+	promotionOption = false;
 
 }
 void Game::drawPromotionOptions()
 {
-	if (!promotion) return;
+	if (!promotionOption) return;
 	float pieceSize = squareSize * 1.5f;
-	int col = indexToRowCol(promotionSquare).second;
-	int row = indexToRowCol(promotionSquare).first;
+	int col = Btrans::indexToRowCol(promotionSquare).second;
+	int row = Btrans::indexToRowCol(promotionSquare).first;
 
 	for (int i = 0; i < 4; ++i)
 	{
@@ -360,24 +377,26 @@ void Game::proccesPromotionClick(Move& move)
 {
 	int col = mousePos.x / squareSize;
 	int row = boardSize - (mousePos.y / squareSize);
-	int optionRow = indexToRowCol(promotionSquare).first;
-	int optionCol = indexToRowCol(promotionSquare).second;
+	int optionRow = Btrans::indexToRowCol(promotionSquare).first;
+	int optionCol = Btrans::indexToRowCol(promotionSquare).second;
 
 	if (col == optionCol && row <= 7 && row >= 0)
 	{
 		int i;
 		if (promotionSide == SIDE::White) i = 7 - row;
 		else i = row;
-		std::cout << i << std::endl;
+		//std::cout << i << std::endl;
 		pieceToPromote = handlePromotionSelection(i);
+		promotionDone = true;
 	}
 	else
 	{
 		isSelected = false;
-		promotion = false;
+		promotionOption = false;
 		return;
 	}
 	handlePromotion(move);
+	printMove = true;
 }
 
 void Game::handlePromotion(Move& move)
@@ -422,7 +441,7 @@ void Game::selectPiece()
 	if (col >= 0 && col < boardSize && row >= 0 && row < boardSize)
 	{
 		std::string square = std::string(1, char('a' + col)) + std::string(1, char('1' + row));
-		int squareIndex = squareToIndex(square);
+		int squareIndex = Btrans::squareToIndex(square);
 
 		
 		if (position.getPieceSideAt(squareIndex) == position.getSideToMove() && position.getPieceTypeAt(squareIndex, position.getSideToMove()) != Position::NONE)
@@ -442,7 +461,7 @@ void Game::selectPiece()
 		else
 		{
 			
-			std::cout << "Invalid selection or opponent's piece. Deselecting.\n";
+			if (debugMode) std::cout << "Invalid selection or opponent's piece. Deselecting.\n";
 			selectedSquare = -1; 
 			isSelected = false;  
 		}
@@ -450,7 +469,7 @@ void Game::selectPiece()
 	else
 	{
 		
-		std::cout << "Invalid selection. Deselecting.\n";
+		if (debugMode) std::cout << "Invalid selection. Deselecting.\n";
 		selectedSquare = -1;  
 		isSelected = false;  
 	}
@@ -459,17 +478,23 @@ void Game::selectPiece()
 void Game::update()
 {
 	wonSide = checkVictory();
-	if (wonSide != SIDE::None) return;
+	if (printMove && debugMoves)
+	{
+		PrintMove();
+		printMove = false;
+	}
+	if (wonSide != SIDE::None && wonSide != SIDE::Checked) return;
+	
 	if (aiSide != position.getSideToMove() && aiSide)
 	{
 		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 		{
 			mousePos = GetMousePosition();
-			if (promotion)
+			if (promotionOption)
 			{
 				proccesPromotionClick(currentMove);
-				if (promotion) position.move(currentMove);
-				promotion = false;
+				if (promotionOption) position.move(currentMove);
+				promotionOption = false;
 				selectedSquare = -1;
 				isSelected = false;
 				return;
@@ -494,7 +519,7 @@ void Game::update()
 		{
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
-				std::cout << "AI is thinking, please wait..." << std::endl;
+				if(debugMode) std::cout << "AI is thinking, please wait..." << std::endl;
 			}
 			return;
 		}

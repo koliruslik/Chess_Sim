@@ -1,7 +1,4 @@
-
-
 #include "Move.hpp"
-
 
 Move::Move() = default;
 Move::Move(uint8_t from, uint8_t to, uint8_t attackerType, uint8_t attackerSide, uint8_t defenderType, uint8_t defenderSide, uint8_t flag) {
@@ -64,5 +61,68 @@ bool Move::operator==(const Move& other) const {
 		defenderType == other.defenderType &&
 		defenderSide == other.defenderSide &&
 		flag == other.flag;
+}
+
+bool Move::isPromotion(const std::string& condition)
+{
+    static const std::vector<std::string> promotionOptions = { "=Q", "=R", "=B", "=N" };
+    return std::find(promotionOptions.begin(), promotionOptions.end(), condition) != promotionOptions.end();
+}
+
+void Move::Print(std::string annotation, float moveCtr) const
+{
+    int fullMoveNumber = moveCtr + 0.5;
+    bool isWhiteMove = !(moveCtr == static_cast<int>(moveCtr));
+    if (isWhiteMove)
+        std::cout << "\n" << fullMoveNumber << ". " << *this;
+    else
+        std::cout << "\t" << *this;
+
+    std::cout << annotation;
+}
+
+void Move::ToFile( std::string& annotation, float moveCtr, std::string filePath) const
+{
+    
+    std::ofstream file(filePath, std::ios::app);
+    if (!file.is_open())
+    {
+        std::cerr << "Unable to open file\n";
+        return;
+    }
+
+    int fullMoveNumber = moveCtr + 0.5;
+    bool isWhiteMove = !(moveCtr == static_cast<int>(moveCtr));
+    if (isWhiteMove)
+        file << "\n" << fullMoveNumber << ". " << *this;
+    else
+        file << "\t" << *this;
+
+    file << annotation;
+    file.close();
+}
+
+std::ostream& operator <<(std::ostream& ostream, const Move& move) {
+	std::string from = Btrans::indexToSquare(move.getFrom());
+	std::string to = Btrans::indexToSquare(move.getTo());
+	char attackerType = Btrans::pieceToString(move.getAttackerType());
+	char defenderType = Btrans::pieceToString(move.getDefenderType());
+    uint8_t attackerSide = move.getAttackerSide();
+	uint8_t defenderSide = move.getDefenderSide();
+	uint8_t flag = move.getFlag();
+
+    if (attackerSide == SIDE::White) attackerType = toupper(attackerType);
+    if (defenderSide == SIDE::White) defenderType = toupper(defenderType);
+
+    if (flag == Move::FLAG::WL_CASTLING || flag == Move::FLAG::BL_CASTLING)
+        ostream << "0-0-0";
+    else if (flag == Move::FLAG::WS_CASTLING || flag == Move::FLAG::BS_CASTLING)
+        ostream << "0-0";
+    else if (defenderType != '\0' || flag == Move::FLAG::EN_PASSANT_CAPTURE)
+        ostream << attackerType << from << "x" << to;
+    else
+        ostream << attackerType << from << to;
+    
+    return ostream;
 }
 

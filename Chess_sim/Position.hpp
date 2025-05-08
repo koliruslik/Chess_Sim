@@ -1,9 +1,8 @@
 
 #include <cmath>
+#include <string>
 #include "RepetitionHistory.hpp"
 #include "Move.hpp"
-#include <string>
-
 
 #pragma once
 

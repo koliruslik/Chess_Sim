@@ -1,6 +1,11 @@
 
 #include <cstdint>
+#include <string>
+#include <fstream>
 
+#include "BitBoard.hpp"
+#include "Pieces.hpp"
+#include "BTrans.h"
 
 #pragma once
 
@@ -17,7 +22,7 @@ public:
     void setDefenderType(uint8_t newDefenderType);
     void setDefenderSide(uint8_t newDefenderSide);
     void setFlag(uint8_t newFlag);
-
+  
     [[nodiscard]] uint8_t getFrom() const;
     [[nodiscard]] uint8_t getTo() const;
     [[nodiscard]] uint8_t getAttackerType() const;
@@ -27,7 +32,11 @@ public:
     [[nodiscard]] uint8_t getFlag() const;
 
     bool operator==(const Move& other) const;
+    friend std::ostream& operator <<(std::ostream& ostream, const Move& move);
 
+    void Print(std::string condition, float moveCtr) const;
+    void ToFile(std::string& annotation, float moveCtr, std::string filePath) const;
+    static bool isPromotion(const std::string& condition);
     enum FLAG {
         DEFAULT,
 
@@ -53,4 +62,7 @@ private:
     uint8_t defenderType;
     uint8_t defenderSide;
     uint8_t flag;
+
+    std::string condition;
+    
 };

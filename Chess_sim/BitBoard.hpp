@@ -107,3 +107,4 @@ namespace BColumns {
     }
     static constexpr std::array<Bitboard, 8> INV_COLUMNS = BColumns::calcInvColumns();
 }
+

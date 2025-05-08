@@ -26,10 +26,12 @@ public:
 	void proccesPromotionClick(Move& move);
 	std::string handlePromotionSelection(int promotionIndex);
 	void handlePromotion(Move& move);
-	SIDE checkVictory();
-	uint8_t squareToIndex(const std::string& square) const;
-	std::string indexToSquare(uint8_t index) const;
-	std::pair<int, int> indexToRowCol(uint8_t index) const;
+	SIDE checkVictory() const
+	{
+		return checkVictory(position);
+	}
+	static SIDE checkVictory(const Position position);
+	
 
 	
 
@@ -48,12 +50,14 @@ public:
 
 	void setAiSideToPlay(SIDE side) { aiSide = side; }
 private:
+	
 	Position position;
 	MoveList selectedPieceMoves;
 	Move currentMove;
 	const std::string startingPosition = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 	const std::string whitePiecesPath = "..\\..\\..\\..\\recources\\ChessPieces\\White\\";
 	const std::string blackPiecesPath = "..\\..\\..\\..\\recources\\ChessPieces\\Black\\";
+	const std::string savePath = "..\\..\\..\\..\\saves\\save.txt";
 	const std::string names[6] = { "King", "Queen", "Rook", "Bishop", "Knight", "Pawn" };
 	std::vector<std::string> promotionPieces = { "Queen", "Rook", "Bishop", "Knight" };
 	std::map<std::string, Texture2D> whitePieces;
@@ -71,7 +75,8 @@ private:
 	const int OffsetYForFiles = squareSize - 20;
 	SIDE wonSide = SIDE::None;
 
-	bool promotion = false;
+	bool promotionOption = false;
+	bool promotionDone = false;
 	uint8_t promotionSquare = -1;
 	uint8_t promotionSide;
 	std::string pieceToPromote;
@@ -85,5 +90,8 @@ private:
 	int32_t minMS = 0;
 	int32_t maxMs = 1000;
 
-	
+	const bool debugMode = false;
+	const bool debugMoves = true;
+	bool PrintMove();
+	bool printMove = false;
 };

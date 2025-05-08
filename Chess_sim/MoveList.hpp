@@ -18,9 +18,7 @@ public:
     [[nodiscard]] uint8_t getSize() const;
 
     bool hasMoves() const;
-    
-
-
+   
 private:
     std::array<Move, 220> moves{};
     uint8_t size;

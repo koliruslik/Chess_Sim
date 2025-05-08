@@ -17,7 +17,7 @@ public:
 	AI();
 	AI(const std::string& openingBookPath);
 
-	Move proccessBestMove(const Position& position, uint8_t side, int32_t min_ms, int32_t max_ms);
+	Move proccessBestMove(const Position& position, uint8_t side, int32_t min_ms, int32_t max_ms, bool debugMode);
 private:
 	OpeningBook openingBook;
 

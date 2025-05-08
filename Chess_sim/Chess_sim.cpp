@@ -1,6 +1,4 @@
-﻿// Chess_sim.cpp: определяет точку входа для приложения.
-//
-#include "raylib.h"
+﻿#include "raylib.h"
 #include "Chess_sim.h"
 #include <bitset> 
 #include <iostream>

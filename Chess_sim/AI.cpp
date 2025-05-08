@@ -16,9 +16,9 @@ AI::AI(const std::string& openingBookPath)
 }
 
 
-Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs, int32_t maxMs)
+Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs, int32_t maxMs, bool debugMode)
 {
-	std::cout <<"ai move generation started" << std::endl;
+	if(debugMode) std::cout <<"ai move generation started" << std::endl;
 	int32_t evaluate = StaticEvaluator::evaluate(
 		position.getPieces(),
 		position.getWLCastling(), position.getWSCastling(),
@@ -31,17 +31,17 @@ Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs,
 	TranspositionTable tt;
 
 	std::tuple<Move, int32_t> openingBookResult = this->openingBook.tryToFindMove(position);
-	std::cout  << "Number of available moves in the opening book: " << std::get<1>(openingBookResult) << std::endl;
+	if (debugMode) std::cout  << "Number of available moves in the opening book: " << std::get<1>(openingBookResult) << std::endl;
 	if (std::get<1>(openingBookResult) != 0)
 	{
-		std::cout << "Book move selected"<< std::endl;
+		if (debugMode) std::cout << "Book move selected"<< std::endl;
 		int64_t elapsedMs = (nsecs - timeStart) / (int64_t)1e+6;
 		int64_t sleepTimeMs = std::max((int64_t)0, minMs - elapsedMs);
 		std::this_thread::sleep_for(std::chrono::milliseconds(sleepTimeMs));
 		return std::get<0>(openingBookResult);
 	}
 
-	std::cout << "Search started. " << std::endl;
+	if (debugMode) std::cout << "Search started. " << std::endl;
 
 	int32_t bestMoveEvaluation = 0;
 	Move bestMove;
@@ -84,11 +84,11 @@ Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs,
 			}
 		}
 		else if (!updateBestMove) {
-			std::cout << "Search stopped." << std::endl;
+			if (debugMode) std::cout << "Search stopped." << std::endl;
 			stopSearch = true;
 		}
 
-		std::cout << "Base depth: " << std::setw(4) << i
+		if (debugMode) std::cout << "Base depth: " << std::setw(4) << i
 			<< ". Maximal depth: " << std::setw(4) << maximalDepth
 			<< ". Evaluated: " << std::setw(6) << float(bestMoveEvaluation) / 100.0f << " pawns. "
 			<< "Evaluated(this iteration): " << std::setw(10) << evaluated
@@ -101,13 +101,13 @@ Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs,
 			break;
 		}
 
-		std::cout << "Debug" << std::endl;
+		if (debugMode) std::cout << "Debug" << std::endl;
 	}
 	int64_t elapsedMs = (nsecs - timeStart) / (int64_t)1e+6;
 	int64_t sleepTimeMs = std::max((int64_t)0, minMs - elapsedMs);
 	std::this_thread::sleep_for(std::chrono::milliseconds(sleepTimeMs));
 
-	std::cout << "Search finished." << std::endl;
+	if (debugMode) std::cout << "Search finished." << std::endl;
 	
 	return bestMove;
 }

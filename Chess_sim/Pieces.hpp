@@ -20,8 +20,10 @@ enum PIECE {
 enum SIDE {
     White = 0,
     Black = 1,
-    None = -1,
-    Draw = -2
+    Draw = -1,
+    None = -2,
+	Stalemate = -3,
+	Checked = -4
 };
 
 
