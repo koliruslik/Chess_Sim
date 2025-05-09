@@ -88,7 +88,7 @@ private:
 	uint8_t aiSide;
 	std::thread aiMoveThread;
 	int32_t minMS = 0;
-	int32_t maxMs = 1000;
+	int32_t maxMs = 1500;
 
 	const bool debugMode = false;
 	const bool debugMoves = true;

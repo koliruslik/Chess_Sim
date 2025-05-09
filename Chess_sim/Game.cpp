@@ -73,6 +73,7 @@ int Game::proccesAiMove()
 {
 	Move aiMove = ai.proccessBestMove(position, aiSide, minMS, maxMs, debugMode);
 	position.move(aiMove);
+	currentMove = aiMove;
 	printMove = true;
 	//std::cout << position;
 	return 1;
@@ -485,7 +486,7 @@ void Game::update()
 	}
 	if (wonSide != SIDE::None && wonSide != SIDE::Checked) return;
 	
-	if (aiSide != position.getSideToMove() && aiSide)
+	if (aiSide != position.getSideToMove())
 	{
 		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 		{

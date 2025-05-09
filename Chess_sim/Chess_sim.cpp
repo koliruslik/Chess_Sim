@@ -9,7 +9,6 @@
 #include "Timer.h"
 #include "Pieces.hpp"
 #include "LegalMoveGenTester.hpp"
-#include "StandartMovingNotation.hpp"
 #include "PsLegalMoveMaskGen.hpp"
 #include "Game.hpp"
 
