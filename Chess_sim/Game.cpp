@@ -10,7 +10,37 @@ Game::Game(Position position, SIDE aiSideToPlay)
 	this->aiSide = aiSideToPlay;
 	selectedSquare = -1;
 	this->position = position;
-	loadPieceTextures();
+	loadPieceTextures(Theme::T1);
+}
+
+void Game::resetPosition()
+{
+	position = Position(startingPosition, 0, false, false, false, false, 0.0f);
+
+	movesHistory.clear();
+
+	currentMove = Move();
+
+	selectedSquare = -1;
+	isSelected = false;
+
+	promotionOption = false;
+	promotionDone = false;
+	promotionSquare = -1;
+	pieceToPromote = "";
+
+	wonSide = SIDE::None;
+
+	aiSide = SIDE::None;
+	aiThinking = false;
+	aiMoveThread = std::thread();
+	minMS = 0;
+	maxMs = 1500;
+
+	printMove = false;
+	clickCount = 0;
+
+	
 }
 
 int Game::processMove(Position& position, MoveList& moves, uint8_t from, uint8_t to,uint8_t side)
@@ -30,6 +60,7 @@ int Game::processMove(Position& position, MoveList& moves, uint8_t from, uint8_t
 				return 2;
 			}
 			position.move(moves[i]);
+			movesHistory.push(moves[i]);
 			printMove = true;
 			validMove = true;
 			break;
@@ -74,6 +105,7 @@ int Game::proccesAiMove()
 	Move aiMove = ai.proccessBestMove(position, aiSide, minMS, maxMs, debugMode);
 	position.move(aiMove);
 	currentMove = aiMove;
+	movesHistory.push(aiMove);
 	printMove = true;
 	//std::cout << position;
 	return 1;
@@ -97,14 +129,27 @@ void Game::processGame()
 	return;
 }
 
-void Game::loadPieceTextures()
+void Game::loadPieceTextures(Theme theme)
 {
+	// Выбор папки на основе темы
+	std::string piecesPath;
+	std::string themeSuffix;
+
+	// Определяем суффикс для темы
+	switch (theme) {
+	case Theme::T1: themeSuffix = "\0"; break;
+	case Theme::T2: themeSuffix = "2"; break;
+	case Theme::T3: themeSuffix = "3"; break;
+	default: themeSuffix = "1"; break;  // По умолчанию Theme1
+	}
+
+	// Загружаем фигуры для белых и черных
 	for (const auto& name : names)
 	{
-		std::string whiteTexturePath = whitePiecesPath + name + ".png";
-		std::string blackTexturePath = blackPiecesPath + name + ".png";
+		std::string whiteTexturePath = whitePiecesPath + name + "W" + themeSuffix + ".png";  // Белые фигуры
+		std::string blackTexturePath = blackPiecesPath + name + "B" + themeSuffix + ".png";  // Черные фигуры
 
-		//std::cout << "Loading white piece texture: " << whiteTexturePath << std::endl;
+		// Загружаем белые фигуры
 		Texture2D whiteTexture = LoadTexture(whiteTexturePath.c_str());
 		if (whiteTexture.id == 0) {
 			std::cerr << "Failed to load white piece texture: " << whiteTexturePath << std::endl;
@@ -113,7 +158,7 @@ void Game::loadPieceTextures()
 			whitePieces[name] = whiteTexture;
 		}
 
-		//std::cout << "Loading black piece texture: " << blackTexturePath << std::endl;
+		// Загружаем черные фигуры
 		Texture2D blackTexture = LoadTexture(blackTexturePath.c_str());
 		if (blackTexture.id == 0) {
 			std::cerr << "Failed to load black piece texture: " << blackTexturePath << std::endl;
@@ -121,6 +166,18 @@ void Game::loadPieceTextures()
 		else {
 			blackPieces[name] = blackTexture;
 		}
+	}
+	std::string squareWPath = squarePath + "squareW"  + ".png";
+	std::string squareBPath = squarePath + "squareB"  + ".png";
+
+	squareWhite = LoadTexture(squareWPath.c_str());
+	if (squareWhite.id == 0) {
+		std::cerr << "Failed to load white square texture: " << squareWPath << std::endl;
+	}
+
+	squareBlack = LoadTexture(squareBPath.c_str());
+	if (squareBlack.id == 0) {
+		std::cerr << "Failed to load black square texture: " << squareBPath << std::endl;
 	}
 }
 
@@ -158,9 +215,8 @@ SIDE Game::checkVictory(const Position position)
 	return SIDE::None;
 }
 
-bool Game::PrintMove()
+std::string Game::generateAnnotation()
 {
-	float moveCtr = position.getMoveCtr();
 	std::string annotation;
 	if (promotionDone)
 	{
@@ -186,35 +242,54 @@ bool Game::PrintMove()
 		annotation += "0-1";
 	}
 
-	currentMove.Print(annotation, moveCtr);
+	return annotation;
+}
+bool Game::PrintMove()
+{
+	float moveCtr = position.getMoveCtr();
+	std::string annotation = generateAnnotation();
+
+	std::cout << currentMove << annotation << "\t";
+	if (getCurrentSideToMove(moveCtr) == SIDE::Black) std::cout << "\n";
 	currentMove.ToFile(annotation, moveCtr, savePath);
+	//movesHistory.readMovesFromFile(savePath);
+	//movesHistory.saveToFile(annotation, moveCtr, loadPath);
+	//movesHistory.printMoves();
+	//std::cout << movesHistory[0] << annotation;
 	return true;
 }
 
 void Game::drawBoard()
 {
-	int rowIndex = 8;
+	int rankIndex = 8;
 	const char* files[8] = { "a", "b", "c", "d", "e", "f", "g", "h" };
-	for (int row = 0; row < boardSize; ++row)
+	for (int rank = 0; rank < boardSize; ++rank)
 	{
-		for (int col = 0; col < boardSize; ++col)
+		for (int file = 0; file < boardSize; ++file)
 		{
-			Color squareColor = ((row + col) % 2 == 0) ? whiteSquareColor : blackSquareColor;
-			Color textColor = ((row + col) % 2 == 0) ? blackSquareColor : whiteSquareColor;
-			DrawRectangle(col * squareSize, row * squareSize, squareSize, squareSize, squareColor);
+			int x = file * squareSize;
+			int y = rank * squareSize;
 
-			std::string rowIndexStr = std::to_string(rowIndex);
-			std::string fileIndex = files[col];
-			if (col == 7)
+			bool isWhiteSquare = (rank + file) % 2 == 0;
+			Texture2D& squareTex = isWhiteSquare ? squareWhite : squareBlack;
+			Color textColor = BLACK;
+			Rectangle source = { 0, 0, (float)squareTex.width, (float)squareTex.height };
+			Rectangle dest = { (float)x, (float)y, (float)squareSize, (float)squareSize };
+			Vector2 origin = { 0, 0 };
+
+			DrawTexturePro(squareTex, source, dest, origin, 0.0f, WHITE);
+			std::string rowIndexStr = std::to_string(rankIndex);
+			std::string fileIndex = files[file];
+			if (file == 7)
 			{
-				DrawText(rowIndexStr.c_str(), col * squareSize + OffsetXForRows, row * squareSize + OffsetYForRows, 20, textColor);
+				DrawText(rowIndexStr.c_str(), file * squareSize + OffsetXForRows, rank * squareSize + OffsetYForRows, 20, textColor);
 			}
-			if (row == 7)
+			if (rank == 7)
 			{
-				DrawText(fileIndex.c_str(), col * squareSize + OffsetXForFiles, row * squareSize + OffsetYForFiles, 20, textColor);
+				DrawText(fileIndex.c_str(), file * squareSize + OffsetXForFiles, rank * squareSize + OffsetYForFiles, 20, textColor);
 			}
 		}
-		rowIndex--;
+		rankIndex--;
 	}
 	
 	drawPieces();
@@ -526,5 +601,41 @@ void Game::update()
 		}
 
 		proccessAiMoveAsync();
+	}
+
+	if (IsKeyPressed(KEY_F5))
+	{
+		float moveCtr = position.getMoveCtr();
+		std::string annotation = generateAnnotation();
+		movesHistory.saveToFile(annotation, moveCtr, loadPath);
+		std::cout << "[Saved move history to file]\n";
+	}
+	if (IsKeyPressed(KEY_DELETE)) {
+		clearFile(savePath);  // Очищаємо файл
+		clearFile(loadPath); 
+		std::cout << "[Files cleared]\n"; // Очищаємо файл
+	}
+	if (IsKeyPressed(KEY_F7))
+	{
+		movesHistory.clear();
+		movesHistory.readMovesFromFile(loadPath);
+		std::cout << "[Loaded move history from file]\n";
+	}
+	if (IsKeyPressed(KEY_F1))
+	{
+		resetPosition();
+		movesHistory.readMovesFromFile(loadPath);
+		//std::cout << "Trying to move: " << movesHistory[1] << std::endl;
+		position.moveList(movesHistory);
+	}
+}
+
+void Game::clearFile(const std::string filePath) {
+	std::ofstream file(filePath, std::ios::trunc); // Очищає файл
+	if (!file.is_open()) {
+		std::cerr << "Unable to open file for clearing: " << filePath << '\n';
+	}
+	else {
+		std::cout << "File has been cleared.\n";
 	}
 }

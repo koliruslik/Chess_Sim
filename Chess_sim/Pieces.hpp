@@ -13,7 +13,8 @@ enum PIECE {
     BISHOP = 2,
     ROOK = 3,
     QUEEN = 4,
-    KING = 5
+    KING = 5,
+    NONE = -1
 };
 
 
@@ -41,6 +42,8 @@ public:
             all == other.all &&
             empty == other.empty;
     }
+
+    Pieces& operator=(const Pieces& other);
 
     void updateBitboards();
 

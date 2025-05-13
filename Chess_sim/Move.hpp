@@ -22,7 +22,7 @@ public:
     void setDefenderType(uint8_t newDefenderType);
     void setDefenderSide(uint8_t newDefenderSide);
     void setFlag(uint8_t newFlag);
-  
+    static Move CreateCastling(bool kingside, uint8_t side);
     [[nodiscard]] uint8_t getFrom() const;
     [[nodiscard]] uint8_t getTo() const;
     [[nodiscard]] uint8_t getAttackerType() const;
@@ -32,11 +32,13 @@ public:
     [[nodiscard]] uint8_t getFlag() const;
 
     bool operator==(const Move& other) const;
+    Move& operator=(const Move& other);
     friend std::ostream& operator <<(std::ostream& ostream, const Move& move);
-
-    void Print(std::string condition, float moveCtr) const;
+    
     void ToFile(std::string& annotation, float moveCtr, std::string filePath) const;
     static bool isPromotion(const std::string& condition);
+
+    static Move strToMove(const std::string& moveStr, uint8_t flag);
     enum FLAG {
         DEFAULT,
 

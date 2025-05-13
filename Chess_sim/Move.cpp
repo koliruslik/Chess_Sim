@@ -53,38 +53,35 @@ uint8_t Move::getFlag() const {
     return flag;
 }
 
-bool Move::operator==(const Move& other) const {
-	return from == other.from &&
-		to == other.to &&
-		attackerType == other.attackerType &&
-		attackerSide == other.attackerSide &&
-		defenderType == other.defenderType &&
-		defenderSide == other.defenderSide &&
-		flag == other.flag;
-}
+Move Move::CreateCastling(bool kingside, uint8_t side)
+{
+    uint8_t from, to, flag;
 
+    if (side == SIDE::White)
+    {
+        from = 4; // e1
+        to = kingside ? 6 : 2; // g1 або c1
+        flag = kingside ? Move::FLAG::WS_CASTLING : Move::FLAG::WL_CASTLING;
+    }
+    else
+    {
+        from = 60; // e8
+        to = kingside ? 62 : 58; // g8 або c8
+        flag = kingside ? Move::FLAG::BS_CASTLING : Move::FLAG::BL_CASTLING;
+    }
+
+    return Move(from, to, PIECE::KING, side, 0, 0, flag);
+}
 bool Move::isPromotion(const std::string& condition)
 {
     static const std::vector<std::string> promotionOptions = { "=Q", "=R", "=B", "=N" };
     return std::find(promotionOptions.begin(), promotionOptions.end(), condition) != promotionOptions.end();
 }
 
-void Move::Print(std::string annotation, float moveCtr) const
-{
-    int fullMoveNumber = moveCtr + 0.5;
-    bool isWhiteMove = !(moveCtr == static_cast<int>(moveCtr));
-    if (isWhiteMove)
-        std::cout << "\n" << fullMoveNumber << ". " << *this;
-    else
-        std::cout << "\t" << *this;
-
-    std::cout << annotation;
-}
-
 void Move::ToFile( std::string& annotation, float moveCtr, std::string filePath) const
 {
     
-    std::ofstream file(filePath, std::ios::app);
+    std::ofstream file(filePath, std::ios::app | std::ios::binary);
     if (!file.is_open())
     {
         std::cerr << "Unable to open file\n";
@@ -93,36 +90,115 @@ void Move::ToFile( std::string& annotation, float moveCtr, std::string filePath)
 
     int fullMoveNumber = moveCtr + 0.5;
     bool isWhiteMove = !(moveCtr == static_cast<int>(moveCtr));
-    if (isWhiteMove)
-        file << "\n" << fullMoveNumber << ". " << *this;
-    else
-        file << "\t" << *this;
-
-    file << annotation;
+    file << fullMoveNumber << ". " << *this << annotation << " " << (int)getFlag() << "\n";
     file.close();
 }
 
-std::ostream& operator <<(std::ostream& ostream, const Move& move) {
-	std::string from = Btrans::indexToSquare(move.getFrom());
-	std::string to = Btrans::indexToSquare(move.getTo());
-	char attackerType = Btrans::pieceToString(move.getAttackerType());
-	char defenderType = Btrans::pieceToString(move.getDefenderType());
-    uint8_t attackerSide = move.getAttackerSide();
-	uint8_t defenderSide = move.getDefenderSide();
-	uint8_t flag = move.getFlag();
+Move Move::strToMove(const std::string& moveStr, uint8_t flag)
+{
+    uint8_t attackerSide = 0;
+    uint8_t attackerType = 0;
+    uint8_t defenderSide = 0;
+    uint8_t defenderType = Move::NONE;
+    uint8_t from, to;
 
-    if (attackerSide == SIDE::White) attackerType = toupper(attackerType);
-    if (defenderSide == SIDE::White) defenderType = toupper(defenderType);
+    attackerSide = (flag == Move::FLAG::WS_CASTLING || flag == Move::FLAG::WL_CASTLING) ? SIDE::White :
+        (flag == Move::FLAG::BS_CASTLING || flag == Move::FLAG::BL_CASTLING) ? SIDE::Black : 0;
+
+    if (moveStr == "0-0")
+    {
+        return Move::CreateCastling(true, attackerSide);
+    }
+    if (moveStr == "0-0-0")
+    {
+        return Move::CreateCastling(false, attackerSide);
+    }
+
+    std::string part = moveStr;
+    bool isCapture = moveStr.find('x') != std::string::npos;
+    if (isCapture) {
+        part.erase(moveStr.find('x'), 1);
+
+       
+        defenderType = Btrans::charToPiece(tolower(part[3]));
+    }
+    if (flag == 2) {
+        defenderType = PIECE::PAWN;  
+    }
+
+    char pieceChar = part[0];
+    attackerType = Btrans::charToPiece(tolower(pieceChar));
+
+    attackerSide = isupper(pieceChar) ? SIDE::White : SIDE::Black;
+
+    std::string fromSquare = part.substr(1, 2);
+    std::string toSquare = (isCapture) ? part.substr(4, 3) : part.substr(3, 2);
+
+    from = Btrans::squareToIndex(fromSquare);
+    to = Btrans::squareToIndex(toSquare);
+
+    defenderSide = (attackerSide == SIDE::White) ? SIDE::Black : SIDE::White;
+
+    return Move(from, to, attackerType, attackerSide, defenderType, defenderSide, flag);
+}
+std::ostream& operator<<(std::ostream& ostream, const Move& move) {
+    std::string from = Btrans::indexToSquare(move.getFrom());
+    std::string to = Btrans::indexToSquare(move.getTo());
+    char attackerType = Btrans::pieceToChar(move.getAttackerType());
+    char defenderType = Btrans::pieceToChar(move.getDefenderType());
+    uint8_t attackerSide = move.getAttackerSide();
+    uint8_t defenderSide = move.getDefenderSide();
+    uint8_t flag = move.getFlag();
+
+
+    if (attackerSide == SIDE::White) {
+        attackerType = toupper(attackerType);
+    }
+    else if (attackerSide == SIDE::Black) {
+        attackerType = tolower(attackerType);
+    }
+
+    if (defenderSide == SIDE::White && defenderType != '\0') {
+        defenderType = toupper(defenderType);
+    }
+    else if (defenderSide == SIDE::Black && defenderType != '\0') {
+        defenderType = tolower(defenderType);
+    }
+
 
     if (flag == Move::FLAG::WL_CASTLING || flag == Move::FLAG::BL_CASTLING)
         ostream << "0-0-0";
     else if (flag == Move::FLAG::WS_CASTLING || flag == Move::FLAG::BS_CASTLING)
         ostream << "0-0";
     else if (defenderType != '\0' || flag == Move::FLAG::EN_PASSANT_CAPTURE)
-        ostream << attackerType << from << "x" << to;
+        ostream << attackerType << from << "x" << defenderType << to;
     else
         ostream << attackerType << from << to;
-    
+
     return ostream;
 }
 
+bool Move::operator==(const Move& other) const {
+    return from == other.from &&
+        to == other.to &&
+        attackerType == other.attackerType &&
+        attackerSide == other.attackerSide &&
+        defenderType == other.defenderType &&
+        defenderSide == other.defenderSide &&
+        flag == other.flag;
+}
+
+Move& Move::operator=(const Move& other)
+{
+    if (this != &other)
+    {
+        from = other.from;
+        to = other.to;
+        attackerType = other.attackerType;
+        attackerSide = other.attackerSide;
+        defenderType = other.defenderType;
+        defenderSide = other.defenderSide;
+        flag = other.flag;
+    }
+    return *this;
+}

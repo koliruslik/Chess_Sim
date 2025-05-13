@@ -11,6 +11,7 @@
 #include "AI.h"
 #pragma once
 
+enum class Theme { T1, T2, T3};
 
 class Game
 {
@@ -32,10 +33,10 @@ public:
 	}
 	static SIDE checkVictory(const Position position);
 	
-
+	std::string generateAnnotation();
 	
 
-	void loadPieceTextures();
+	void loadPieceTextures(Theme theme);
 	void drawBoard();
 	void drawPieces();
 	void drawMask();
@@ -44,24 +45,30 @@ public:
 
 	void selectPiece();
 	void update();
-
+	uint8_t getCurrentSideToMove(float moveCtr) { return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::Black : SIDE::White; }
 	uint8_t getSelectedSquare() const { return selectedSquare; }
 	SIDE getWonSide() const { return wonSide; }
-
 	void setAiSideToPlay(SIDE side) { aiSide = side; }
+
+	void resetPosition();
 private:
 	
 	Position position;
 	MoveList selectedPieceMoves;
+	MoveList movesHistory;
 	Move currentMove;
 	const std::string startingPosition = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 	const std::string whitePiecesPath = "..\\..\\..\\..\\recources\\ChessPieces\\White\\";
 	const std::string blackPiecesPath = "..\\..\\..\\..\\recources\\ChessPieces\\Black\\";
+	const std::string squarePath = "..\\..\\..\\..\\recources\\boards\\";
 	const std::string savePath = "..\\..\\..\\..\\saves\\save.txt";
+	const std::string loadPath = "..\\..\\..\\..\\saves\\load.txt";
 	const std::string names[6] = { "King", "Queen", "Rook", "Bishop", "Knight", "Pawn" };
 	std::vector<std::string> promotionPieces = { "Queen", "Rook", "Bishop", "Knight" };
 	std::map<std::string, Texture2D> whitePieces;
 	std::map<std::string, Texture2D> blackPieces;
+	Texture2D squareWhite;
+	Texture2D squareBlack;
 
 	int8_t selectedSquare;
 	bool isSelected = false;
@@ -94,4 +101,5 @@ private:
 	const bool debugMoves = true;
 	bool PrintMove();
 	bool printMove = false;
+	void clearFile(std::string filePath);
 };

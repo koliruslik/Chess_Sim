@@ -43,6 +43,16 @@ ZobristHash::ZobristHash(Pieces pieces, bool blackToMove, bool wlCastling, bool 
 bool operator ==(ZobristHash left, ZobristHash right) {
     return (left.value == right.value);
 }
+
+ZobristHash& ZobristHash::operator=(const ZobristHash& other) {
+    if (this == &other) { 
+        return *this;
+    }
+    value = other.value;
+
+    return *this;
+}
+
 void ZobristHash::invertPiece(uint8_t square, uint8_t type, uint8_t side) {
     this->value = this->value ^ ZobristHashConstants::CONSTANTS[square][side][type];
 }

@@ -27,7 +27,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
 {
     const int boardSize = 8;
     const int squareSize = 80;
-    const int screenWidth = boardSize * squareSize;
+    const int screenWidth = 100 + boardSize * squareSize;
     const int screenHeight = boardSize * squareSize;
     const char* title = "Chess_sim";
     InitWindow(screenWidth, screenHeight, title);

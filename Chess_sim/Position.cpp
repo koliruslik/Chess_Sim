@@ -129,6 +129,13 @@ void Position::move(Move move) {
     }
     this->repetitionHistory.addPosition(this->hash);
 }
+
+void Position::moveList(MoveList moves)
+{
+    for (uint8_t i = 0; i < moves.getSize(); ++i) {
+        this->move(moves[i]);
+    }
+}
 Pieces Position::getPieces() const {
     return this->pieces;
 }
@@ -286,3 +293,23 @@ std::string Position::toFEN() const {
     return fen;
 }
 
+Position& Position::operator=(const Position& other) 
+{
+    if (this == &other) { 
+        return *this;
+    }
+
+    enPassant = other.enPassant;
+    wlCastling = other.wlCastling;
+    wsCastling = other.wsCastling;
+    blCastling = other.blCastling;
+    bsCastling = other.bsCastling;
+    moveCtr = other.moveCtr;
+    fiftyMovesCtr = other.fiftyMovesCtr;
+    hash = other.hash;
+
+    repetitionHistory = other.repetitionHistory;
+    pieces = other.pieces;
+
+    return *this;
+}

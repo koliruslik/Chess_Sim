@@ -37,7 +37,7 @@ namespace Btrans
         return { row, col };
     }
 
-    inline char pieceToString(uint8_t piece)
+    inline char pieceToChar(uint8_t piece)
     {
         switch (piece)
         {
@@ -48,6 +48,20 @@ namespace Btrans
         case PIECE::QUEEN: return 'q';
         case PIECE::KING: return 'k';
         default: return '\0';
+        }
+    }
+    
+    inline PIECE charToPiece(char pieceChar)
+    {
+        switch (pieceChar)
+        {
+        case 'p': return PIECE::PAWN;
+        case 'n': return PIECE::KNIGHT;
+        case 'b': return PIECE::BISHOP;
+        case 'r': return PIECE::ROOK;
+        case 'q': return PIECE::QUEEN;
+        case 'k': return PIECE::KING;
+        default: return PIECE::NONE;
         }
     }
 }

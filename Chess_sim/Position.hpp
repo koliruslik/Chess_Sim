@@ -3,7 +3,7 @@
 #include <string>
 #include "RepetitionHistory.hpp"
 #include "Move.hpp"
-
+#include "MoveList.hpp"
 #pragma once
 
 
@@ -13,9 +13,10 @@ public:
     Position(const std::string& shortFen, uint8_t enPassant, bool wlCastling, bool wsCastling, bool blCastling, bool bsCastling, float moveCtr);
 
     friend std::ostream& operator <<(std::ostream& ostream, const Position& position);
+    Position& operator=(const Position& other);
 
     void move(Move move);
-
+    void moveList(MoveList moves);
     [[nodiscard]] Pieces getPieces() const;
     [[nodiscard]] uint8_t getEnPassant() const;
     [[nodiscard]] bool getWLCastling() const;

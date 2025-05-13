@@ -18,3 +18,13 @@ uint8_t RepetitionHistory::getRepetitionNumber(ZobristHash hash) const {
     }
     return ctr;
 }
+
+RepetitionHistory& RepetitionHistory::operator=(const RepetitionHistory& other) {
+    if (this == &other) {  
+        return *this;
+    }
+
+    hashes = other.hashes; 
+
+    return *this;
+}

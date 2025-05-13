@@ -119,6 +119,21 @@ std::ostream& operator<<(std::ostream& ostream, Pieces pieces) {
     ostream << "    a   b   c   d   e   f   g   h\n";
     return ostream;
 }
+
+Pieces& Pieces::operator=(const Pieces& other) {
+    if (this == &other) {  // Проверка на самоприсваивание
+        return *this;
+    }
+
+    pieceBitboards = other.pieceBitboards;
+    sideBitboards = other.sideBitboards;
+    invSideBitboards = other.invSideBitboards;
+    all = other.all;
+    empty = other.empty;
+
+    return *this;
+}
+
 void Pieces::updateBitboards() {
     this->sideBitboards[SIDE::White] = this->pieceBitboards[SIDE::White][PIECE::PAWN] |
                                          this->pieceBitboards[SIDE::White][PIECE::KNIGHT] |

@@ -12,6 +12,7 @@ public:
     ZobristHash(Pieces pieces, bool blackToMove, bool wlCastling, bool wsCastling, bool blCastling, bool bsCastling);
 
     friend bool operator ==(ZobristHash left, ZobristHash right);
+    ZobristHash& operator=(const ZobristHash& other);
 	friend bool operator <(ZobristHash left, ZobristHash right) {
 		return (left.value < right.value);
 	}
