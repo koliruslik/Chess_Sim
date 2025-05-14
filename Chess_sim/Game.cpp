@@ -10,7 +10,6 @@ Game::Game(Position position, SIDE aiSideToPlay)
 	this->aiSide = aiSideToPlay;
 	selectedSquare = -1;
 	this->position = position;
-	loadPieceTextures(Theme::T1);
 }
 
 void Game::resetPosition()
@@ -137,9 +136,9 @@ void Game::loadPieceTextures(Theme theme)
 
 	// Определяем суффикс для темы
 	switch (theme) {
-	case Theme::T1: themeSuffix = "\0"; break;
-	case Theme::T2: themeSuffix = "2"; break;
-	case Theme::T3: themeSuffix = "3"; break;
+	case Theme::Theme1: themeSuffix = "\0"; break;
+	case Theme::Theme2: themeSuffix = "2"; break;
+	case Theme::Theme3: themeSuffix = "3"; break;
 	default: themeSuffix = "1"; break;  // По умолчанию Theme1
 	}
 

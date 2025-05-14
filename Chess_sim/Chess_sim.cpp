@@ -11,6 +11,8 @@
 #include "LegalMoveGenTester.hpp"
 #include "PsLegalMoveMaskGen.hpp"
 #include "Game.hpp"
+#include "MenuResult.h"
+
 
 using namespace std;
 
@@ -36,13 +38,17 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
     Timer timer;
     GameState gameState = MAIN_MENU;
     MainMenu mainMenu(screenWidth, screenHeight);
+    //SettingsMenu settingsMenu(screenWidth, screenHeight);
     Position position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR", Position::NONE, true, true, true, true, 0.0f);
     //Position position("1ppp4/Ppkp4/1ppp4/8/8/8/8/7K", Position::NONE, true, true, true, true, 0.0f);
     //Position position("k7/8/8/8/8/q7/8/K7", Position::NONE, true, true, true, true, 0.0f);
     
-    Game game(position, SIDE::White);
+    
 
 	SIDE wonSide = SIDE::None;
+
+    MenuResult result;
+    Theme theme;
     while (!WindowShouldClose())
     {
         BeginDrawing();
@@ -54,22 +60,29 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
             mainMenu.DrawMenu();
             mainMenu.Update();
             DrawText(timer.GetCurrentTime().c_str(), 10, 10, 20, WHITE);
-
-            if (mainMenu.shouldExitGame())
+            result = mainMenu.getResult();
+            if (result == MenuResult::Exit)
                 CloseWindow();
-            else if (mainMenu.shouldStartGame())
+            else if (result == MenuResult::StartGame)
+            {
                 gameState = GAMEPLAY;
-            else if (mainMenu.isSettingsMenu())
+                Game game(position, SIDE::White);
+                game.setAiSideToPlay(mainMenu.getSideToPlay());
+                theme = mainMenu.getTheme();
+                game.setTheme(theme);
+            }
+            else if (result == MenuResult::OpenSettings)
                 gameState = SETTINGS;
 
             break;
 
         case SETTINGS:
             DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 20), 0, 20, WHITE);
+            /*settingsMenu.DrawMenu();
+            settingsMenu.Update();*/
             break;
 
         case GAMEPLAY:
-			game.setAiSideToPlay(mainMenu.getSideToPlay());
             game.processGame();
             wonSide = game.getWonSide();
             if(wonSide == SIDE::White) DrawText("White wins!", screenWidth / 2 - MeasureText("White wins!", 20), screenHeight / 2, 50, BLACK);

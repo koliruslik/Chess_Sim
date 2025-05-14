@@ -1,18 +1,37 @@
 #include "Button.h"
 
 Button::Button(float x, float y, float width, float height, const char* text)
-	: bounds({ x - width/2, y - height/2, width, height }), color(LIGHTGRAY), text(text) {}
+    : bounds{ x - width / 2, y - height / 2, width, height },
+    color(LIGHTGRAY), text(text), hasTexture(false) , name(""){
+}
 
-
+Button::Button(float x, float y, float width, float height, const char* text, Texture2D texture)
+    : bounds{ x - width / 2, y - height / 2, width, height },
+    color(WHITE), text(text), texture(texture), hasTexture(true), name("") {
+}
 
 void Button::Draw()
 {
-	DrawRectangle(bounds.x, bounds.y, bounds.width, bounds.height, color);
-	//test
-	//DrawRectangleLinesEx(bounds, 2, GRAY);
-	int textWidth = MeasureText(text, fontSize);
-	DrawText(text, bounds.x + bounds.width / 2 - textWidth / 2, bounds.y + 8, fontSize, BLACK);
+    if (hasTexture)
+    {
+        DrawTexturePro(
+            texture,
+            { 0, 0, (float)texture.width, (float)texture.height },
+            bounds,
+            { 0, 0 },
+            0.0f,
+            WHITE
+        );
+    }
+    else
+    {
+        DrawRectangle(bounds.x, bounds.y, bounds.width, bounds.height, color);
+    }
+
+    int textWidth = MeasureText(text, fontSize);
+    DrawText(text, bounds.x + bounds.width / 2 - textWidth / 2, bounds.y + 8, fontSize, BLACK);
 }
+
 bool Button::IsMouseOver() 
 {
     Vector2 mousePos = GetMousePosition();

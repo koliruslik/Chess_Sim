@@ -9,9 +9,8 @@
 #include "MoveList.hpp"
 #include "raylib.h"
 #include "AI.h"
+#include "MainMenu.h"
 #pragma once
-
-enum class Theme { T1, T2, T3};
 
 class Game
 {
@@ -49,6 +48,7 @@ public:
 	uint8_t getSelectedSquare() const { return selectedSquare; }
 	SIDE getWonSide() const { return wonSide; }
 	void setAiSideToPlay(SIDE side) { aiSide = side; }
+	void setTheme(Theme theme) { theme = theme; loadPieceTextures(theme); }
 
 	void resetPosition();
 private:
@@ -102,4 +102,6 @@ private:
 	bool PrintMove();
 	bool printMove = false;
 	void clearFile(std::string filePath);
+
+	Theme theme;
 };

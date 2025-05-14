@@ -7,7 +7,7 @@ add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h"
 						"Pieces.cpp" "Pieces.hpp" 
 						"MainMenu.cpp" "MainMenu.h"
 						"Menu.cpp" "Menu.h" 
-						"SettingsMenu.cpp" "SettingsMenu.h" 
+						  
 						"Button.cpp" "Button.h" 
 						"Timer.h" "Timer.cpp" 
 						"ZobristHash.hpp" "ZobristHash.cpp" "ZobristHashConstants.hpp"
@@ -25,7 +25,7 @@ add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h"
 						"Entry.cpp" "Entry.hpp" 
 						"TranspositionTable.h" "TranspositionTable.cpp"
 						"OpeningBook.h" "OpeningBook.cpp" 
-						"AI.h" "AI.cpp" "BTrans.h")
+						"AI.h" "AI.cpp" "BTrans.h" "MenuResult.h")
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
