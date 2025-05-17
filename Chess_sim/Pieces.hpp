@@ -2,30 +2,11 @@
 
 #include <cctype>
 #include "Bitboard.hpp"
-
+#include "GameEnums.h"
 
 #pragma once
 
 
-enum PIECE {
-    PAWN = 0,
-    KNIGHT = 1,
-    BISHOP = 2,
-    ROOK = 3,
-    QUEEN = 4,
-    KING = 5,
-    NONE = -1
-};
-
-
-enum SIDE {
-    White = 0,
-    Black = 1,
-    Draw = -1,
-    None = -2,
-	Stalemate = -3,
-	Checked = -4
-};
 
 
 class Pieces {

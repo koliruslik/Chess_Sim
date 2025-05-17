@@ -1,15 +1,14 @@
 #include "Game.hpp"
 
-const Color maskColor = BLUE;
-const Color promoteColor = GRAY;
-const Color whiteSquareColor = WHITE;
-const Color blackSquareColor = DARKGRAY;
+
 Game::Game(Position position, SIDE aiSideToPlay)
 	:ai("..\\..\\..\\..\\recources\\Start\\Start.txt")
 {
 	this->aiSide = aiSideToPlay;
 	selectedSquare = -1;
 	this->position = position;
+
+	
 }
 
 void Game::resetPosition()
@@ -128,58 +127,6 @@ void Game::processGame()
 	return;
 }
 
-void Game::loadPieceTextures(Theme theme)
-{
-	// Выбор папки на основе темы
-	std::string piecesPath;
-	std::string themeSuffix;
-
-	// Определяем суффикс для темы
-	switch (theme) {
-	case Theme::Theme1: themeSuffix = "\0"; break;
-	case Theme::Theme2: themeSuffix = "2"; break;
-	case Theme::Theme3: themeSuffix = "3"; break;
-	default: themeSuffix = "1"; break;  // По умолчанию Theme1
-	}
-
-	// Загружаем фигуры для белых и черных
-	for (const auto& name : names)
-	{
-		std::string whiteTexturePath = whitePiecesPath + name + "W" + themeSuffix + ".png";  // Белые фигуры
-		std::string blackTexturePath = blackPiecesPath + name + "B" + themeSuffix + ".png";  // Черные фигуры
-
-		// Загружаем белые фигуры
-		Texture2D whiteTexture = LoadTexture(whiteTexturePath.c_str());
-		if (whiteTexture.id == 0) {
-			std::cerr << "Failed to load white piece texture: " << whiteTexturePath << std::endl;
-		}
-		else {
-			whitePieces[name] = whiteTexture;
-		}
-
-		// Загружаем черные фигуры
-		Texture2D blackTexture = LoadTexture(blackTexturePath.c_str());
-		if (blackTexture.id == 0) {
-			std::cerr << "Failed to load black piece texture: " << blackTexturePath << std::endl;
-		}
-		else {
-			blackPieces[name] = blackTexture;
-		}
-	}
-	std::string squareWPath = squarePath + "squareW"  + ".png";
-	std::string squareBPath = squarePath + "squareB"  + ".png";
-
-	squareWhite = LoadTexture(squareWPath.c_str());
-	if (squareWhite.id == 0) {
-		std::cerr << "Failed to load white square texture: " << squareWPath << std::endl;
-	}
-
-	squareBlack = LoadTexture(squareBPath.c_str());
-	if (squareBlack.id == 0) {
-		std::cerr << "Failed to load black square texture: " << squareBPath << std::endl;
-	}
-}
-
 SIDE Game::checkVictory(const Position position)
 {
 	bool whiteInCheck = PsLegalMoveMaskGen::inDanger(position.getPieces(), BOp::bsf(position.getPieces().getPieceBitboard(SIDE::White, PIECE::KING)), SIDE::White);
@@ -258,133 +205,19 @@ bool Game::PrintMove()
 	return true;
 }
 
+void Game::setTheme(Theme newTheme)
+{
+	theme = newTheme;
+}
+
 void Game::drawBoard()
 {
-	int rankIndex = 8;
-	const char* files[8] = { "a", "b", "c", "d", "e", "f", "g", "h" };
-	for (int rank = 0; rank < boardSize; ++rank)
-	{
-		for (int file = 0; file < boardSize; ++file)
-		{
-			int x = file * squareSize;
-			int y = rank * squareSize;
-
-			bool isWhiteSquare = (rank + file) % 2 == 0;
-			Texture2D& squareTex = isWhiteSquare ? squareWhite : squareBlack;
-			Color textColor = BLACK;
-			Rectangle source = { 0, 0, (float)squareTex.width, (float)squareTex.height };
-			Rectangle dest = { (float)x, (float)y, (float)squareSize, (float)squareSize };
-			Vector2 origin = { 0, 0 };
-
-			DrawTexturePro(squareTex, source, dest, origin, 0.0f, WHITE);
-			std::string rowIndexStr = std::to_string(rankIndex);
-			std::string fileIndex = files[file];
-			if (file == 7)
-			{
-				DrawText(rowIndexStr.c_str(), file * squareSize + OffsetXForRows, rank * squareSize + OffsetYForRows, 20, textColor);
-			}
-			if (rank == 7)
-			{
-				DrawText(fileIndex.c_str(), file * squareSize + OffsetXForFiles, rank * squareSize + OffsetYForFiles, 20, textColor);
-			}
-		}
-		rankIndex--;
-	}
-	
-	drawPieces();
-	drawMask();
-	if (promotionOption) drawPromotionOptions();
+	bRenderer.setTheme(theme);
+	bRenderer.drawBoard(position, selectedSquare,
+						promotionOption, promotionSquare,
+						promotionSide);
 }
 
-void Game::drawPieces()
-{
-	std::string fen = position.toFEN();
-	int row = 0, col = 0;
-
-	float pieceSize = squareSize * 1.5f;
-
-	for (char c : fen)
-	{
-		if (c == '/')
-		{
-			row++;
-			col = 0;
-		}
-		else if (isdigit(c))
-		{
-			col += c - '0';
-		}
-		else
-		{
-			bool isWhite = isupper(c);
-			std::string pieceType;
-
-			switch (tolower(c))
-			{
-			case 'k': pieceType = "King"; break;
-			case 'q': pieceType = "Queen"; break;
-			case 'r': pieceType = "Rook"; break;
-			case 'b': pieceType = "Bishop"; break;
-			case 'n': pieceType = "Knight"; break;
-			case 'p': pieceType = "Pawn"; break;
-			}
-
-			Texture2D tex = isWhite ? whitePieces[pieceType] : blackPieces[pieceType];
-
-			float texAspectRatio = static_cast<float>(tex.width) / static_cast<float>(tex.height);
-
-			float newWidth = pieceSize;
-			float newHeight = pieceSize / texAspectRatio;
-
-			if (newHeight > squareSize)
-			{
-				newHeight = squareSize;
-				newWidth = squareSize * texAspectRatio;
-			}
-			Vector2 offset = centerPiece(pieceSize, tex.width, tex.height);
-			float xOffset = offset.x;
-			float yOffset = offset.y; 
-
-			Rectangle source = { 0, 0, tex.width, tex.height }; 
-			Rectangle dest = { col * squareSize + xOffset, row * squareSize + yOffset, newWidth, newHeight }; 
-
-			Vector2 origin = { newWidth / 2.0f, newHeight / 2.0f };
-			float rotation = 0.0f; 
-			Color tint = WHITE; 
-
-			DrawTexturePro(tex, source, dest, origin, rotation, tint);
-			col++;
-			
-		}
-	}
-}
-
-void Game::drawMask()
-{
-	if (selectedSquare == -1)
-	{
-		return;
-	}
-	//std::cout << "selected square: " << selectedSquare << std::endl;
-	MoveList moves = LegalMoveGen::generate(position, position.getPieceSideAt(selectedSquare), false);
-	std::vector<std::string> squares;
-	for (int i = 0; i < moves.getSize(); ++i)
-	{
-		int from = moves[i].getFrom();
-		if (from != selectedSquare || position.getPieceSideAt(from) != position.getSideToMove())
-		{
-			continue;
-		}
-		int to = moves[i].getTo();
-		//std::cout << "to " << to << std::endl;
-		int col = to % 8;
-		int row = 7 - (to / 8); 
-		//std::cout << "possible move: " << indexToSquare(to) << std::endl;
-		Color maskColor = BLUE;
-		DrawRectangle(col * squareSize, row * squareSize, squareSize, squareSize, maskColor);
-	}
-
-}
 std::string Game::handlePromotionSelection(int promotionIndex) {
 	/*if (promotionIndex < 0 || promotionIndex >= 4)
 	{
@@ -392,7 +225,7 @@ std::string Game::handlePromotionSelection(int promotionIndex) {
 		return;
 	}*/
 
-	std::string selectedPiece = promotionPieces[promotionIndex];
+	std::string selectedPiece = promotionNames[promotionIndex];
 	if(debugMode) std::cout << "Selected piece for promotion: " << selectedPiece << std::endl;
 	if (selectedPiece == "Rook") return "Rook";
 	else if (selectedPiece == "Knight") return "Knight";
@@ -401,42 +234,6 @@ std::string Game::handlePromotionSelection(int promotionIndex) {
 	selectedSquare = -1;
 	promotionOption = false;
 
-}
-void Game::drawPromotionOptions()
-{
-	if (!promotionOption) return;
-	float pieceSize = squareSize * 1.5f;
-	int col = Btrans::indexToRowCol(promotionSquare).second;
-	int row = Btrans::indexToRowCol(promotionSquare).first;
-
-	for (int i = 0; i < 4; ++i)
-	{
-		Texture2D tex = (promotionSide == SIDE::White) ? whitePieces[promotionPieces[i]] : blackPieces[promotionPieces[i]];
-		float texAspectRatio = static_cast<float>(tex.width) / static_cast<float>(tex.height);
-
-		float newWidth = pieceSize;
-		float newHeight = pieceSize / texAspectRatio;
-
-		if (newHeight > squareSize)
-		{
-			newHeight = squareSize;
-			newWidth = squareSize * texAspectRatio;
-		}
-		Vector2 offset = centerPiece(pieceSize, tex.width, tex.height);
-		float xOffset = offset.x;
-		float yOffset = offset.y;
-
-		Rectangle source = { 0, 0, tex.width, tex.height };
-		Rectangle dest = { col * squareSize + xOffset, row * squareSize + yOffset, newWidth, newHeight };
-
-		Vector2 origin = { newWidth / 2.0f, newHeight / 2.0f };
-		float rotation = 0.0f;
-		Color tint = WHITE;
-		DrawRectangle(col * squareSize, row * squareSize, squareSize, squareSize, promoteColor);
-		DrawTexturePro(tex, source, dest, origin, rotation, tint);
-		if (row >= 0 && row <= 3) row++;
-		else if (row <= 7 && row >= 4) row--;
-	}
 }
 
 bool Game::isPromotionMove(Move& move)

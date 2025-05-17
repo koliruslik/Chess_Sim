@@ -10,6 +10,8 @@
 #include "raylib.h"
 #include "AI.h"
 #include "MainMenu.h"
+#include "Init.h"
+#include "BoardRenderer.h"
 #pragma once
 
 class Game
@@ -35,11 +37,12 @@ public:
 	std::string generateAnnotation();
 	
 
-	void loadPieceTextures(Theme theme);
+	
 	void drawBoard();
 	void drawPieces();
 	void drawMask();
 	void drawPromotionOptions();
+	void drawCoordinates();
 	Vector2 centerPiece(float pieceSize, float texWidth, float texHeight) const;
 
 	void selectPiece();
@@ -48,28 +51,21 @@ public:
 	uint8_t getSelectedSquare() const { return selectedSquare; }
 	SIDE getWonSide() const { return wonSide; }
 	void setAiSideToPlay(SIDE side) { aiSide = side; }
-	void setTheme(Theme theme) { theme = theme; loadPieceTextures(theme); }
+	void setTheme(Theme newTheme);
+	
 
 	void resetPosition();
 private:
-	
+	BoardRenderer bRenderer = BoardRenderer(80);
 	Position position;
 	MoveList selectedPieceMoves;
 	MoveList movesHistory;
 	Move currentMove;
 	const std::string startingPosition = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
-	const std::string whitePiecesPath = "..\\..\\..\\..\\recources\\ChessPieces\\White\\";
-	const std::string blackPiecesPath = "..\\..\\..\\..\\recources\\ChessPieces\\Black\\";
-	const std::string squarePath = "..\\..\\..\\..\\recources\\boards\\";
 	const std::string savePath = "..\\..\\..\\..\\saves\\save.txt";
 	const std::string loadPath = "..\\..\\..\\..\\saves\\load.txt";
 	const std::string names[6] = { "King", "Queen", "Rook", "Bishop", "Knight", "Pawn" };
-	std::vector<std::string> promotionPieces = { "Queen", "Rook", "Bishop", "Knight" };
-	std::map<std::string, Texture2D> whitePieces;
-	std::map<std::string, Texture2D> blackPieces;
-	Texture2D squareWhite;
-	Texture2D squareBlack;
-
+	std::vector<std::string> promotionNames = { "Queen", "Rook", "Bishop", "Knight" };
 	int8_t selectedSquare;
 	bool isSelected = false;
 	const int boardSize = 8;
@@ -80,6 +76,7 @@ private:
 	const int OffsetYForRows = 5;
 	const int OffsetXForFiles = 5;
 	const int OffsetYForFiles = squareSize - 20;
+	Color maskColor = { 160, 112, 112, 136 };
 	SIDE wonSide = SIDE::None;
 
 	bool promotionOption = false;
@@ -104,4 +101,8 @@ private:
 	void clearFile(std::string filePath);
 
 	Theme theme;
+	std::map<Theme, const PieceTextures*> allPieceTextures;
+	const Texture2D* squareWhiteTex = nullptr;
+	const Texture2D* squareBlackTex = nullptr;
+	
 };

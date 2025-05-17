@@ -242,11 +242,11 @@ uint8_t Position::getPieceSideAt(uint8_t square) const {
     return SIDE::None;
 }
 
-uint8_t Position::getSideToMove()
+uint8_t Position::getSideToMove() const
 {
     return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::White : SIDE::Black;
 }
-uint8_t Position::getOpponentSide()
+uint8_t Position::getOpponentSide()const
 {
 	return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::Black : SIDE::White;
 }

@@ -35,8 +35,8 @@ public:
 
     uint8_t getPieceTypeAt(uint8_t square, uint8_t side) const;
     uint8_t getPieceSideAt(uint8_t square) const;
-    uint8_t getSideToMove();
-	uint8_t getOpponentSide();
+    uint8_t getSideToMove() const;
+	uint8_t getOpponentSide() const;
 	float getMoveCtr() const { return moveCtr; }
     std::string toFEN() const;
     

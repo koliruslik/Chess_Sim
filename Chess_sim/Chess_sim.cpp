@@ -11,7 +11,7 @@
 #include "LegalMoveGenTester.hpp"
 #include "PsLegalMoveMaskGen.hpp"
 #include "Game.hpp"
-#include "MenuResult.h"
+#include "GameEnums.h"
 
 
 using namespace std;
@@ -21,7 +21,8 @@ enum GameState
 {
 	MAIN_MENU,
 	SETTINGS,
-	GAMEPLAY
+	GAMEPLAY,
+    POSCONSTRUCTOR
 };
 
 
@@ -29,7 +30,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
 {
     const int boardSize = 8;
     const int squareSize = 80;
-    const int screenWidth = 100 + boardSize * squareSize;
+    const int screenWidth = boardSize * squareSize;
     const int screenHeight = boardSize * squareSize;
     const char* title = "Chess_sim";
     InitWindow(screenWidth, screenHeight, title);
@@ -46,7 +47,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
     
 
 	SIDE wonSide = SIDE::None;
-
+    Game game(position, SIDE::White);
     MenuResult result;
     Theme theme;
     while (!WindowShouldClose())
@@ -66,14 +67,15 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
             else if (result == MenuResult::StartGame)
             {
                 gameState = GAMEPLAY;
-                Game game(position, SIDE::White);
+
                 game.setAiSideToPlay(mainMenu.getSideToPlay());
                 theme = mainMenu.getTheme();
                 game.setTheme(theme);
             }
             else if (result == MenuResult::OpenSettings)
                 gameState = SETTINGS;
-
+            else if (result == MenuResult::ConstructPosition)
+                gameState = POSCONSTRUCTOR;
             break;
 
         case SETTINGS:
@@ -90,8 +92,12 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
 			else if (wonSide == SIDE::Draw) DrawText("Draw!", screenWidth / 2 - MeasureText("Draw!", 20), screenHeight / 2, 50, BLACK);
 
             // Отрисовка доски
-            
+            break;
+        case POSCONSTRUCTOR:
+            break;
         }
+        
+            
 
         EndDrawing();
     }

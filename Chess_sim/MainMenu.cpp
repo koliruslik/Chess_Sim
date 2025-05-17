@@ -4,13 +4,14 @@
 MainMenu::MainMenu(int screenWidth, int screenHeight)
 	: Menu(screenWidth, screenHeight),
 	aiSideToPlay(SIDE::None),
+	pawnTheme1(Init::getPawnIcon(Theme::Theme1, true)),
+	pawnTheme2(Init::getPawnIcon(Theme::Theme2, true)),
+	pawnTheme3(Init::getPawnIcon(Theme::Theme3, true)),
+	squareTex(Init::getSquareBlack()),
 	vsAi(false)
 {
+	
 	AddMainButtons();
-	LoadIconTexture(Icon1Path, theme1Icon);
-	LoadIconTexture(Icon2Path, theme2Icon);
-	LoadIconTexture(Icon3Path, theme3Icon);
-	LoadIconTexture(squarePath, squareTexture);
 }
 void MainMenu::ButtonAction(Button& button)
 {
@@ -110,12 +111,12 @@ void MainMenu::AddSettingsButtons()
 	Vector2 cellPos1 = { screenWidth / 2 - 220, screenHeight / 2 };
 	Vector2 cellPos2 = { screenWidth / 2, screenHeight / 2 };
 	Vector2 cellPos3 = { screenWidth / 2 + 220, screenHeight / 2 };
-	AddButton("THEME1", Button(screenWidth / 2 - 220, screenHeight / 2, 100, 100, "", squareTexture));
-	AddButton("THEME2", Button(screenWidth / 2, screenHeight / 2, 100, 100, "", squareTexture));
-	AddButton("THEME3", Button(screenWidth / 2 + 220, screenHeight / 2, 100, 100, "", squareTexture));
-	AddButton("ICON", Button(screenWidth / 2 - 220, screenHeight / 2, 100, 100, "", theme1Icon));
-	AddButton("ICON", Button(screenWidth / 2, screenHeight / 2, 100, 100, "", theme2Icon));
-	AddButton("ICON", Button(screenWidth / 2 + 220, screenHeight / 2, 100, 100, "", theme3Icon));
+	AddButton("THEME1", Button(screenWidth / 2 - 220, screenHeight / 2, 100, 100, "", squareTex));
+	AddButton("THEME2", Button(screenWidth / 2, screenHeight / 2, 100, 100, "", squareTex));
+	AddButton("THEME3", Button(screenWidth / 2 + 220, screenHeight / 2, 100, 100, "", squareTex));
+	AddButton("ICON", Button(screenWidth / 2 - 220, screenHeight / 2, 100, 100, "", pawnTheme1));
+	AddButton("ICON", Button(screenWidth / 2, screenHeight / 2, 100, 100, "", pawnTheme2));
+	AddButton("ICON", Button(screenWidth / 2 + 220, screenHeight / 2, 100, 100, "", pawnTheme3));
 	
 
 
@@ -139,10 +140,3 @@ Theme MainMenu::getTheme() const
 	return theme;
 }
 
-void MainMenu::LoadIconTexture(std::string filePath, Texture2D &texture)
-{
-		texture = LoadTexture(filePath.c_str());
-		if (texture.id == 0) {
-			std::cerr << "Failed to load white piece texture: " << filePath << std::endl;
-		}	
-}
