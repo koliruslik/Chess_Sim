@@ -10,7 +10,7 @@
 #include "raylib.h"
 #include "Init.h"
 #include "GameEnums.h"
-
+#include "Timer.h"
 
 class MainMenu : public Menu
 {
@@ -23,6 +23,8 @@ public:
 	SIDE getSideToPlay() const;
 	Theme getTheme() const;
 	bool isVsAi() const;
+
+	void resetResult();
 
 	
 private:
@@ -40,5 +42,8 @@ private:
 	void AddMainButtons();
 	void AddAiSelectionButtons();
 	void AddSettingsButtons();
+
+	
+
 };
 #endif // MAINMENU_H

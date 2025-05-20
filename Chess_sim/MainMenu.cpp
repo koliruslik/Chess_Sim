@@ -28,7 +28,6 @@ void MainMenu::ButtonAction(Button& button)
 			state = MenuState::AiSideSelection;
 			buttons.clear();
 			AddAiSelectionButtons();
-			LogButtonPress("Switched to AI side selection");
 		}
 		else if (text == "SETTINGS") {
 			//result = MenuResult::OpenSettings;
@@ -36,6 +35,11 @@ void MainMenu::ButtonAction(Button& button)
 			buttons.clear();
 			AddSettingsButtons();
 			LogButtonPress("Settings");
+		}
+		else if (text == "CONSTRUCT POS")
+		{
+			result = MenuResult::ConstructPosition;
+			LogButtonPress("Construct position");
 		}
 		else if (text == "EXIT") {
 			result = MenuResult::Exit;
@@ -82,7 +86,6 @@ void MainMenu::ButtonAction(Button& button)
 		}
 		else if (text == "BACK")
 		{
-			result = MenuResult::None;
 			state = MenuState::Main;
 			buttons.clear();
 			AddMainButtons();
@@ -93,34 +96,32 @@ void MainMenu::ButtonAction(Button& button)
 
 void MainMenu::AddMainButtons()
 {
-	AddButton("VS FRIEND", Button(screenWidth / 2, screenHeight / 2 - 60, 200, 50, "VS FRIEND"));
-	AddButton("VS AI", Button(screenWidth / 2, screenHeight / 2, 200, 50, "VS AI"));
-	AddButton("SETTINGS", Button(screenWidth / 2, screenHeight / 2 + 60, 200, 50, "SETTINGS"));
-	AddButton("EXIT", Button(screenWidth / 2, screenHeight / 2 + 120, 200, 50, "EXIT"));
+	AddButton("VS FRIEND", Button(centerPosX + buttonOffsetX / 2, centerPosY, buttonSizeX, buttonSizeY, "VS FRIEND"));
+	AddButton("VS AI", Button(centerPosX - buttonOffsetX / 2, centerPosY, buttonSizeX, buttonSizeY, "VS AI"));
+	AddButton("CONSTRUCT POS", Button(centerPosX, centerPosY - buttonOffsetY, buttonSizeX*1.25, buttonSizeY, "CONSTRUCT POS"));
+	AddButton("SETTINGS", Button(centerPosX, centerPosY + buttonOffsetY, buttonSizeX, buttonSizeY, "SETTINGS"));
+	AddButton("EXIT", Button(centerPosX, centerPosY + buttonOffsetY*2, buttonSizeX, buttonSizeY, "EXIT"));
 }
 
 void MainMenu::AddAiSelectionButtons()
 {
-	AddButton("WHITE", Button(screenWidth / 2 - 110, screenHeight / 2, 200, 50, "WHITE"));
-	AddButton("BLACK", Button(screenWidth / 2 + 110, screenHeight / 2, 200, 50, "BLACK"));
-	AddButton("BACK", Button(screenWidth / 2, screenHeight / 2 + 80, 200, 50, "BACK"));
+	AddButton("WHITE", Button(centerPosX - buttonOffsetX / 2, centerPosY, buttonSizeX, buttonSizeY, "WHITE"));
+	AddButton("BLACK", Button(centerPosX + buttonOffsetX / 2, centerPosY, buttonSizeX, buttonSizeY, "BLACK"));
+	AddButton("BACK", Button(centerPosX, centerPosY + buttonOffsetY*3, buttonSizeX, buttonSizeY, "BACK"));
 }
 
 void MainMenu::AddSettingsButtons()
 {
-	Vector2 cellPos1 = { screenWidth / 2 - 220, screenHeight / 2 };
-	Vector2 cellPos2 = { screenWidth / 2, screenHeight / 2 };
-	Vector2 cellPos3 = { screenWidth / 2 + 220, screenHeight / 2 };
-	AddButton("THEME1", Button(screenWidth / 2 - 220, screenHeight / 2, 100, 100, "", squareTex));
-	AddButton("THEME2", Button(screenWidth / 2, screenHeight / 2, 100, 100, "", squareTex));
-	AddButton("THEME3", Button(screenWidth / 2 + 220, screenHeight / 2, 100, 100, "", squareTex));
-	AddButton("ICON", Button(screenWidth / 2 - 220, screenHeight / 2, 100, 100, "", pawnTheme1));
-	AddButton("ICON", Button(screenWidth / 2, screenHeight / 2, 100, 100, "", pawnTheme2));
-	AddButton("ICON", Button(screenWidth / 2 + 220, screenHeight / 2, 100, 100, "", pawnTheme3));
+	AddButton("THEME1", Button(centerPosX - buttonOffsetX, centerPosY, buttonSizeX/2, buttonSizeX/2, "", squareTex));
+	AddButton("THEME2", Button(centerPosX, centerPosY, buttonSizeX / 2, buttonSizeX / 2, "", squareTex));
+	AddButton("THEME3", Button(centerPosX + buttonOffsetX, centerPosY, buttonSizeX / 2, buttonSizeX / 2, "", squareTex));
+	AddButton("ICON", Button(centerPosX - buttonOffsetX, centerPosY, buttonSizeX / 2, buttonSizeX / 2, "", pawnTheme1));
+	AddButton("ICON", Button(centerPosX, centerPosY, buttonSizeX / 2, buttonSizeX / 2, "", pawnTheme2));
+	AddButton("ICON", Button(centerPosX + buttonOffsetX, centerPosY, buttonSizeX / 2, buttonSizeX / 2, "", pawnTheme3));
 	
 
 
-	AddButton("BACK", Button(screenWidth / 2, screenHeight / 2 + 150, 200, 50, "BACK"));
+	AddButton("BACK", Button(centerPosX, centerPosY + buttonOffsetY*3, buttonSizeX, buttonSizeY, "BACK"));
 }
 
 MenuResult MainMenu::getResult() const {
@@ -140,3 +141,6 @@ Theme MainMenu::getTheme() const
 	return theme;
 }
 
+void MainMenu::resetResult() {
+	result = MenuResult::None;
+}

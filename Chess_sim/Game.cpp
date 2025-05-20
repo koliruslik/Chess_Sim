@@ -2,10 +2,10 @@
 
 
 Game::Game(Position position, SIDE aiSideToPlay)
-	:ai("..\\..\\..\\..\\recources\\Start\\Start.txt")
+	:ai("recources\\Start\\Start.txt")
 {
 	this->aiSide = aiSideToPlay;
-	selectedSquare = -1;
+	selectedSquare = 255;
 	this->position = position;
 
 	
@@ -19,12 +19,12 @@ void Game::resetPosition()
 
 	currentMove = Move();
 
-	selectedSquare = -1;
+	selectedSquare = 255;
 	isSelected = false;
 
 	promotionOption = false;
 	promotionDone = false;
-	promotionSquare = -1;
+	promotionSquare = 255;
 	pieceToPromote = "";
 
 	wonSide = SIDE::None;
@@ -89,7 +89,7 @@ int Game::processMoveWithClick()
 		{
 			currentMove = moves[i];
 			processMove(position, moves, from, to, position.getSideToMove());
-			selectedSquare = -1;
+			selectedSquare = 255;
 			isSelected = false;
 			return 1;
 		}
@@ -219,19 +219,14 @@ void Game::drawBoard()
 }
 
 std::string Game::handlePromotionSelection(int promotionIndex) {
-	/*if (promotionIndex < 0 || promotionIndex >= 4)
-	{
-		std::cout << "Invalid promotion selection.\n";
-		return;
-	}*/
-
+	
 	std::string selectedPiece = promotionNames[promotionIndex];
 	if(debugMode) std::cout << "Selected piece for promotion: " << selectedPiece << std::endl;
 	if (selectedPiece == "Rook") return "Rook";
 	else if (selectedPiece == "Knight") return "Knight";
 	else if (selectedPiece == "Bishop") return "Bishop";
 	else return "Queen";
-	selectedSquare = -1;
+	selectedSquare = 0;
 	promotionOption = false;
 
 }
@@ -252,7 +247,7 @@ void Game::proccesPromotionClick(Move& move)
 	int optionRow = Btrans::indexToRowCol(promotionSquare).first;
 	int optionCol = Btrans::indexToRowCol(promotionSquare).second;
 
-	if (col == optionCol && row <= 7 && row >= 0)
+	if (col == optionCol && (row <= 7 && row >= 4 && promotionSide == SIDE::White) || (row >= 0 && row <= 3 && promotionSide == SIDE::Black))
 	{
 		int i;
 		if (promotionSide == SIDE::White) i = 7 - row;
@@ -313,7 +308,7 @@ void Game::selectPiece()
 	if (col >= 0 && col < boardSize && row >= 0 && row < boardSize)
 	{
 		std::string square = std::string(1, char('a' + col)) + std::string(1, char('1' + row));
-		int squareIndex = Btrans::squareToIndex(square);
+		int8_t squareIndex = Btrans::squareToIndex(square);
 
 		
 		if (position.getPieceSideAt(squareIndex) == position.getSideToMove() && position.getPieceTypeAt(squareIndex, position.getSideToMove()) != Position::NONE)
@@ -321,7 +316,7 @@ void Game::selectPiece()
 			
 			if (selectedSquare == squareIndex)
 			{
-				selectedSquare = -1; 
+				selectedSquare = 255; 
 				isSelected = false;  
 			}
 			else
@@ -334,7 +329,7 @@ void Game::selectPiece()
 		{
 			
 			if (debugMode) std::cout << "Invalid selection or opponent's piece. Deselecting.\n";
-			selectedSquare = -1; 
+			selectedSquare = 255; 
 			isSelected = false;  
 		}
 	}
@@ -342,13 +337,14 @@ void Game::selectPiece()
 	{
 		
 		if (debugMode) std::cout << "Invalid selection. Deselecting.\n";
-		selectedSquare = -1;  
+		selectedSquare = 255;  
 		isSelected = false;  
 	}
 }
 
 void Game::update()
 {
+	//std::cout << std::to_string(selectedSquare) << '\n';
 	wonSide = checkVictory();
 	if (printMove && debugMoves)
 	{
@@ -367,7 +363,7 @@ void Game::update()
 				proccesPromotionClick(currentMove);
 				if (promotionOption) position.move(currentMove);
 				promotionOption = false;
-				selectedSquare = -1;
+				selectedSquare = 255;
 				isSelected = false;
 				return;
 			}
@@ -399,31 +395,6 @@ void Game::update()
 		proccessAiMoveAsync();
 	}
 
-	if (IsKeyPressed(KEY_F5))
-	{
-		float moveCtr = position.getMoveCtr();
-		std::string annotation = generateAnnotation();
-		movesHistory.saveToFile(annotation, moveCtr, loadPath);
-		std::cout << "[Saved move history to file]\n";
-	}
-	if (IsKeyPressed(KEY_DELETE)) {
-		clearFile(savePath);  // Очищаємо файл
-		clearFile(loadPath); 
-		std::cout << "[Files cleared]\n"; // Очищаємо файл
-	}
-	if (IsKeyPressed(KEY_F7))
-	{
-		movesHistory.clear();
-		movesHistory.readMovesFromFile(loadPath);
-		std::cout << "[Loaded move history from file]\n";
-	}
-	if (IsKeyPressed(KEY_F1))
-	{
-		resetPosition();
-		movesHistory.readMovesFromFile(loadPath);
-		//std::cout << "Trying to move: " << movesHistory[1] << std::endl;
-		position.moveList(movesHistory);
-	}
 }
 
 void Game::clearFile(const std::string filePath) {

@@ -4,8 +4,44 @@
 
 
 Position::Position() = default;
+
+Position::Position(const std::string& Fen) {
+    std::istringstream fenStream(Fen);
+    std::string piecePlacement, activeColor, castlingRights, enPassantStr;
+    int halfmoveClock;
+    int fullmoveNumber;
+
+    fenStream >> piecePlacement >> activeColor >> castlingRights >> enPassantStr >> halfmoveClock >> fullmoveNumber;
+
+    this->pieces = Pieces(piecePlacement);
+
+    this->moveCtr = (activeColor == "w") ? 0 : 0.5;
+
+    this->wlCastling = castlingRights.find('K') != std::string::npos;
+    this->wsCastling = castlingRights.find('Q') != std::string::npos;
+    this->blCastling = castlingRights.find('k') != std::string::npos;
+    this->bsCastling = castlingRights.find('q') != std::string::npos;
+
+    if (enPassantStr == "-") {
+        this->enPassant = 64;
+    }
+    else {
+        int file = enPassantStr[0] - 'a';
+        int rank = enPassantStr[1] - '1';
+        this->enPassant = rank * 8 + file;
+    }
+
+    // Ходы
+    this->fiftyMovesCtr = halfmoveClock;
+    //this->moveCtr = fullmoveNumber + (this->turn == SIDE::Black ? -0.5f : 0.0f);
+
+    // Хэш и история
+    this->hash = { this->pieces, this->blackToMove(), this->wlCastling, this->wsCastling, this->blCastling, this->bsCastling };
+    this->repetitionHistory.addPosition(this->hash);
+}
+
 Position::Position(const std::string& shortFen, uint8_t enPassant, bool wlCastling, bool wsCastling, bool blCastling, bool bsCastling, float moveCtr) {
-    this->pieces = {shortFen};
+    this->pieces = { shortFen };
     this->enPassant = enPassant;
 
     this->wlCastling = wlCastling;
@@ -14,7 +50,7 @@ Position::Position(const std::string& shortFen, uint8_t enPassant, bool wlCastli
     this->bsCastling = bsCastling;
 
     this->moveCtr = moveCtr;
-    this->hash = {this->pieces, this->blackToMove(), this->wlCastling, this->wsCastling, this->blCastling, this->bsCastling};
+    this->hash = { this->pieces, this->blackToMove(), this->wlCastling, this->wsCastling, this->blCastling, this->bsCastling };
     this->repetitionHistory.addPosition(this->hash);
     this->fiftyMovesCtr = 0;
 }
@@ -251,9 +287,16 @@ uint8_t Position::getOpponentSide()const
 	return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::Black : SIDE::White;
 }
 
+uint8_t Position::countPieces(uint8_t type, uint8_t side) const
+{
+    Bitboard bb = pieces.getPieceBitboard(side, type);
+    return BOp::count1(bb);
+}
+
 std::string Position::toFEN() const {
     std::string fen;
 
+    // === 1. Piece placement ===
     for (int rank = 7; rank >= 0; --rank) {
         int emptyCount = 0;
         for (int file = 0; file < 8; ++file) {
@@ -262,7 +305,7 @@ std::string Position::toFEN() const {
 
             for (uint8_t side = SIDE::White; side <= SIDE::Black && pieceChar == 0; ++side) {
                 for (uint8_t type = PIECE::PAWN; type <= PIECE::KING; ++type) {
-                    if (BOp::getBit(this->pieces.getPieceBitboard(side, type), square)) {
+                    if (BOp::getBit(pieces.getPieceBitboard(side, type), square)) {
                         static const char fenChars[] = { 'P', 'N', 'B', 'R', 'Q', 'K' };
                         pieceChar = (side == SIDE::White) ? fenChars[type] : std::tolower(fenChars[type]);
                         break;
@@ -290,7 +333,42 @@ std::string Position::toFEN() const {
         }
     }
 
+    // === 2. Active color ===
+    fen += ' ';
+    fen += (getSideToMove() == SIDE::White) ? 'w' : 'b';
+
+    // === 3. Castling rights ===
+    fen += ' ';
+    std::string castling;
+    if (wlCastling) castling += 'Q';
+    if (wsCastling) castling += 'K';
+    if (blCastling) castling += 'q';
+    if (bsCastling) castling += 'k';
+    fen += (castling.empty() ? "-" : castling);
+
+    // === 4. En passant target square ===
+    fen += ' ';
+    fen += (enPassant != NONE) ? Btrans::indexToSquare(enPassant) : "-";
+
+    // === 5. Halfmove clock ===
+    fen += ' ';
+    fen += std::to_string(static_cast<int>(fiftyMovesCtr));
+
+    // === 6. Fullmove number ===
+    fen += ' ';
+    fen += std::to_string(static_cast<int>(moveCtr));
+
     return fen;
+}
+
+void Position::placePiece(uint8_t square, uint8_t type, uint8_t side)
+{
+    this->addPiece(square, type, side);
+}
+
+void Position::deletePiece(uint8_t square, uint8_t type, uint8_t side)
+{
+    this->removePiece(square, type, side);
 }
 
 Position& Position::operator=(const Position& other) 
@@ -313,3 +391,37 @@ Position& Position::operator=(const Position& other)
 
     return *this;
 }
+
+void Position::save(const std::string& filePath) const
+{
+    std::ofstream file(filePath);
+    if (!file.is_open())
+    {
+        std::cerr << "Error" << filePath << std::endl;
+        return;
+    }
+
+    std::string fenPos = this->toFEN();
+    file << fenPos;
+
+    file.close();
+}
+
+Position Position::load(const std::string& filePath)
+{
+    std::ifstream file(filePath);
+    if (!file.is_open())
+    {
+        std::cerr << "Error " << filePath << std::endl;
+        
+        return Position("8/8/8/8/8/8/8/8 w - - 0 1"); 
+    }
+
+    std::string fenLine;
+    std::getline(file, fenLine);
+
+    file.close();
+
+    return Position(fenLine);  
+}
+

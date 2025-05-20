@@ -10,8 +10,8 @@
 class Position {
 public:
     Position();
+    Position(const std::string& Fen);
     Position(const std::string& shortFen, uint8_t enPassant, bool wlCastling, bool wsCastling, bool blCastling, bool bsCastling, float moveCtr);
-
     friend std::ostream& operator <<(std::ostream& ostream, const Position& position);
     Position& operator=(const Position& other);
 
@@ -37,10 +37,15 @@ public:
     uint8_t getPieceSideAt(uint8_t square) const;
     uint8_t getSideToMove() const;
 	uint8_t getOpponentSide() const;
+    uint8_t countPieces(uint8_t type, uint8_t side) const;
 	float getMoveCtr() const { return moveCtr; }
     std::string toFEN() const;
-    
+    void placePiece(uint8_t square, uint8_t type, uint8_t side);
+    void deletePiece(uint8_t square, uint8_t type, uint8_t side);
     static constexpr uint8_t NONE = 255;
+    
+    void save(const std::string& filePath) const;
+    static Position load(const std::string& filePath);
 private:
     void addPiece(uint8_t square, uint8_t type, uint8_t side);
     void removePiece(uint8_t square, uint8_t type, uint8_t side);

@@ -17,7 +17,16 @@ enum class MenuResult {
 	StartGame,
 	OpenSettings,
 	ConstructPosition,
+	ESCMenu,
 	Exit
+};
+
+enum class ESCResult {
+	None,
+	Resume,
+	ToMainMenu,
+	Save,
+	Load
 };
 
 
@@ -40,3 +49,4 @@ enum SIDE {
 	Stalemate = -3,
 	Checked = -4
 };
+

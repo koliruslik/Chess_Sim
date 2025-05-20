@@ -50,8 +50,10 @@ public:
 	uint8_t getCurrentSideToMove(float moveCtr) { return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::Black : SIDE::White; }
 	uint8_t getSelectedSquare() const { return selectedSquare; }
 	SIDE getWonSide() const { return wonSide; }
+	Position getPosition() { return position; }
 	void setAiSideToPlay(SIDE side) { aiSide = side; }
 	void setTheme(Theme newTheme);
+	void setPosition(Position pos) { position = pos; }
 	
 
 	void resetPosition();
@@ -62,8 +64,8 @@ private:
 	MoveList movesHistory;
 	Move currentMove;
 	const std::string startingPosition = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
-	const std::string savePath = "..\\..\\..\\..\\saves\\save.txt";
-	const std::string loadPath = "..\\..\\..\\..\\saves\\load.txt";
+	const std::string savePath = "saves\\save.txt";
+	const std::string loadPath = "saves\\load.txt";
 	const std::string names[6] = { "King", "Queen", "Rook", "Bishop", "Knight", "Pawn" };
 	std::vector<std::string> promotionNames = { "Queen", "Rook", "Bishop", "Knight" };
 	int8_t selectedSquare;
@@ -81,7 +83,7 @@ private:
 
 	bool promotionOption = false;
 	bool promotionDone = false;
-	uint8_t promotionSquare = -1;
+	uint8_t promotionSquare = 255;
 	uint8_t promotionSide;
 	std::string pieceToPromote;
 

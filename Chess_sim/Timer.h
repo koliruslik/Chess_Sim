@@ -6,6 +6,8 @@
 #include "time.h"
 #include <string>
 #include <ctime>
+#include <chrono>
+#include <thread>
 
 class Timer
 {

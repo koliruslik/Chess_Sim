@@ -25,7 +25,7 @@ add_executable(Chess_sim "Chess_sim.cpp" "Chess_sim.h"
 						"Entry.cpp" "Entry.hpp" 
 						"TranspositionTable.h" "TranspositionTable.cpp"
 						"OpeningBook.h" "OpeningBook.cpp" 
-						"AI.h" "AI.cpp" "BTrans.h"  "PosConstructor.h" "PosConstructor.cpp" "Init.h" "Init.cpp" "GameEnums.h" "BoardRenderer.h" "BoardRenderer.cpp")
+						"AI.h" "AI.cpp" "BTrans.h"  "PosConstructor.h" "PosConstructor.cpp" "Init.h" "Init.cpp" "GameEnums.h" "BoardRenderer.h" "BoardRenderer.cpp" "ESCMenu.h" "ESCMenu.cpp")
 
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
