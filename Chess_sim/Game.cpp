@@ -1,8 +1,9 @@
 #include "Game.hpp"
 
 
-Game::Game(Position position, SIDE aiSideToPlay)
-	:ai("recources\\Start\\Start.txt")
+Game::Game(Position position, SIDE aiSideToPlay, std::shared_ptr<BoardRenderer>& renderer)
+	:ai("recources/Start/Start.txt"),
+	renderer(renderer)
 {
 	this->aiSide = aiSideToPlay;
 	selectedSquare = 255;
@@ -13,7 +14,7 @@ Game::Game(Position position, SIDE aiSideToPlay)
 
 void Game::resetPosition()
 {
-	position = Position(startingPosition, 0, false, false, false, false, 0.0f);
+	position = Position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 
 	movesHistory.clear();
 
@@ -139,6 +140,9 @@ SIDE Game::checkVictory(const Position position)
 	bool blackNoMoves = !blackMoves.hasMoves();
 	bool fiftyMoves = position.fiftyMovesRuleDraw();
 	bool threefold = position.threefoldRepetitionDraw();
+	if ((whiteNoMoves && whiteInCheck) && (blackNoMoves && blackInCheck)) {
+		return SIDE::Incorrect;
+	}
 	if ((whiteNoMoves && whiteInCheck) || (blackNoMoves && blackInCheck)) {
 		return whiteNoMoves ? SIDE::Black : SIDE::White;
 	}
@@ -212,8 +216,8 @@ void Game::setTheme(Theme newTheme)
 
 void Game::drawBoard()
 {
-	bRenderer.setTheme(theme);
-	bRenderer.drawBoard(position, selectedSquare,
+	renderer->setTheme(theme);
+	renderer->drawBoard(position, selectedSquare,
 						promotionOption, promotionSquare,
 						promotionSide);
 }

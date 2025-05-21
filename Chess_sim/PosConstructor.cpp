@@ -1,7 +1,8 @@
 #include "PosConstructor.h"
 
-PosConstructor::PosConstructor(Position position) 
-    : position(position)
+PosConstructor::PosConstructor(Position position, std::shared_ptr<BoardRenderer>& renderer)
+    :position(position),
+    renderer(renderer)
 {
     selected.type = PIECE::NONE;
     selected.side = SIDE::White;
@@ -35,12 +36,117 @@ bool PosConstructor::isKingAdjacent(uint8_t squareIndex, uint8_t side)
     return false;
 }
 
+bool PosConstructor::canPlacePiece(uint8_t type, uint8_t side, int row, uint8_t squareIndex)
+{
+    if (type == PIECE::NONE) return false;
+
+    int totalCount = position.countPiecesTotal(side);
+    if (totalCount >= 16) {
+        renderer->displayWarning("Maximum of 16 pieces per side", 2.0f);
+        return false;
+    }
+
+    int pawnCount = position.countPieces(PIECE::PAWN, side);
+    int kingCount = position.countPieces(PIECE::KING, side);
+    int knightCount = position.countPieces(PIECE::KNIGHT, side);
+    int bishopCount = position.countPieces(PIECE::BISHOP, side);
+    int rookCount = position.countPieces(PIECE::ROOK, side);
+    int queenCount = position.countPieces(PIECE::QUEEN, side);
+
+    // —тандартные максимумы
+    const int maxPawn = 8;
+    const int maxKing = 1;
+    const int maxKnight = 2;
+    const int maxBishop = 2;
+    const int maxRook = 2;
+    const int maxQueen = 1;
+
+    // —читаем лишние фигуры как те, что превысили стандартный максимум Ч они считаютс€ промоушенами
+    int extraKnights = std::max(0, knightCount - maxKnight);
+    int extraBishops = std::max(0, bishopCount - maxBishop);
+    int extraRooks = std::max(0, rookCount - maxRook);
+    int extraQueens = std::max(0, queenCount - maxQueen);
+
+    int totalPromotedUsed = extraKnights + extraBishops + extraRooks + extraQueens;
+    int promotionSlotsLeft = 8 - pawnCount - totalPromotedUsed;
+    if (promotionSlotsLeft < 0) promotionSlotsLeft = 0;
+
+    switch (type) {
+    case PIECE::PAWN:
+        if (promotionSlotsLeft <= 0) {
+            renderer->displayWarning("No pawns slots left - cannot place more pawns", 2.0f);
+            return false;
+        }
+        if (pawnCount >= maxPawn) {
+            renderer->displayWarning("Maximum number of pawns reached", 2.0f);
+            return false;
+        }
+        if (row == 0 || row == 7) {
+            renderer->displayWarning("Pawns can't be placed on first or last rank", 2.0f);
+            return false;
+        }
+        return true;
+
+    case PIECE::KING:
+        if (kingCount >= maxKing) {
+            renderer->displayWarning("Only one king allowed per side", 2.0f);
+            return false;
+        }
+        if (isKingAdjacent(squareIndex, side)) {
+            renderer->displayWarning("Too close to enemy king", 2.0f);
+            return false;
+        }
+        return true;
+
+    case PIECE::QUEEN:
+        if (queenCount < maxQueen) {
+            return true;
+        }
+        if (promotionSlotsLeft <= 0) {
+            renderer->displayWarning("No pawns left for extra queen", 2.0f);
+            return false;
+        }
+        return true;
+
+    case PIECE::ROOK:
+        if (rookCount < maxRook) {
+            return true;
+        }
+        if (promotionSlotsLeft <= 0) {
+            renderer->displayWarning("No pawns left for extra rook", 2.0f);
+            return false;
+        }
+        return true;
+
+    case PIECE::BISHOP:
+        if (bishopCount < maxBishop) {
+            return true;
+        }
+        if (promotionSlotsLeft <= 0) {
+            renderer->displayWarning("No pawns left for extra bishop", 2.0f);
+            return false;
+        }
+        return true;
+
+    case PIECE::KNIGHT:
+        if (knightCount < maxKnight) {
+            return true;
+        }
+        if (promotionSlotsLeft <= 0) {
+            renderer->displayWarning("No pawns left for extra knight", 2.0f);
+            return false;
+        }
+        return true;
+
+    default:
+        return false;
+    }
+}
 
 void PosConstructor::SelectSquare(bool isPlacing)
 {
     int col = mousePos.x / squareSize;
     int row = boardSize - (mousePos.y / squareSize);
-
     if (col >= 0 && col < boardSize && row >= 0 && row < boardSize)
     {
         std::string square = std::string(1, char('a' + col)) + std::string(1, char('1' + row));
@@ -50,24 +156,19 @@ void PosConstructor::SelectSquare(bool isPlacing)
         {
             if (selected.type != PIECE::NONE)
             {
-                if (wKingCounter >= 1 && selected.side == SIDE::White && selected.type == PIECE::KING)
-                {
-                    selected.type = PIECE::NONE;
-                    std::cout << "Could not be more than 1 king, DESELECTING\n";
-                    return;
-                }
-                else if (bKingCounter >= 1 && selected.side == SIDE::Black && selected.type == PIECE::KING)
-                {
-                    selected.type = PIECE::NONE;
-                    std::cout << "Could not be more than 1 king, DESELECTING\n";
-                    return;
-                }
+                if (!canPlacePiece(selected.type, selected.side, row, squareIndex)) return;
 
-                if (selected.type == PIECE::KING && isKingAdjacent(squareIndex, selected.side))
+                uint8_t existingSide = position.getPieceSideAt(squareIndex);
+                uint8_t existingTypeWhite = position.getPieceTypeAt(squareIndex, SIDE::White);
+                uint8_t existingTypeBlack = position.getPieceTypeAt(squareIndex, SIDE::Black);
+
+                if (existingTypeWhite != Position::NONE && existingTypeBlack == Position::NONE)
                 {
-                    selected.type = PIECE::NONE;
-                    std::cout << "Too close to enemy king. DESELECTING\n";
-                    return;
+                    position.deletePiece(squareIndex, existingTypeWhite, SIDE::White);
+                }
+                else if (existingTypeBlack != Position::NONE && existingTypeWhite == Position::NONE)
+                {
+                    position.deletePiece(squareIndex, existingTypeBlack, SIDE::Black);
                 }
 
                 position.placePiece(squareIndex, selected.type, selected.side);
@@ -100,53 +201,86 @@ void PosConstructor::SelectSquare(bool isPlacing)
 
 void PosConstructor::SelectPiece()
 {
-    if (IsKeyPressed(KEY_ONE)) {
-        selected.type = PIECE::PAWN;              
+    int pressedKey = GetKeyPressed();
+    switch (pressedKey)
+    {
+    case KEY_P:
+        selected.type = PIECE::PAWN;
+        selected.strType = "Pawn";
         std::cout << "PAWN selected\n";
-    }
-    if (IsKeyPressed(KEY_TWO)) {
-        selected.type = PIECE::KNIGHT;           
-        std::cout << "KNIGHT selected\n";
-    }
-    if (IsKeyPressed(KEY_THREE)) {
-        selected.type = PIECE::BISHOP;
-        std::cout << "BISHOP selected\n";
-    }
-    if (IsKeyPressed(KEY_FOUR)) {
-        selected.type = PIECE::ROOK;
-        std::cout << "ROOK selected\n";
-    }
-    if (IsKeyPressed(KEY_FIVE)) {
-        selected.type = PIECE::QUEEN;
-        std::cout << "QUEEN selected\n";
-    }
-    if (IsKeyPressed(KEY_SIX)) {
-        selected.type = PIECE::KING;
-        
-        std::cout << "KING selected\n";
-    }
+        break;
 
-  
-    if (IsKeyPressed(KEY_SEVEN)) {
+    case KEY_N:
+        selected.type = PIECE::KNIGHT;
+        selected.strType = "Knight";
+        std::cout << "KNIGHT selected\n";
+        break;
+
+    case KEY_B:
+        selected.type = PIECE::BISHOP;
+        selected.strType = "Bishop";
+        std::cout << "BISHOP selected\n";
+        break;
+
+    case KEY_R:
+        selected.type = PIECE::ROOK;
+        selected.strType = "Rook";
+        std::cout << "ROOK selected\n";
+        break;
+
+    case KEY_Q:
+        selected.type = PIECE::QUEEN;
+        selected.strType = "Queen";
+        std::cout << "QUEEN selected\n";
+        break;
+
+    case KEY_K:
+        selected.type = PIECE::KING;
+        selected.strType = "King";
+        std::cout << "KING selected\n";
+        break;
+
+    case KEY_TAB:
         selected.isWhite = !selected.isWhite;
         selected.side = selected.isWhite ? SIDE::White : SIDE::Black;
         std::cout << (selected.isWhite ? "White pieces selected\n" : "Black pieces selected\n");
-    }
-    if (IsKeyPressed(KEY_EIGHT))
-    {
+        break;
+
+    case KEY_C:
         selected.type = NONE;
         selected.isWhite = true;
         std::cout << "clear selection\n";
+        break;
+
+    case KEY_H:
+        showInfo = !showInfo;
+        break;
+
+    default:
+        break;
     }
+
 }
 
 void PosConstructor::update()
 {
-	bRenderer.setTheme(theme);
-	bRenderer.drawBoard(position, 255, 255, 255, 255);
+	renderer->setTheme(theme);
+	renderer->drawBoard(position, 255, 255, 255, 255);
+    if (selected.type != PIECE::NONE) renderer->drawPieceAtCursor(selected.type, selected.side,scale);
+    if(showInfo) renderer->drawInfo(5, 5, 20,{
+        "Secelted piece: " + selected.strType,
+        "p - Pawn",
+        "n - Knight",
+        "b - Bishop",
+        "r - Rook",
+        "q - Queen",
+        "k - King",
+        "c - Clear selection",
+        "TAB - Change color", 
+        "h - Hide info"});
     wKingCounter = position.countPieces(PIECE::KING, SIDE::White);
     bKingCounter = position.countPieces(PIECE::KING, SIDE::Black);
-    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+    if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
     {
         mousePos = GetMousePosition();
         SelectSquare(true);
@@ -160,6 +294,14 @@ void PosConstructor::update()
     {
         std::cout << "Q PRESSED\n";
         result = MenuResult::ESCMenu;
+    }
+    if (IsMouseButtonUp(MOUSE_BUTTON_LEFT))
+    {
+        for (; scale <= MAXSCALE; scale += DIFF);
+    }
+    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+    {
+        for (; scale >= MINSCALE; scale -= DIFF);
     }
     
     SelectPiece();

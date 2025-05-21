@@ -12,12 +12,29 @@ Button::Button(float x, float y, float width, float height, const char* text, Te
 
 void Button::Draw()
 {
+    Vector2 mousePos = GetMousePosition();
+    bool hovered = CheckCollisionPointRec(mousePos, bounds);
+    bool pressed = wasPressedInside;
+    Rectangle drawBounds = bounds;
+
+    if (pressed)
+    {
+        drawBounds.x += 2;
+        drawBounds.y += 2;
+    }
+
+    if (pressed)
+        color = DARKGRAY;
+    else if (hovered)
+        color = GRAY;
+    else
+        color = LIGHTGRAY;
     if (hasTexture)
     {
         DrawTexturePro(
             texture,
             { 0, 0, (float)texture.width, (float)texture.height },
-            bounds,
+            drawBounds,
             { 0, 0 },
             0.0f,
             WHITE
@@ -25,28 +42,29 @@ void Button::Draw()
     }
     else
     {
-        DrawRectangle(bounds.x, bounds.y, bounds.width, bounds.height, color);
+        DrawRectangle(drawBounds.x, drawBounds.y, drawBounds.width, drawBounds.height, color);
     }
 
     int textWidth = MeasureText(text, fontSize);
-    DrawText(text, bounds.x + bounds.width / 2 - textWidth / 2, bounds.y + 8, fontSize, BLACK);
+    DrawText(text, drawBounds.x + drawBounds.width / 2 - textWidth / 2, drawBounds.y + 8, fontSize, BLACK);
 }
 
-bool Button::IsMouseOver() 
-{
+bool Button::IsClicked() {
     Vector2 mousePos = GetMousePosition();
-    if (mousePos.x > bounds.x && mousePos.x < bounds.x + bounds.width &&
-        mousePos.y > bounds.y && mousePos.y < bounds.y + bounds.height)
-    {
-        color = GRAY;
+    bool isInside = CheckCollisionPointRec(mousePos, bounds);
+
+    if (isInside && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        wasPressedInside = true;
+    }
+
+    if (wasPressedInside && isInside && IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
+        wasPressedInside = false;
         return true;
     }
-    else
-    {
-        color = LIGHTGRAY;
-        return false;
+
+    if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
+        wasPressedInside = false;
     }
-}
-bool Button::isClicked() const {
-	return CheckCollisionPointRec(GetMousePosition(), bounds) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON);
+
+    return false;
 }

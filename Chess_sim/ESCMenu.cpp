@@ -1,7 +1,7 @@
 #include "ESCMenu.h"
 
-ESCMenu::ESCMenu(int screenWidth, int screenHeight)
-	:Menu(screenWidth, screenHeight)
+ESCMenu::ESCMenu(int screenWidth, int screenHeight, std::shared_ptr<BoardRenderer>& renderer)
+	: Menu(screenWidth, screenHeight, renderer)
 {
 	AddMainButtons();
 }
@@ -15,7 +15,7 @@ void ESCMenu::ButtonAction(Button& button)
 		result = ESCResult::Resume;
 		LogButtonPress("Resuming game");
 	}
-	else if (text == "SAVE")
+	else if (text == "SAVE/LOAD")
 	{
 		LogButtonPress("Opening save menu");
 		buttons.clear();
@@ -62,7 +62,7 @@ void ESCMenu::ButtonAction(Button& button)
 void ESCMenu::AddMainButtons()
 {
 	AddButton("RESUME", Button(centerPosX, centerPosY - buttonOffsetY, buttonSizeX, buttonSizeY, "RESUME"));
-	AddButton("SAVE", Button(centerPosX, centerPosY, buttonSizeX, buttonSizeY, "SAVE"));
+	AddButton("SAVE/LOAD", Button(centerPosX, centerPosY, buttonSizeX, buttonSizeY, "SAVE/LOAD"));
 	AddButton("MENU", Button(centerPosX, centerPosY + buttonOffsetY * 2, buttonSizeX, buttonSizeY, "MENU"));
 }
 

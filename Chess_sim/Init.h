@@ -3,9 +3,9 @@
 #include <map>
 #include <string>
 #include <utility>
-
+#include <iostream>
 #include "raylib.h"
-#include "MainMenu.h"
+#include "GameEnums.h"
 struct PieceTextures {
     std::map<std::string, Texture2D> white;
     std::map<std::string, Texture2D> black;
@@ -29,9 +29,9 @@ private:
     static inline Texture2D squareBlackTex;
     static inline bool squaresLoaded = false;
     static inline bool texturesLoaded = false;
-    static inline const std::string whitePiecesPath = "recources\\ChessPieces\\White\\";
-    static inline const std::string blackPiecesPath = "recources\\ChessPieces\\Black\\";
-    static inline const std::string squarePath = "recources\\boards\\";
+    static inline const std::string whitePiecesPath = "recources/ChessPieces/White/";
+    static inline const std::string blackPiecesPath = "recources/ChessPieces/Black/";
+    static inline const std::string squarePath = "recources/boards/";
 
     static inline const std::string names[6] = { "King", "Queen", "Rook", "Bishop", "Knight", "Pawn" };
 

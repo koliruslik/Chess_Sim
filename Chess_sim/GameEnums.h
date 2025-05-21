@@ -1,5 +1,14 @@
 #pragma once
 
+enum GameState
+{
+	MAIN_MENU,
+	SETTINGS,
+	GAMEPLAY,
+	POSCONSTRUCTOR,
+	ESCMENU
+};
+
 enum class MenuState {
 	Main,
 	AiSideSelection,
@@ -47,6 +56,7 @@ enum SIDE {
 	Draw = -1,
 	None = -2,
 	Stalemate = -3,
-	Checked = -4
+	Checked = -4,
+	Incorrect = -5
 };
 

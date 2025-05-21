@@ -21,11 +21,13 @@ public:
 	Button(float x, float y, float width, float height, const char* text, Texture2D texture);
 	void Draw();
 	bool IsMouseOver();
-	bool isClicked() const;
+	bool IsClicked();
 
 	void setName(std::string name) { this->name = name; }
 private:
 	const int fontSize = 20;
+	bool hovered = false;
+	bool wasPressedInside = false;
 };
 
 #endif // BUTTON_H

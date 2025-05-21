@@ -1,5 +1,5 @@
 
-#include "Bitboard.hpp"
+#include "BitBoard.hpp"
 
 
 #pragma once

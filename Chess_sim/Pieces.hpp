@@ -1,7 +1,7 @@
 
 
 #include <cctype>
-#include "Bitboard.hpp"
+#include "BitBoard.hpp"
 #include "GameEnums.h"
 
 #pragma once

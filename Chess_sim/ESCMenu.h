@@ -6,7 +6,7 @@
 class ESCMenu : public Menu
 {
 public:
-	ESCMenu(int screenWidth, int screenHeight);
+	ESCMenu(int screenWidth, int screenHeight, std::shared_ptr<BoardRenderer>& renderer);
 
 	enum Action {
 		SAVE,
@@ -31,9 +31,9 @@ private:
 	float alpha = 0.9f;
 
 	std::string filePath;
-	std::string Save1Path = "saves\\SAVE1.txt";
-	std::string Save2Path = "saves\\SAVE2.txt";
-	std::string Save3Path = "saves\\SAVE3.txt";
+	std::string Save1Path = "saves/SAVE1.txt";
+	std::string Save2Path = "saves/SAVE2.txt";
+	std::string Save3Path = "saves/SAVE3.txt";
 	
 	Action action = Action::NONE;
 

@@ -17,7 +17,7 @@
 class Game
 {
 public:
-	Game(Position position, SIDE aiSideToPlay);
+	Game(Position position, SIDE aiSideToPlay, std::shared_ptr<BoardRenderer>& renderer);
 	int processMove(Position& position, MoveList& moves, uint8_t from, uint8_t to, uint8_t side);
 	int processMoveWithClick();
 	int proccesAiMove();
@@ -39,10 +39,6 @@ public:
 
 	
 	void drawBoard();
-	void drawPieces();
-	void drawMask();
-	void drawPromotionOptions();
-	void drawCoordinates();
 	Vector2 centerPiece(float pieceSize, float texWidth, float texHeight) const;
 
 	void selectPiece();
@@ -58,14 +54,14 @@ public:
 
 	void resetPosition();
 private:
-	BoardRenderer bRenderer = BoardRenderer(80);
+	std::shared_ptr<BoardRenderer>& renderer;
 	Position position;
 	MoveList selectedPieceMoves;
 	MoveList movesHistory;
 	Move currentMove;
 	const std::string startingPosition = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
-	const std::string savePath = "saves\\save.txt";
-	const std::string loadPath = "saves\\load.txt";
+	const std::string savePath = "saves/save.txt";
+	const std::string loadPath = "saves/load.txt";
 	const std::string names[6] = { "King", "Queen", "Rook", "Bishop", "Knight", "Pawn" };
 	std::vector<std::string> promotionNames = { "Queen", "Rook", "Bishop", "Knight" };
 	int8_t selectedSquare;
@@ -82,8 +78,8 @@ private:
 	SIDE wonSide = SIDE::None;
 
 	bool promotionOption = false;
-	bool promotionDone = false;
 	uint8_t promotionSquare = 255;
+	bool promotionDone = false;
 	uint8_t promotionSide;
 	std::string pieceToPromote;
 

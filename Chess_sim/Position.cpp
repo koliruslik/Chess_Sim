@@ -17,10 +17,10 @@ Position::Position(const std::string& Fen) {
 
     this->moveCtr = (activeColor == "w") ? 0 : 0.5;
 
-    this->wlCastling = castlingRights.find('K') != std::string::npos;
-    this->wsCastling = castlingRights.find('Q') != std::string::npos;
-    this->blCastling = castlingRights.find('k') != std::string::npos;
-    this->bsCastling = castlingRights.find('q') != std::string::npos;
+    this->wsCastling = castlingRights.find('K') != std::string::npos;
+    this->wlCastling = castlingRights.find('Q') != std::string::npos;
+    this->bsCastling = castlingRights.find('k') != std::string::npos;
+    this->blCastling = castlingRights.find('q') != std::string::npos;
 
     if (enPassantStr == "-") {
         this->enPassant = 64;
@@ -291,6 +291,16 @@ uint8_t Position::countPieces(uint8_t type, uint8_t side) const
 {
     Bitboard bb = pieces.getPieceBitboard(side, type);
     return BOp::count1(bb);
+}
+
+int Position::countPiecesTotal(uint8_t side) const
+{
+    int total = 0;
+    for (uint8_t piece = PIECE::PAWN; piece <= PIECE::KING; ++piece)
+    {
+        total += countPieces(static_cast<PIECE>(piece), side);
+    }
+    return total;
 }
 
 std::string Position::toFEN() const {

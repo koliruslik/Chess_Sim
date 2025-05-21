@@ -2,7 +2,6 @@
 #include "Chess_sim.h"
 #include <bitset> 
 #include <iostream>
-#include <direct.h>
 
 #include "MainMenu.h"
 #include "Button.h"
@@ -18,14 +17,7 @@
 using namespace std;
 
 
-enum GameState
-{
-	MAIN_MENU,
-	SETTINGS,
-	GAMEPLAY,
-    POSCONSTRUCTOR,
-    ESCMENU
-};
+
 
 const int boardSize = 8;
 const int squareSize = 80;
@@ -33,20 +25,21 @@ const int screenWidth = boardSize * squareSize;
 const int screenHeight = boardSize * squareSize;
 const char* title = "Chess_sim";
 bool escPressedHandled = false;
+
 int main()//f2 f3 e7 e5 g2 g4 d8 h4
 {
-    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+
     //SetConfigFlags(FLAG_WINDOW_UNDECORATED);
     InitWindow(screenWidth, screenHeight, title);
     SetExitKey(0);
     SetTargetFPS(60);
-    
+    std::shared_ptr<BoardRenderer> renderer = std::make_shared<BoardRenderer>(80);
     
 
     Timer timer;
     GameState gameState = MAIN_MENU;
     GameState tempState = gameState;
-    MainMenu mainMenu(screenWidth, screenHeight);
+    MainMenu mainMenu(screenWidth, screenHeight, renderer);
     //SettingsMenu settingsMenu(screenWidth, screenHeight);
     Position GamePosition("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 
@@ -57,9 +50,9 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
     
 
 	SIDE wonSide = SIDE::None;
-    Game game(GamePosition, SIDE::White);
-    PosConstructor posConstructor(ConstructPosition);
-    ESCMenu escMenu(screenWidth,screenHeight);
+    Game game(GamePosition, SIDE::White, renderer);
+    PosConstructor posConstructor(ConstructPosition,renderer);
+    ESCMenu escMenu(screenWidth,screenHeight, renderer);
     MenuResult result;
     Theme theme;
     std::string path = escMenu.getFilePath();
@@ -75,23 +68,33 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
             mainMenu.Update();
             DrawText(timer.GetCurrentTime().c_str(), 10, 10, 20, WHITE);
             result = mainMenu.getResult();
-            if (result == MenuResult::Exit)
-                CloseWindow();
-            if (result == MenuResult::StartGame)
+            
+            switch (result)
             {
+            case MenuResult::Exit:
+                CloseWindow();
+                break;
+
+            case MenuResult::StartGame:
                 gameState = GAMEPLAY;
                 game.resetPosition();
                 game.setAiSideToPlay(mainMenu.getSideToPlay());
                 theme = mainMenu.getTheme();
                 game.setTheme(theme);
-            }
-            if (result == MenuResult::OpenSettings)
-                gameState = SETTINGS;
-            if (result == MenuResult::ConstructPosition)
-            {
-                gameState = POSCONSTRUCTOR;
+                break;
 
-                //SetWindowSize(840, 600);
+            case MenuResult::OpenSettings:
+                gameState = SETTINGS;
+                break;
+
+            case MenuResult::ConstructPosition:
+                gameState = POSCONSTRUCTOR;
+                theme = mainMenu.getTheme();
+                posConstructor.setTheme(theme);
+                break;
+
+            default:
+                break;
             }
             break;
 
@@ -104,9 +107,14 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
         case GAMEPLAY:
             game.processGame();
             wonSide = game.getWonSide();
-            if(wonSide == SIDE::White) DrawText("White wins!", screenWidth / 2 - MeasureText("White wins!", 20), screenHeight / 2, 50, BLACK);
-			else if (wonSide == SIDE::Black) DrawText("Black wins!", screenWidth / 2 - MeasureText("Black wins!", 20), screenHeight / 2, 50, BLACK);
-			else if (wonSide == SIDE::Draw) DrawText("Draw!", screenWidth / 2 - MeasureText("Draw!", 20), screenHeight / 2, 50, BLACK);
+            if (wonSide == SIDE::Incorrect)
+            {
+                DrawText("Invalid position:", screenWidth / 2 - MeasureText("Invalid position:", 50)/2, screenHeight / 2, 50, BLACK);
+                DrawText("both players are in checkmate", screenWidth / 2 - MeasureText("both players are in checkmate", 30)/2, screenHeight / 2 + 50, 30, BLACK);
+            }
+            if(wonSide == SIDE::White) DrawText("White wins!", screenWidth / 2 - MeasureText("White wins!", 50)/2, screenHeight / 2, 50, BLACK);
+			else if (wonSide == SIDE::Black) DrawText("Black wins!", screenWidth / 2 - MeasureText("Black wins!", 50)/2, screenHeight / 2, 50, BLACK);
+			else if (wonSide == SIDE::Draw) DrawText("Draw!", screenWidth / 2 - MeasureText("Draw!", 50)/2, screenHeight / 2, 50, BLACK);
 
             // Отрисовка доски
             break;
@@ -134,6 +142,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
                 {
                     if (posConstructor.getKingCounter() < 2)
                     {
+                        renderer->displayWarning("You need at least 2 kings on the board",2.0f);
                         std::cout << "You need at least 2 kings on the board\n";
                         gameState = tempState;
                         escMenu.resetResult();
@@ -184,7 +193,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
             gameState = ESCMENU;
             escPressedHandled = true;
         }
-
+        renderer->drawWarning();
         EndDrawing();
     }
 

@@ -20,7 +20,7 @@ PieceTextures Init::loadPieceTextures(Theme theme)
 
 		Texture2D whiteTexture = LoadTexture(whiteTexturePath.c_str());
 		if (whiteTexture.id == 0) {
-			std::cerr << "Failed to load white piece texture: " << whiteTexturePath << std::endl;
+			std::cout << "Failed to load white piece texture: " << whiteTexturePath << std::endl;
 		}
 		else {
 			textures.white[name] = whiteTexture;
@@ -28,7 +28,7 @@ PieceTextures Init::loadPieceTextures(Theme theme)
 
 		Texture2D blackTexture = LoadTexture(blackTexturePath.c_str());
 		if (blackTexture.id == 0) {
-			std::cerr << "Failed to load black piece texture: " << blackTexturePath << std::endl;
+			std::cout << "Failed to load black piece texture: " << blackTexturePath << std::endl;
 		}
 		else {
 			textures.black[name] = blackTexture;
@@ -48,11 +48,11 @@ void Init::loadSquareTextures()
 
 	squareWhiteTex = LoadTexture(squareWPath.c_str());
 	if (squareWhiteTex.id == 0)
-		std::cerr << "Failed to load white square texture: " << squareWPath << std::endl;
+		std::cout << "Failed to load white square texture: " << squareWPath << std::endl;
 
 	squareBlackTex = LoadTexture(squareBPath.c_str());
 	if (squareBlackTex.id == 0)
-		std::cerr << "Failed to load black square texture: " << squareBPath << std::endl;
+		std::cout << "Failed to load black square texture: " << squareBPath << std::endl;
 
 	squaresLoaded = true;
 }

@@ -38,6 +38,7 @@ public:
     uint8_t getSideToMove() const;
 	uint8_t getOpponentSide() const;
     uint8_t countPieces(uint8_t type, uint8_t side) const;
+    int countPiecesTotal(uint8_t side) const;
 	float getMoveCtr() const { return moveCtr; }
     std::string toFEN() const;
     void placePiece(uint8_t square, uint8_t type, uint8_t side);
