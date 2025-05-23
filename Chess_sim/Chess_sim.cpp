@@ -113,7 +113,8 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
                 DrawText("both players are in checkmate", screenWidth / 2 - MeasureText("both players are in checkmate", 30)/2, screenHeight / 2 + 50, 30, BLACK);
             }
             if(wonSide == SIDE::White) DrawText("White wins!", screenWidth / 2 - MeasureText("White wins!", 50)/2, screenHeight / 2, 50, BLACK);
-			else if (wonSide == SIDE::Black) DrawText("Black wins!", screenWidth / 2 - MeasureText("Black wins!", 50)/2, screenHeight / 2, 50, BLACK);
+			else if (wonSide == SIDE::Black) DrawText("Black wins!", screenWidth / 2 - MeasureText("Black wins!", 50) / 2, screenHeight / 2, 50, BLACK);
+			else if (wonSide == SIDE::Stalemate) DrawText("Stalemate!", screenWidth / 2 - MeasureText("Stalemate!", 50) / 2, screenHeight / 2, 50, BLACK);
 			else if (wonSide == SIDE::Draw) DrawText("Draw!", screenWidth / 2 - MeasureText("Draw!", 50)/2, screenHeight / 2, 50, BLACK);
 
             // Отрисовка доски
