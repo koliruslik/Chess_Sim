@@ -148,7 +148,11 @@ SIDE Game::checkVictory(const Position position)
 	}
 
 	// Stalemate
-	if ((whiteNoMoves && !whiteInCheck) || (blackNoMoves && !blackInCheck)) {
+	if (whiteNoMoves && !whiteInCheck && position.getSideToMove() == SIDE::White) {
+		return SIDE::Stalemate;
+	}
+	else if (blackNoMoves && !blackInCheck && position.getSideToMove() == SIDE::Black)
+	{
 		return SIDE::Stalemate;
 	}
 
