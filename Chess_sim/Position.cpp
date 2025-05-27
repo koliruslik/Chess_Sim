@@ -253,7 +253,7 @@ void Position::updateFiftyMovesCtr(bool breakEvent) {
         this->fiftyMovesCtr = 0;
     }
     else {
-        this->fiftyMovesCtr = this->fiftyMovesCtr + 0.5f;
+        this->fiftyMovesCtr = this->fiftyMovesCtr + .5f;
     }
 }
 uint8_t Position::getPieceTypeAt(uint8_t square, uint8_t side) const 
@@ -343,11 +343,9 @@ std::string Position::toFEN() const {
         }
     }
 
-    // === 2. Active color ===
     fen += ' ';
     fen += (getSideToMove() == SIDE::White) ? 'w' : 'b';
 
-    // === 3. Castling rights ===
     fen += ' ';
     std::string castling;
     if (wlCastling) castling += 'Q';
@@ -356,15 +354,12 @@ std::string Position::toFEN() const {
     if (bsCastling) castling += 'k';
     fen += (castling.empty() ? "-" : castling);
 
-    // === 4. En passant target square ===
     fen += ' ';
     fen += (enPassant != NONE) ? Btrans::indexToSquare(enPassant) : "-";
 
-    // === 5. Halfmove clock ===
     fen += ' ';
     fen += std::to_string(static_cast<int>(fiftyMovesCtr));
 
-    // === 6. Fullmove number ===
     fen += ' ';
     fen += std::to_string(static_cast<int>(moveCtr));
 

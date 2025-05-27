@@ -147,7 +147,6 @@ SIDE Game::checkVictory(const Position position)
 		return whiteNoMoves ? SIDE::Black : SIDE::White;
 	}
 
-	// Stalemate
 	if (whiteNoMoves && !whiteInCheck && position.getSideToMove() == SIDE::White) {
 		return SIDE::Stalemate;
 	}
@@ -156,12 +155,10 @@ SIDE Game::checkVictory(const Position position)
 		return SIDE::Stalemate;
 	}
 
-	// Check (but not mate or stalemate)
 	if ((whiteInCheck && !whiteNoMoves) || (blackInCheck && !blackNoMoves)) {
 		return SIDE::Checked;
 	}
 
-	// Draw by rules
 	if (fiftyMoves || threefold) {
 		return SIDE::Draw;
 	}
@@ -298,14 +295,6 @@ void Game::handlePromotion(Move& move)
 	}
 }
 
-Vector2 Game::centerPiece(float pieceSize, float texWidth, float texHeight) const
-{
-	const float xOffset = squareSize/2;
-	const float yOffset = squareSize/2 - constOffset; 
-
-	return { xOffset, yOffset };
-}
-
 
 
 void Game::selectPiece()
@@ -406,7 +395,7 @@ void Game::update()
 }
 
 void Game::clearFile(const std::string filePath) {
-	std::ofstream file(filePath, std::ios::trunc); // Очищає файл
+	std::ofstream file(filePath, std::ios::trunc);
 	if (!file.is_open()) {
 		std::cerr << "Unable to open file for clearing: " << filePath << '\n';
 	}

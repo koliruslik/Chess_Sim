@@ -8,7 +8,7 @@
 #include "LegalMoveGen.hpp"
 #include "MoveList.hpp"
 #include "raylib.h"
-#include "AI.h"
+#include "AI.hpp"
 #include "MainMenu.h"
 #include "Init.h"
 #include "BoardRenderer.h"

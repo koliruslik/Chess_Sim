@@ -53,7 +53,6 @@ bool PosConstructor::canPlacePiece(uint8_t type, uint8_t side, int row, uint8_t 
     int rookCount = position.countPieces(PIECE::ROOK, side);
     int queenCount = position.countPieces(PIECE::QUEEN, side);
 
-    // —тандартные максимумы
     const int maxPawn = 8;
     const int maxKing = 1;
     const int maxKnight = 2;
@@ -61,7 +60,6 @@ bool PosConstructor::canPlacePiece(uint8_t type, uint8_t side, int row, uint8_t 
     const int maxRook = 2;
     const int maxQueen = 1;
 
-    // —читаем лишние фигуры как те, что превысили стандартный максимум Ч они считаютс€ промоушенами
     int extraKnights = std::max(0, knightCount - maxKnight);
     int extraBishops = std::max(0, bishopCount - maxBishop);
     int extraRooks = std::max(0, rookCount - maxRook);

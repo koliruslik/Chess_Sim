@@ -33,14 +33,18 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
     InitWindow(screenWidth, screenHeight, title);
     SetExitKey(0);
     SetTargetFPS(60);
-    std::shared_ptr<BoardRenderer> renderer = std::make_shared<BoardRenderer>(80);
+    
     
 
     Timer timer;
+    std::shared_ptr<BoardRenderer> renderer = std::make_shared<BoardRenderer>(80); 
+    MainMenu mainMenu(screenWidth, screenHeight, renderer);
+    ESCMenu escMenu(screenWidth, screenHeight, renderer);
+    MenuResult result;
     GameState gameState = MAIN_MENU;
     GameState tempState = gameState;
-    MainMenu mainMenu(screenWidth, screenHeight, renderer);
     //SettingsMenu settingsMenu(screenWidth, screenHeight);
+
     Position GamePosition("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 
     Position ConstructPosition("8/8/8/8/8/8/8/8 w KQkq - 0 1");
@@ -52,9 +56,9 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
 	SIDE wonSide = SIDE::None;
     Game game(GamePosition, SIDE::White, renderer);
     PosConstructor posConstructor(ConstructPosition,renderer);
-    ESCMenu escMenu(screenWidth,screenHeight, renderer);
-    MenuResult result;
     Theme theme;
+    
+    
     std::string path = escMenu.getFilePath();
     while (!WindowShouldClose())
     {
@@ -119,7 +123,6 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
 			else if (wonSide == SIDE::Stalemate) DrawText("Stalemate!", screenWidth / 2 - MeasureText("Stalemate!", 50) / 2, screenHeight / 2, 50, BLACK);
 			else if (wonSide == SIDE::Draw) DrawText("Draw!", screenWidth / 2 - MeasureText("Draw!", 50)/2, screenHeight / 2, 50, BLACK);
 
-            // Отрисовка доски
             break;
         case POSCONSTRUCTOR:
             posConstructor.update();
@@ -199,7 +202,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
         renderer->drawWarning();
         EndDrawing();
     }
-
+    Init::unloadAllTextures();
     CloseWindow();
     return 0;
 }

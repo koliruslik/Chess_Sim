@@ -69,23 +69,20 @@ void MoveList::readMovesFromFile(std::string filePath)
         return;
     }
 
-    size = 0; // очищення списку перед зчитуванням
+    size = 0;
 
     std::string line;
     while (std::getline(file, line))
     {
         std::cout << "Reading line: " << line << '\n';
 
-        // Створюємо stringstream для обробки рядка
         std::istringstream iss(line);
 
-        // Пропускаємо номер ходу (від 1 до 2 цифр + крапка)
         iss.ignore(iss.str().find_first_of(' ') + 1);
 
         std::string moveStr;
         int flag;
 
-        // Зчитуємо хід (наприклад, "pd2d4")
         if (iss >> moveStr) {
             std::cout << "Move: " << moveStr << '\n';
         }
@@ -94,7 +91,6 @@ void MoveList::readMovesFromFile(std::string filePath)
             continue;
         }
 
-        // Зчитуємо флаг (наприклад, 1 або 0)
         if (iss >> flag) {
             std::cout << "Flag: " << flag << '\n';
         }
@@ -103,8 +99,7 @@ void MoveList::readMovesFromFile(std::string filePath)
             continue;
         }
 
-        // Створюємо хід і додаємо до MoveList
-        Move move = Move::strToMove(moveStr, flag); // Використовуємо strToMove для конвертації
+        Move move = Move::strToMove(moveStr, flag);
         push(move);
     }
 

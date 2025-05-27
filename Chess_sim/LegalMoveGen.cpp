@@ -232,7 +232,6 @@ void LegalMoveGen::addCastlingMoves(Pieces pieces, uint8_t side, bool lCastling,
 MoveList LegalMoveGen::generateForSquare(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures) {
     MoveList moves;
 
-    // Получаем тип фигуры на данной клетке
     uint8_t pieceType = position.getPieceTypeAt(squareIndex,side);
 
     if (pieceType == PIECE::PAWN) {
@@ -258,13 +257,10 @@ MoveList LegalMoveGen::generateForSquare(const Position& position, uint8_t side,
 }
 
 void LegalMoveGen::generatePawnMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves) {
-    // Генерация ходов для пешки из squareIndex
     Bitboard validMoves = PsLegalMoveMaskGen::generatePawnsDefaultMask(position.getPieces(), side);
     if (!onlyCaptures) {
-        // Генерация обычных ходов
         pieceMaskToMoves(position.getPieces(), validMoves, squareIndex, PIECE::PAWN, side, moves);
     }
-    // Генерация захватов
     Bitboard captureMoves = PsLegalMoveMaskGen::generatePawnsLeftCapturesMask(position.getPieces(), side, false);
     pieceMaskToMoves(position.getPieces(), captureMoves, squareIndex, PIECE::PAWN, side, moves);
     captureMoves = PsLegalMoveMaskGen::generatePawnsRightCapturesMask(position.getPieces(), side, false);
@@ -272,31 +268,26 @@ void LegalMoveGen::generatePawnMoves(const Position& position, uint8_t side, uin
 }
 
 void LegalMoveGen::generateKnightMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves) {
-    // Генерация ходов для коня
     Bitboard knightMoves = PsLegalMoveMaskGen::generateKnightMask(position.getPieces(), squareIndex, side, onlyCaptures);
     pieceMaskToMoves(position.getPieces(), knightMoves, squareIndex, PIECE::KNIGHT, side, moves);
 }
 
 void LegalMoveGen::generateBishopMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves) {
-    // Генерация ходов для слона
     Bitboard bishopMoves = PsLegalMoveMaskGen::generateBishopMask(position.getPieces(), squareIndex, side, onlyCaptures);
     pieceMaskToMoves(position.getPieces(), bishopMoves, squareIndex, PIECE::BISHOP, side, moves);
 }
 
 void LegalMoveGen::generateRookMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves) {
-    // Генерация ходов для ладьи
     Bitboard rookMoves = PsLegalMoveMaskGen::generateRookMask(position.getPieces(), squareIndex, side, onlyCaptures);
     pieceMaskToMoves(position.getPieces(), rookMoves, squareIndex, PIECE::ROOK, side, moves);
 }
 
 void LegalMoveGen::generateQueenMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves) {
-    // Генерация ходов для ферзя (комбинация слона и ладьи)
     Bitboard queenMoves = PsLegalMoveMaskGen::generateQueenMask(position.getPieces(), squareIndex, side, onlyCaptures);
     pieceMaskToMoves(position.getPieces(), queenMoves, squareIndex, PIECE::QUEEN, side, moves);
 }
 
 void LegalMoveGen::generateKingMoves(const Position& position, uint8_t side, uint8_t squareIndex, bool onlyCaptures, MoveList& moves) {
-    // Генерация ходов для короля
     Bitboard kingMoves = PsLegalMoveMaskGen::generateKingMask(position.getPieces(), squareIndex, side, onlyCaptures);
     pieceMaskToMoves(position.getPieces(), kingMoves, squareIndex, PIECE::KING, side, moves);
 }

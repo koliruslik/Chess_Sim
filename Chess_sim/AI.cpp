@@ -1,4 +1,4 @@
-#include "AI.h"
+#include "AI.hpp"
 
 #define nsecs std::chrono::high_resolution_clock::now().time_since_epoch().count()
 
