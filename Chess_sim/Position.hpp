@@ -4,6 +4,7 @@
 #include "RepetitionHistory.hpp"
 #include "Move.hpp"
 #include "MoveList.hpp"
+#include "Timer.h"
 #pragma once
 
 
@@ -44,9 +45,16 @@ public:
     void placePiece(uint8_t square, uint8_t type, uint8_t side);
     void deletePiece(uint8_t square, uint8_t type, uint8_t side);
     static constexpr uint8_t NONE = 255;
-    
+    void setTimers();
     void save(const std::string& filePath) const;
     static Position load(const std::string& filePath);
+
+	void setTime(int wTime, int bTime) {
+		this->wTime = wTime;
+		this->bTime = bTime;
+	}
+	int getWhiteTime() const { return wTime; }
+	int getBlackTime() const { return bTime; }
 private:
     void addPiece(uint8_t square, uint8_t type, uint8_t side);
     void removePiece(uint8_t square, uint8_t type, uint8_t side);
@@ -74,4 +82,8 @@ private:
     RepetitionHistory repetitionHistory;
 
     float moveCtr;
+    
+    int wTime;
+	int bTime;
+	const int defaultTime = 1800; // 30 minutes in seconds
 };

@@ -14,9 +14,6 @@
 #include "PosConstructor.h"
 #include "ESCMenu.h"
 
-using namespace std;
-
-
 
 
 const int boardSize = 8;
@@ -25,6 +22,40 @@ const int screenWidth = boardSize * squareSize;
 const int screenHeight = boardSize * squareSize;
 const char* title = "Chess_sim";
 bool escPressedHandled = false;
+const std::string savePath = "saves/save.txt";
+SIDE aiSide = SIDE::None;
+void insertTextFromFile(const std::string& targetPath, const std::string& sourcePath)
+{
+    std::ifstream targetFile(targetPath);
+    std::ifstream sourceFile(sourcePath);
+
+    if (!targetFile.is_open() || !sourceFile.is_open()) {
+        std::cerr << "Failed to open file(s)." << std::endl;
+        return;
+    }
+
+    std::vector<std::string> targetLines;
+    std::string line;
+    while (std::getline(targetFile, line)) {
+        targetLines.push_back(line);
+    }
+    targetFile.close();
+
+    std::vector<std::string> sourceLines;
+    while (std::getline(sourceFile, line)) {
+        sourceLines.push_back(line);
+    }
+    sourceFile.close();
+
+    size_t insertIndex = (targetLines.size() >= 2) ? 2 : targetLines.size();
+    targetLines.insert(targetLines.begin() + insertIndex, sourceLines.begin(), sourceLines.end());
+
+    std::ofstream outFile(targetPath);
+    for (const auto& l : targetLines) {
+        outFile << l << "\n";
+    }
+    outFile.close();
+}
 
 int main()//f2 f3 e7 e5 g2 g4 d8 h4
 {
@@ -68,6 +99,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
         switch (gameState)
         {
         case MAIN_MENU:
+
             mainMenu.DrawMenu();
             mainMenu.Update();
             DrawText(timer.GetCurrentTime().c_str(), 10, 10, 20, WHITE);
@@ -82,7 +114,8 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
             case MenuResult::StartGame:
                 gameState = GAMEPLAY;
                 game.resetPosition();
-                game.setAiSideToPlay(mainMenu.getSideToPlay());
+                aiSide = mainMenu.getSideToPlay();
+                game.setAiSideToPlay(aiSide);
                 theme = mainMenu.getTheme();
                 game.setTheme(theme);
                 break;
@@ -110,7 +143,6 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
 
         case GAMEPLAY:
 
-
             game.processGame();
             wonSide = game.getWonSide();
             if (wonSide == SIDE::Incorrect)
@@ -125,6 +157,7 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
 
             break;
         case POSCONSTRUCTOR:
+            renderer->resetHighLight();
             posConstructor.update();
             result = posConstructor.getResult();
             break;
@@ -168,7 +201,13 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
                     if (!path.empty())
                     {
                         game.getPosition().save(path.c_str());
+                        insertTextFromFile(path, savePath);
                         std::cout << "Game saved to " << path << std::endl;
+						renderer->displayWarning("Game saved to " + path, 2.0f);
+                    }
+                    else
+                    {
+                        renderer->displayWarning("Select saving file");
                     }
                     escMenu.resetResult();
                 }
@@ -181,8 +220,17 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
                 {
                     Position newPos;
                     newPos = Position::load(path.c_str());
+                    int wTime = newPos.getWhiteTime();
+					int bTime = newPos.getBlackTime();
+                    std::cout << wTime << " " << bTime << '\n';
                     game.setPosition(newPos);
+                    game.setAiSideToPlay(aiSide);
                     std::cout << "Game loaded from " << path << std::endl;
+					renderer->displayWarning("Game loaded from " + path, 2.0f);
+                }
+                else
+                {
+                    renderer->displayWarning("Select loading file");
                 }
                 escMenu.resetResult();
                 break;
@@ -206,3 +254,6 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
     CloseWindow();
     return 0;
 }
+
+
+

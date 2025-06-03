@@ -31,7 +31,7 @@ std::string getPieceName(uint8_t type) {
 
 void BoardRenderer::drawBoard(const Position& position, uint8_t selectedSquare, 
 								bool promotionOption, uint8_t promotionSquare,	
-								uint8_t promotionSide) const
+								uint8_t promotionSide) 
 {
 
     for (int rank = 0; rank < boardSize; ++rank)
@@ -51,7 +51,7 @@ void BoardRenderer::drawBoard(const Position& position, uint8_t selectedSquare,
         }
 
     }
-
+	if (highlight) highLightSquare();
     drawPieces(position);
 	drawMask(selectedSquare, position);
     drawCoordinates();
@@ -387,4 +387,35 @@ void BoardRenderer::drawPieceAtSquare(uint8_t type, uint8_t side, uint8_t square
 	DrawTexture(texture, x, y, WHITE);
 }
 
+void BoardRenderer::highLightSquare()
+{
+	
+	for (auto square : squares)
+	{
+		std::pair<int, int> rowCol = Btrans::indexToRowCol(square);
+		int rank = rowCol.first;
+		int file = rowCol.second;
+		int x = file * squareSize;
+		int y = rank * squareSize;
 
+		Rectangle rect = { (float)x, (float)y, (float)squareSize, (float)squareSize };
+		DrawRectangleRec(rect, highlightColor);
+	}
+}
+
+void BoardRenderer::drawTimer(const std::shared_ptr<Timer>& BlackTimer, const std::shared_ptr<Timer>& WhiteTimer)
+{
+	int fontSize = 24;
+	int padding = 10;
+
+	std::string blackTime = BlackTimer->GetRemainingTime();
+	std::string whiteTime = WhiteTimer->GetRemainingTime();
+
+	int boardWidth = boardSize * squareSize;
+	int blackTextWidth = MeasureText(blackTime.c_str(), fontSize);
+	DrawText(blackTime.c_str(), boardWidth - blackTextWidth - padding, padding + fontSize + 2, fontSize, BLACK);
+
+	int whiteTextWidth = MeasureText(whiteTime.c_str(), fontSize);
+	int yWhite = boardSize * squareSize - 2 * (fontSize + padding);
+	DrawText(whiteTime.c_str(), boardWidth - whiteTextWidth - padding, yWhite + fontSize + 2, fontSize, BLACK);
+}

@@ -3,19 +3,22 @@
 
 Game::Game(Position position, SIDE aiSideToPlay, std::shared_ptr<BoardRenderer>& renderer)
 	:ai("recources/Start/Start.txt"),
+	WhiteTimer(std::make_shared<Timer>(std::chrono::seconds(1800))),
+	BlackTimer(std::make_shared<Timer>(std::chrono::seconds(1800))),
 	renderer(renderer)
 {
 	this->aiSide = aiSideToPlay;
 	selectedSquare = 255;
-	this->position = position;
-
-	
+	this->position = position;	
 }
 
 void Game::resetPosition()
 {
 	position = Position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
-
+	timersStarted = false;
+	BlackTimer->Reset();
+	WhiteTimer->Reset();
+	
 	movesHistory.clear();
 
 	currentMove = Move();
@@ -38,7 +41,9 @@ void Game::resetPosition()
 
 	printMove = false;
 	clickCount = 0;
-
+	renderer->setHighLight(false);
+	
+	clearFile(savePath);
 	
 }
 
@@ -60,6 +65,7 @@ int Game::processMove(Position& position, MoveList& moves, uint8_t from, uint8_t
 			}
 			position.move(moves[i]);
 			movesHistory.push(moves[i]);
+			timersStarted = true;
 			printMove = true;
 			validMove = true;
 			break;
@@ -105,6 +111,7 @@ int Game::proccesAiMove()
 	position.move(aiMove);
 	currentMove = aiMove;
 	movesHistory.push(aiMove);
+	timersStarted = true;
 	printMove = true;
 	//std::cout << position;
 	return 1;
@@ -221,6 +228,7 @@ void Game::drawBoard()
 	renderer->drawBoard(position, selectedSquare,
 						promotionOption, promotionSquare,
 						promotionSide);
+	renderer->drawTimer(BlackTimer, WhiteTimer);
 }
 
 std::string Game::handlePromotionSelection(int promotionIndex) {
@@ -325,7 +333,8 @@ void Game::selectPiece()
 		else
 		{
 			
-			if (debugMode) std::cout << "Invalid selection or opponent's piece. Deselecting.\n";
+			if (debugMode) std::cout << "Invalid selection or opponent's piece.\n";
+			if(!isSelected && debugMode)renderer->displayWarning("Invalid selection or opponent's piece.", 0.4f);
 			selectedSquare = 255; 
 			isSelected = false;  
 		}
@@ -333,22 +342,55 @@ void Game::selectPiece()
 	else
 	{
 		
-		if (debugMode) std::cout << "Invalid selection. Deselecting.\n";
+		if (debugMode) std::cout << "Invalid selection.\n";
+		if (debugMode) renderer->displayWarning("Invalid selection. Deselecting.", 0.4f);
 		selectedSquare = 255;  
 		isSelected = false;  
 	}
 }
 
+
 void Game::update()
 {
+	wTime = WhiteTimer->GetRemainingSeconds();
+	bTime = BlackTimer->GetRemainingSeconds();
+	position.setTime(wTime, bTime);
 	//std::cout << std::to_string(selectedSquare) << '\n';
 	wonSide = checkVictory();
+	if (WhiteTimer->GetRemainingSeconds() == 0) wonSide = SIDE::Black;
+	if (BlackTimer->GetRemainingSeconds() == 0) wonSide = SIDE::White;
 	if (printMove && debugMoves)
 	{
 		PrintMove();
+		std::vector<uint8_t> squares = { currentMove.getFrom(), currentMove.getTo() };
+		renderer->setHighLight(true, squares);
 		printMove = false;
 	}
-	if (wonSide != SIDE::None && wonSide != SIDE::Checked) return;
+
+	if (wonSide != SIDE::None && wonSide != SIDE::Checked && timersStarted)
+	{
+		WhiteTimer->Stop();
+		BlackTimer->Stop();
+		return;
+	}
+	uint8_t currentSide = position.getSideToMove();
+	if (timersStarted)
+	{
+		if (currentSide == SIDE::White)
+		{
+			whiteTimerFlag = true;
+			blackTimerFlag = false;
+			BlackTimer->Stop();
+			WhiteTimer->Start();
+		}
+		else if (currentSide == SIDE::Black)
+		{
+			whiteTimerFlag = false;
+			blackTimerFlag = true;
+			WhiteTimer->Stop();
+			BlackTimer->Start();
+		}
+	}
 	
 	if (aiSide != position.getSideToMove())
 	{

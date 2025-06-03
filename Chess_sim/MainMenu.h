@@ -3,15 +3,7 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
-#include <map>
-
 #include "Menu.h"
-#include "Pieces.hpp"
-#include "raylib.h"
-#include "Init.h"
-#include "GameEnums.h"
-#include "Timer.h"
-#include "BoardRenderer.h"
 
 class MainMenu : public Menu
 {

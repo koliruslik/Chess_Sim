@@ -10,6 +10,13 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <map>
+
+#include "Pieces.hpp"
+#include "Init.h"
+#include "GameEnums.h"
+#include "Timer.h"
+
 
 class Menu
 {

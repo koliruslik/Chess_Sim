@@ -5,7 +5,9 @@
 
 Position::Position() = default;
 
-Position::Position(const std::string& Fen) {
+Position::Position(const std::string& Fen)
+
+{
     std::istringstream fenStream(Fen);
     std::string piecePlacement, activeColor, castlingRights, enPassantStr;
     int halfmoveClock;
@@ -31,11 +33,9 @@ Position::Position(const std::string& Fen) {
         this->enPassant = rank * 8 + file;
     }
 
-    // Ходы
     this->fiftyMovesCtr = halfmoveClock;
     //this->moveCtr = fullmoveNumber + (this->turn == SIDE::Black ? -0.5f : 0.0f);
 
-    // Хэш и история
     this->hash = { this->pieces, this->blackToMove(), this->wlCastling, this->wsCastling, this->blCastling, this->bsCastling };
     this->repetitionHistory.addPosition(this->hash);
 }
@@ -306,7 +306,6 @@ int Position::countPiecesTotal(uint8_t side) const
 std::string Position::toFEN() const {
     std::string fen;
 
-    // === 1. Piece placement ===
     for (int rank = 7; rank >= 0; --rank) {
         int emptyCount = 0;
         for (int file = 0; file < 8; ++file) {
@@ -393,7 +392,8 @@ Position& Position::operator=(const Position& other)
 
     repetitionHistory = other.repetitionHistory;
     pieces = other.pieces;
-
+	wTime = other.wTime;
+	bTime = other.bTime;
     return *this;
 }
 
@@ -408,7 +408,8 @@ void Position::save(const std::string& filePath) const
 
     std::string fenPos = this->toFEN();
     file << fenPos;
-
+	file << std::endl;
+	file << wTime << " " << bTime << std::endl;
     file.close();
 }
 
@@ -424,9 +425,29 @@ Position Position::load(const std::string& filePath)
 
     std::string fenLine;
     std::getline(file, fenLine);
-
+	std::string timeLine;
+    std::getline(file, timeLine);
     file.close();
+    Position pos(fenLine);
 
-    return Position(fenLine);  
+
+    int whiteTime = 0;
+    int blackTime = 0;
+
+    std::istringstream timeStream(timeLine);
+    bool hasTimeLine = static_cast<bool>(std::getline(file, timeLine));
+    if (hasTimeLine)
+    {
+        timeStream >> whiteTime >> blackTime;
+        pos.setTime(whiteTime, blackTime);
+        std::cout << whiteTime << " " << blackTime << std::endl;
+    }
+    else
+    {
+		pos.setTime(pos.defaultTime, pos.defaultTime);
+    }
+    
+	
+    return pos;  
 }
 

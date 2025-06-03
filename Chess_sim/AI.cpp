@@ -88,7 +88,7 @@ Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs,
 			stopSearch = true;
 		}
 
-		if (debugMode) std::cout << "Base depth: " << std::setw(4) << i
+		if (!debugMode) std::cout << "Base depth: " << std::setw(4) << i
 			<< ". Maximal depth: " << std::setw(4) << maximalDepth
 			<< ". Evaluated: " << std::setw(6) << float(bestMoveEvaluation) / 100.0f << " pawns. "
 			<< "Evaluated(this iteration): " << std::setw(10) << evaluated

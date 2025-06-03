@@ -1,7 +1,6 @@
 #pragma once
 
-#include "raylib.h"
-#include "GameEnums.h"
+
 #include "Menu.h"
 class ESCMenu : public Menu
 {
@@ -39,5 +38,4 @@ private:
 
 	void AddMainButtons();
 	void AddSaveButtons();
-	void AddLoadButtons();
 };

@@ -1,0 +1,213 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "Chess_sim",
+					"jsonFile" : "directory-Chess_sim-Debug-e07bdaaea056931cda37.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Chess_sim",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "external/raylib",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.raylib-Debug-a5fa6b161633ff7591ae.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "external/raylib",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "external/raylib/raylib",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.raylib.raylib-Debug-60360acf274b6865e60a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 1,
+					"source" : "external/raylib/src",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "external/raylib/raylib/external/glfw",
+					"childIndexes" : 
+					[
+						5
+					],
+					"jsonFile" : "directory-external.raylib.raylib.external.glfw-Debug-312f90276d4ed88fed74.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "external/raylib/src/external/glfw"
+				},
+				{
+					"build" : "external/raylib/raylib/external/glfw/src",
+					"jsonFile" : "directory-external.raylib.raylib.external.glfw.src-Debug-6263d3de835a0365a452.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 2,
+					"source" : "external/raylib/src/external/glfw/src",
+					"targetIndexes" : 
+					[
+						1,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "Chess_sim",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						2,
+						3
+					],
+					"name" : "raylib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4,
+						5
+					],
+					"name" : "GLFW",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						1,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Chess_sim::@86404eaba3b3059e028a",
+					"jsonFile" : "target-Chess_sim-Debug-e750b14d688989d82db0.json",
+					"name" : "Chess_sim",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "glfw::@0caa76eb0594e07c8f96",
+					"jsonFile" : "target-glfw-Debug-4d2b2feb6394bee73362.json",
+					"name" : "glfw",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "raylib::@e0062cae9a75ca0a10b0",
+					"jsonFile" : "target-raylib-Debug-a349e5d4f4bf6063b09a.json",
+					"name" : "raylib",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "uninstall::@926e36d08107a5f9f074",
+					"jsonFile" : "target-uninstall-Debug-8a2a5fe2e83d5dad2bcc.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "update_mappings::@0caa76eb0594e07c8f96",
+					"jsonFile" : "target-update_mappings-Debug-7a5f5eb15a9a3d98807f.json",
+					"name" : "update_mappings",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim/out/build/x64-debug",
+		"source" : "E:/OneDrive - kpi.ua/\u041a\u041f\u0406/\u041d\u0430\u0432\u0447\u0430\u043d\u043d\u044f/\u041a\u0443\u0440\u0441\u043e\u0432\u0456/2 \u0441\u0435\u043c\u0435\u0441\u0442\u0440(\u0428\u0430\u0445\u043e\u0432\u0438\u0439 \u0442\u0440\u0435\u043d\u0430\u0436\u0435\u0440)/Chess_Sim"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

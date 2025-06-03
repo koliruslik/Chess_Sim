@@ -40,7 +40,7 @@ public:
 	
 	void drawBoard();
 	Vector2 centerPiece(float pieceSize, float texWidth, float texHeight) const;
-
+	void onMove();
 	void selectPiece();
 	void update();
 	uint8_t getCurrentSideToMove(float moveCtr) { return (moveCtr == static_cast<int>(moveCtr)) ? SIDE::Black : SIDE::White; }
@@ -48,9 +48,13 @@ public:
 	SIDE getWonSide() const { return wonSide; }
 	Position getPosition() { return position; }
 	void setAiSideToPlay(SIDE side) { aiSide = side; }
+	bool isVsAI() { 
+		if (aiSide == SIDE::None) return false;
+		return true;
+	}
 	void setTheme(Theme newTheme);
-	void setPosition(Position pos) { position = pos; }
-	
+	void setPosition(Position pos) { resetPosition(); position = pos; }
+	void setTime(int wTime, int bTime) { WhiteTimer->setTime(wTime); BlackTimer->setTime(wTime); }
 
 	void resetPosition();
 private:
@@ -90,8 +94,14 @@ private:
 	uint8_t aiSide;
 	std::thread aiMoveThread;
 	int32_t minMS = 0;
-	int32_t maxMs = 1500;
-
+	int32_t maxMs = 2000;
+	std::shared_ptr<Timer> WhiteTimer;
+	std::shared_ptr<Timer> BlackTimer;
+	int wTime = 0;
+	int bTime = 0;
+	bool timersStarted = false;
+	bool whiteTimerFlag = false;
+	bool blackTimerFlag = false;
 	const bool debugMode = false;
 	const bool debugMoves = true;
 	bool PrintMove();
@@ -102,5 +112,6 @@ private:
 	std::map<Theme, const PieceTextures*> allPieceTextures;
 	const Texture2D* squareWhiteTex = nullptr;
 	const Texture2D* squareBlackTex = nullptr;
+	
 	
 };
