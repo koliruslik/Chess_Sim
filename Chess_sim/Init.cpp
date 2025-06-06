@@ -38,7 +38,6 @@ PieceTextures Init::loadPieceTextures(Theme theme)
 	return textures;
 }
 
-// Init.cpp
 void Init::loadSquareTextures()
 {
 	if (squaresLoaded) return;

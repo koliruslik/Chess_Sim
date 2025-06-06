@@ -16,8 +16,8 @@ void Game::resetPosition()
 {
 	position = Position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 	timersStarted = false;
-	BlackTimer->Reset();
-	WhiteTimer->Reset();
+	BlackTimer->setTime(1800);
+	WhiteTimer->setTime(1800);
 	
 	movesHistory.clear();
 
@@ -119,6 +119,12 @@ int Game::proccesAiMove()
 
 void Game::proccessAiMoveAsync()
 {
+	if (wonSide != SIDE::None && wonSide != SIDE::Checked)
+	{
+		if (debugMode) std::cout << "Game is over. AI won't move." << std::endl;
+		return;
+	}
+
 	aiThinking = true;
 	aiMoveThread = std::thread([this]()
 		{
@@ -373,6 +379,7 @@ void Game::update()
 		BlackTimer->Stop();
 		return;
 	}
+
 	uint8_t currentSide = position.getSideToMove();
 	if (timersStarted)
 	{
@@ -404,6 +411,16 @@ void Game::update()
 				promotionOption = false;
 				selectedSquare = 255;
 				isSelected = false;
+
+				wonSide = checkVictory();
+				if (WhiteTimer->GetRemainingSeconds() == 0) wonSide = SIDE::Black;
+				if (BlackTimer->GetRemainingSeconds() == 0) wonSide = SIDE::White;
+				if (wonSide != SIDE::None && wonSide != SIDE::Checked)
+				{
+					WhiteTimer->Stop();
+					BlackTimer->Stop();
+					return;
+				}
 				return;
 			}
 			else if (isSelected)
@@ -419,6 +436,7 @@ void Game::update()
 				return;
 			}
 		}
+		return;
 	}
 	else if (aiSide == position.getSideToMove() && aiSide != SIDE::None)
 	{
@@ -432,7 +450,9 @@ void Game::update()
 		}
 
 		proccessAiMoveAsync();
+		return;
 	}
+
 
 }
 

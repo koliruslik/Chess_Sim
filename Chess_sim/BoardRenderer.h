@@ -41,7 +41,6 @@ public:
 		squares.clear();
 	}
 private:
-    //BoardRenderer bRenderer(int squareSize = 80);
     void drawPieces(const Position& position) const;
     void drawPromotionOptions(uint8_t promotionSquare, uint8_t promotionSide) const;
     void highLightSquare();

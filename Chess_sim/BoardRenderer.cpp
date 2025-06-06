@@ -1,5 +1,5 @@
 #include "BoardRenderer.h"
-// для debug (опционально)
+
 
 BoardRenderer::BoardRenderer(int squareSize)
 {

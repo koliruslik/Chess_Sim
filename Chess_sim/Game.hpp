@@ -54,7 +54,7 @@ public:
 	}
 	void setTheme(Theme newTheme);
 	void setPosition(Position pos) { resetPosition(); position = pos; }
-	void setTime(int wTime, int bTime) { WhiteTimer->setTime(wTime); BlackTimer->setTime(wTime); }
+	void setTime(int wTime, int bTime) { WhiteTimer->setTime(wTime); BlackTimer->setTime(bTime); }
 
 	void resetPosition();
 private:

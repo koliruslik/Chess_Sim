@@ -33,7 +33,6 @@ public:
 	bool getBlackCastlingHappened() const { return blCastling + bsCastling; }
 	float getFiftyMovesCtr() const { return fiftyMovesCtr; }
 	RepetitionHistory getRepetitionHistory() const { return repetitionHistory; }
-
     uint8_t getPieceTypeAt(uint8_t square, uint8_t side) const;
     uint8_t getPieceSideAt(uint8_t square) const;
     uint8_t getSideToMove() const;
@@ -82,8 +81,8 @@ private:
     RepetitionHistory repetitionHistory;
 
     float moveCtr;
-    
-    int wTime;
-	int bTime;
-	const int defaultTime = 1800; // 30 minutes in seconds
+    const int defaultTime = 1800; // 30 minutes in seconds
+    int wTime = defaultTime;
+	int bTime = defaultTime;
+	
 };

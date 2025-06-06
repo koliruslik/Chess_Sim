@@ -410,6 +410,7 @@ void Position::save(const std::string& filePath) const
     file << fenPos;
 	file << std::endl;
 	file << wTime << " " << bTime << std::endl;
+	std::cout << "Save: " << wTime << " " << bTime << std::endl;
     file.close();
 }
 
@@ -420,24 +421,35 @@ Position Position::load(const std::string& filePath)
     {
         std::cerr << "Error " << filePath << std::endl;
         
-        return Position("8/8/8/8/8/8/8/8 w - - 0 1"); 
+        return Position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     }
 
     std::string fenLine;
     std::getline(file, fenLine);
-	std::string timeLine;
-    std::getline(file, timeLine);
-    file.close();
-    Position pos(fenLine);
 
+    if (fenLine.empty())
+    {
+        std::cerr << "Error: empty file " << filePath << std::endl;
+		Position defPos = Position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+		defPos.setTime(defPos.defaultTime,defPos.defaultTime);
+        return Position("8/8/8/8/8/8/8/8 w - - 0 1");
+    }
+
+	std::string timeLine;
+    bool hasTimeLine = static_cast<bool>(std::getline(file, timeLine));
+
+    file.close();
+
+    Position pos(fenLine);
 
     int whiteTime = 0;
     int blackTime = 0;
 
-    std::istringstream timeStream(timeLine);
-    bool hasTimeLine = static_cast<bool>(std::getline(file, timeLine));
+    
+    
     if (hasTimeLine)
     {
+        std::istringstream timeStream(timeLine);
         timeStream >> whiteTime >> blackTime;
         pos.setTime(whiteTime, blackTime);
         std::cout << whiteTime << " " << blackTime << std::endl;

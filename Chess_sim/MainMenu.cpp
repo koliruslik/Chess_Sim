@@ -36,7 +36,7 @@ void MainMenu::ButtonAction(Button& button)
 			AddAiSelectionButtons();
 		}
 		else if (text == "SETTINGS") {
-			//result = MenuResult::OpenSettings;
+
 			state = MenuState::Settings;
 			drawIconText = true;
 			buttons.clear();

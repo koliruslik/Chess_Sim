@@ -134,13 +134,6 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
                 break;
             }
             break;
-
-        case SETTINGS:
-            DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 20), 0, 20, WHITE);
-            /*settingsMenu.DrawMenu();
-            settingsMenu.Update();*/
-            break;
-
         case GAMEPLAY:
 
             game.processGame();
@@ -222,9 +215,14 @@ int main()//f2 f3 e7 e5 g2 g4 d8 h4
                     newPos = Position::load(path.c_str());
                     int wTime = newPos.getWhiteTime();
 					int bTime = newPos.getBlackTime();
-                    std::cout << wTime << " " << bTime << '\n';
+                    std::cout << wTime << " " << bTime << "LOADING \n";
                     game.setPosition(newPos);
                     game.setAiSideToPlay(aiSide);
+                    if (wTime > 0 && bTime > 0)
+                    {
+                        game.setTime(wTime, bTime);
+                    }
+
                     std::cout << "Game loaded from " << path << std::endl;
 					renderer->displayWarning("Game loaded from " + path, 2.0f);
                 }

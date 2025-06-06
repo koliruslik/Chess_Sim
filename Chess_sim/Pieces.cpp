@@ -54,13 +54,11 @@ Pieces::Pieces(const std::string& shortFen) {
     this->updateBitboards();
 }
 std::ostream& operator<<(std::ostream& ostream, Pieces pieces) {
-    // Выводим заголовок с номерами столбцов
     
     ostream << "\n  +---+---+---+---+---+---+---+---+\n";
 
-    // Выводим доску
     for (int8_t y = 7; y >= 0; y = y - 1) {
-        ostream << y + 1 << " |";  // Номера рядков 1-8
+        ostream << y + 1 << " |";
 
         for (uint8_t x = 0; x < 8; x = x + 1) {
             uint8_t index = y * 8 + x;
@@ -121,7 +119,7 @@ std::ostream& operator<<(std::ostream& ostream, Pieces pieces) {
 }
 
 Pieces& Pieces::operator=(const Pieces& other) {
-    if (this == &other) {  // Проверка на самоприсваивание
+    if (this == &other) { 
         return *this;
     }
 
