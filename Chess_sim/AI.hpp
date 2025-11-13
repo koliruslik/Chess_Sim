@@ -18,8 +18,11 @@ public:
 	AI(const std::string& openingBookPath);
 
 	Move proccessBestMove(const Position& position, uint8_t side, int32_t min_ms, int32_t max_ms, bool debugMode);
+
 private:
 	OpeningBook openingBook;
+
+	const int MAXDEPTH = 1e3;
 
 	static std::tuple<int32_t, Move> bestMove(const Position& position, uint8_t side, int32_t depth, TranspositionTable& tt);
 

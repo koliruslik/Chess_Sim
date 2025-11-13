@@ -49,7 +49,7 @@ Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs,
 
 	bool updateBestMove;
 
-	for (int32_t i = 1; i < 1e+3 && !stopSearch; ++i)
+	for (int32_t i = 1; i < 3 && !stopSearch; ++i)
 	{
 		evaluated = 0;
 		maximalDepth = 0;
@@ -63,7 +63,7 @@ Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs,
 		while (bestMoveThread.wait_for(std::chrono::seconds(0)) != std::future_status::ready)
 		{
 			int64_t elapsedMs = (nsecs - timeStart) / (int64_t)1e+6;
-			//std::cout << "Elapsed time: " << elapsedMs << "ms, maxMs: " << maxMs << ", stopSearch: " << stopSearch << std::endl;
+			if(debugMode) std::cout << "Elapsed time: " << elapsedMs << "ms, maxMs: " << maxMs << ", stopSearch: " << stopSearch << std::endl;
 			if (elapsedMs >= maxMs || stopSearch) 
 			{
 				updateBestMove = false;
@@ -88,7 +88,7 @@ Move AI::proccessBestMove(const Position& position, uint8_t side, int32_t minMs,
 			stopSearch = true;
 		}
 
-		if (!debugMode) std::cout << "Base depth: " << std::setw(4) << i
+		if (debugMode) std::cout << "Base depth: " << std::setw(4) << i
 			<< ". Maximal depth: " << std::setw(4) << maximalDepth
 			<< ". Evaluated: " << std::setw(6) << float(bestMoveEvaluation) / 100.0f << " pawns. "
 			<< "Evaluated(this iteration): " << std::setw(10) << evaluated

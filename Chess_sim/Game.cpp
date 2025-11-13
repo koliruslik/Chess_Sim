@@ -37,7 +37,7 @@ void Game::resetPosition()
 	aiThinking = false;
 	aiMoveThread = std::thread();
 	minMS = 0;
-	maxMs = 1500;
+	maxMs = 2000;
 
 	printMove = false;
 	clickCount = 0;

@@ -93,8 +93,8 @@ private:
 	bool aiThinking = false;
 	uint8_t aiSide;
 	std::thread aiMoveThread;
-	int32_t minMS = 0;
-	int32_t maxMs = 2000;
+	int32_t minMS;
+	int32_t maxMs;
 	std::shared_ptr<Timer> WhiteTimer;
 	std::shared_ptr<Timer> BlackTimer;
 	int wTime = 0;
@@ -102,7 +102,7 @@ private:
 	bool timersStarted = false;
 	bool whiteTimerFlag = false;
 	bool blackTimerFlag = false;
-	const bool debugMode = false;
+	const bool debugMode = true;
 	const bool debugMoves = true;
 	bool PrintMove();
 	bool printMove = false;
